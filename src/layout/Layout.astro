@@ -1,0 +1,29 @@
+---
+import Header from 'src/layout/header/Header.astro';
+import Footer from 'src/layout/footer/Footer.astro';
+import 'src/layout/Layout.less';
+
+/**
+ * HTML-шаблон для всех страниц.
+ */
+---
+
+<!doctype html>
+<html lang="ru">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="color-scheme" content="light only" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <!-- <link rel="icon" type="image/svg+xml" href="/favicon.png" /> -->
+        <title>Prometey Lab</title>
+    </head>
+    <body>
+        <Header />
+
+        <main>
+            <slot />
+        </main>
+
+        <Footer />
+    </body>
+</html>

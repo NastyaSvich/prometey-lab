@@ -1,0 +1,64 @@
+@import '@styles/globals.less';
+
+@max-width: 1170px;
+
+header {
+    width: 100%;
+    max-width: @max-width;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 1px solid @header-border;
+
+    .header-top {
+        .fontOpenSansBold();
+        font-size: 20px;
+        color: @text-white;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        background-color: @header-background;
+        border-radius: 0 0 20px 20px;
+        padding: 20px 30px 26px;
+    }
+
+    .header-bottom {
+        width: 100%;
+        padding: 20px 0;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        .logo-content {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+
+            .logo {
+                width: 34px;
+                height: 57px;
+            }
+
+            .text {
+                .fontOpenSansBold();
+                font-size: 30px;
+                color: @text-black;
+            }
+        }
+
+        .menu {
+            display: flex;
+            gap: 50px;
+            align-items: center;
+
+            .navigation {
+                .fontOpenSansRegular();
+                font-size: 20px;
+                color: @text-black;
+                display: flex;
+                gap: 34px;
+            }
+        }
+    }
+}
