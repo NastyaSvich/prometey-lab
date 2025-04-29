@@ -12,8 +12,11 @@ footer {
 }
 
 .footer-content {
-    width: @max-width;
+    max-width: @max-width;
     padding: 80px 0;
+    .mediaPhone({
+        padding: 50px 0;
+      });
 }
 
 .footer-up {
@@ -23,6 +26,12 @@ footer {
     align-items: center;
     justify-content: space-between;
     border-bottom: 1px solid @header-border;
+    .mediaPhone({
+        padding-top: 0;
+        border-style: none;
+
+      });
+
 
     .mediaPhone({
         flex-direction: column;
@@ -32,6 +41,12 @@ footer {
         display: flex;
         align-items: center;
         gap: 10px;
+        .mediaPhone({
+            border-bottom: 1px  solid @footer-border;
+            padding-bottom: 8px;
+            margin-left: 20px;
+            align-self: flex-start;
+          });
 
         .logo {
             width: 34px;
@@ -50,7 +65,10 @@ footer {
         gap: 50px;
         align-items: center;
         .mediaPhone({
-            display: block;
+            padding-top: 20px;
+            align-items: flex-start;
+            width: 100%;
+            margin-left: 20px;
           });
 
         .navigation {
@@ -59,12 +77,19 @@ footer {
             color: @text-white;
             display: flex;
             gap: 34px;
+            .mediaPhone({
+                flex: 0 0 100%;
+                flex-direction: column;
+                align-items: flex-start;
+              });
+
         }
     }
 }
 
 .footer-down {
     color: @text-white;
+
 }
 
 .owner-informaiton {
@@ -114,6 +139,10 @@ footer {
             }
         }
     }
+
+    .mediaPhone({
+        flex-direction: column-reverse;
+      });
 }
 
 .owner-informaiton,
