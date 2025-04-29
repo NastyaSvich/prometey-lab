@@ -1,6 +1,122 @@
+@import '@styles/globals.less';
+
+@max-width: 1170px;
+
 footer {
     width: 100%;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
+    background-color: @text-black;
+}
+
+.footer-content {
+    width: @max-width;
+    padding: 80px 0;
+}
+
+.footer-up {
+    width: 100%;
+    padding: 20px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid @header-border;
+
+    .mediaPhone({
+        flex-direction: column;
+      });
+
+    .logo-content {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+
+        .logo {
+            width: 34px;
+            height: 57px;
+        }
+
+        .text {
+            .fontOpenSansBold();
+            font-size: 30px;
+            color: @text-white;
+        }
+    }
+
+    .menu {
+        display: flex;
+        gap: 50px;
+        align-items: center;
+        .mediaPhone({
+            display: block;
+          });
+
+        .navigation {
+            .fontOpenSansRegular();
+            font-size: 20px;
+            color: @text-white;
+            display: flex;
+            gap: 34px;
+        }
+    }
+}
+
+.footer-down {
+    color: @text-white;
+}
+
+.owner-informaiton {
+    .contact-information {
+        .fontOpenSansBold();
+        min-width: 417px;
+
+        li a {
+            margin: 11px 0;
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+        }
+    }
+
+    span.bold {
+        .fontOpenSansBold();
+    }
+    display: flex;
+    justify-content: space-between;
+
+    .right-shift {
+        margin-right: 10px;
+    }
+
+    ul {
+        margin: 0;
+        padding: 60px 0;
+        li {
+            list-style: none;
+            .logo-container {
+                display: inline-flex;
+                justify-content: center;
+                align-items: center;
+                width: 40px;
+                height: 40px;
+                background-color: #619aff;
+                border-radius: 50%;
+            }
+            .logo {
+                width: 40px;
+                height: 40px;
+            }
+            .minimized {
+                width: 23px;
+                height: 23px;
+            }
+        }
+    }
+}
+
+.owner-informaiton,
+.address-and-work-hours {
+    .fontOpenSansRegular();
 }

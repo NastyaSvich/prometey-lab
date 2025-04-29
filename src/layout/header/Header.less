@@ -10,6 +10,7 @@ header {
     align-items: center;
     justify-content: center;
     border-bottom: 1px solid @header-border;
+    padding: 0 20px;
 
     .header-top {
         .fontOpenSansBold();
@@ -47,6 +48,54 @@ header {
             }
         }
 
+        .hamburger {
+            display: none;
+            width: 36px;
+            height: 36px;
+            position: relative;
+            cursor: pointer;
+            z-index: 1100;
+            padding: 6px;
+
+            .line {
+                position: absolute;
+                width: 24px;
+                height: 2px;
+                background-color: @accent-blue;
+                transition: transform 0.3s, opacity 0.3s;
+            }
+
+            .line:nth-child(1) {
+                top: 6px;
+            }
+            .line:nth-child(2) {
+                top: 15px;
+            }
+            .line:nth-child(3) {
+                top: 24px;
+            }
+
+            &.active {
+                .line:nth-child(1) {
+                    top: 13px;
+                    transform: rotate(45deg);
+                }
+
+                .line:nth-child(2) {
+                    opacity: 0;
+                }
+
+                .line:nth-child(3) {
+                    top: 13px;
+                    transform: rotate(-45deg);
+                }
+            }
+
+            .mediaPhone({
+              display: block;
+            });
+        }
+
         .menu {
             display: flex;
             gap: 50px;
@@ -58,6 +107,29 @@ header {
                 color: @text-black;
                 display: flex;
                 gap: 34px;
+            }
+
+            .mediaPhone({
+              display: none;
+              flex-direction: column;
+              align-items: center;
+              justify-content: center;
+              position: fixed;
+              inset: 0;
+              background-color: white;
+              z-index: 1000;
+              gap: 30px;
+
+                .navigation {
+                    display: flex;
+                    flex-direction: column;
+                }
+            });
+
+            &.expanded {
+                .mediaPhone({
+                display: flex;
+              });
             }
         }
     }

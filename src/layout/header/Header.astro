@@ -1,6 +1,6 @@
 ---
 import Button from 'src/components/button/Button.astro';
-import logo from 'src/assets/images/logo.png';
+import logo from 'src/assets/images/logo-black.png';
 import 'src/layout/header/Header.less';
 ---
 
@@ -12,8 +12,14 @@ import 'src/layout/header/Header.less';
 
     <div class="header-bottom">
         <div class="logo-content">
-            <img class="logo" alt="" src={logo.src} />
+            <img class="logo" alt="Logo Prometey" src={logo.src} />
             <span class="text">PROMETEY LAB</span>
+        </div>
+
+        <div class="hamburger">
+            <span class="line"></span>
+            <span class="line"></span>
+            <span class="line"></span>
         </div>
 
         <div class="menu">
