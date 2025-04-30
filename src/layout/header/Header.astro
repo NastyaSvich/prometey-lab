@@ -5,6 +5,13 @@ import "src/layout/header/Header.less";
 import email from "@assets/images/email2.svg";
 import telegram from "@assets/images/telegram3.svg";
 import telephone from "@assets/images/telephone2.svg";
+
+const LogoComponent = `
+  <div class="logo-content">
+    <img class="logo" alt="Logo Prometey" src="${logo.src}" />
+    <span class="text">PROMETEY LAB</span>
+  </div>
+`;
 ---
 
 <header class="header">
@@ -14,10 +21,7 @@ import telephone from "@assets/images/telephone2.svg";
     </div>
 
     <div class="header-bottom">
-        <div class="logo-content">
-            <img class="logo" alt="Logo Prometey" src={logo.src} />
-            <span class="text">PROMETEY LAB</span>
-        </div>
+        <div set:html={LogoComponent} />
 
         <div class="hamburger">
             <span class="line"></span>
@@ -26,11 +30,8 @@ import telephone from "@assets/images/telephone2.svg";
         </div>
 
         <div class="menu">
-            <div class="menu-header">
-                <div class="logo-content">
-                    <img class="logo" alt="Logo" src={logo.src} />
-                    <span class="text">PROMETEY LAB</span>
-                </div>
+            <div class="menu-logo">
+                <div set:html={LogoComponent} />
             </div>
 
             <nav class="navigation">

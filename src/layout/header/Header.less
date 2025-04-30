@@ -2,6 +2,34 @@
 
 @max-width: 1170px;
 
+.logo-content {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+
+    .logo {
+        width: 34px;
+        height: 57px;
+    }
+
+    .text {
+        .fontOpenSansBold();
+        font-size: 30px;
+        color: @primary-black-text;
+    }
+
+    .mediaPhone({
+        .logo {
+            width: 24px;
+            height: 41px;
+        }
+
+        .text {
+            font-size: 20px;
+        }
+    });
+}
+
 .header {
     width: 100%;
     max-width: @max-width;
@@ -44,37 +72,6 @@
         padding: 30px 20px 15px 20px;
         order: 1;
     });
-
-.logo-content {
-    display: flex;
-    align-items: center;
-    gap: 7px;
-
-    .logo {
-        width: 34px;
-        height: 57px;
-    }
-
-    .text {
-        .fontOpenSansBold();
-        font-size: 30px;
-        color: @primary-black-text;
-    }
-
-    .mediaPhone({
-        .logo {
-            width: 24px;
-            height: 41px;
-        }
-
-        .text {
-            .fontOpenSansBold();
-            font-size: 20px;
-            color: @primary-black-text;
-        }
-    });
-
-}
 
 .hamburger {
     display: none;
@@ -131,36 +128,22 @@
     gap: 50px;
     align-items: center;
 
-    .menu-header {
+    .menu-logo {
         display: none;
         width: 100%;
         padding-top: 30px;
         align-items: center;
 
         .logo-content {
-            display: flex;
-            align-items: center;
-            gap: 7px;
             border-bottom: 1px solid @header-border;
             padding-bottom: 20px;
             margin-right: 20px;
-
-            .logo {
-                width: 24px;
-                height: 41px;
-            }
-
-            .text {
-                .fontOpenSansBold();
-                font-size: 20px;
-                color: @primary-black-text;
-            }
         }
     }
 
     .navigation {
         .fontOpenSansRegular();
-        font-size: 16px;
+        font-size: 20px;
         color: @primary-black-text;
         display: flex;
         gap: 34px;
@@ -232,9 +215,10 @@
         padding-right: 20px;
         min-width: 95%;
         gap: 20px;
+        font-size: 16px;
     }
 
-    .menu-header {
+    .menu-logo {
         display: block;
     }
 
