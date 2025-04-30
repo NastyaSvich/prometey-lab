@@ -1,0 +1,16 @@
+---
+import 'src/components/horizontal-line-title/HorizontalLineTitle.less';
+
+const {
+  title,
+} = Astro.props;
+
+/**
+ *  Заголовок с горизонтальной линией перед заголовком.
+ */
+---
+
+<div class="horizontal-line-title">
+    <div class="horizontal-line" />
+    <div class="title">{title}</div>
+</div>

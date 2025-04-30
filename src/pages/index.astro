@@ -1,11 +1,13 @@
 ---
-import Layout from 'src/layout/Layout.astro';
-import Form from 'src/logic/form/Form.astro';
-import MainInfo from 'src/logic/main-info/MainInfo.astro';
-import 'src/pages/index.less';
+import Layout from "src/layout/Layout.astro";
+import Form from "src/logic/form/Form.astro";
+import MainInfo from "src/logic/main-info/MainInfo.astro";
+import Statistic from "src/logic/statistic/Statistic.astro";
+import "src/pages/index.less";
 ---
 
 <Layout className="main-page">
     <MainInfo />
+    <Statistic />
     <Form />
 </Layout>
