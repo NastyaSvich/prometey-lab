@@ -1,5 +1,6 @@
 ---
 import Button from 'src/components/button/Button.astro';
+import { Image } from 'astro:assets';
 import logo from 'src/assets/images/logo-black.png';
 import 'src/layout/header/Header.less';
 ---
@@ -12,7 +13,7 @@ import 'src/layout/header/Header.less';
 
     <div class="header-bottom">
         <div class="logo-content">
-            <img class="logo" alt="Logo Prometey" src={logo.src} />
+            <Image class="logo" alt="Logo Prometey" src={logo} />
             <span class="text">PROMETEY LAB</span>
         </div>
 
