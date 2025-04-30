@@ -1,5 +1,6 @@
 ---
 import arrow from 'src/assets/images/arrow.svg';
+import { Image } from 'astro:assets';
 import 'src/components/service/service-card/ServiceCard.less';
 
 export type CardServiceProps = {
@@ -24,6 +25,6 @@ const {
     <h3 class="subtitle">{subtitle}</h3>
     <div class="description">
         <p>{description}</p>
-        <img src={arrow.src} alt="icon" class="icon" />
+        <Image src={arrow} alt="icon" class="icon" />
     </div>
 </div>
