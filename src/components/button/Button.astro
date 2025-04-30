@@ -4,15 +4,17 @@ import 'src/components/button/Button.less';
 type ButtonProps = {
   type?: "button" | "submit" | "reset";
   variant?: "blue" | "white";
+  size?: "big" | "medium";
 };
 
 const {
   label,
+  size = "big",
   type = "button",
   variant = "blue"
 } = Astro.props as ButtonProps;
 
-const className = variant === "white" ? "button white" : "button blue";
+const className = `button ${variant} ${size}`;
 ---
 
 <button type={type} class={className}>

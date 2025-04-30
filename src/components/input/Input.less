@@ -3,7 +3,7 @@
 .input {
     width: 100%;
     height: 38px;
-    .fontOpenSansRegular();
+    .fontOpenSansBold();
     font-size: 18px;
     border: none;
     outline: none;
@@ -11,8 +11,13 @@
     padding: 7px 15px;
     border-radius: 2px;
     color: @primary-black-text;
-    
+
     &::placeholder {
-        color: @secondary-black-text;
+        .fontOpenSansRegular();
+        color: @field-placeholder;
+    }
+
+    &:hover::placeholder {
+        color: @field-placeholder-hover-text;
     }
 }

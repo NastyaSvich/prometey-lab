@@ -2,11 +2,19 @@
 
 .button {
     .fontOpenSansBold();
-    font-size: 20px;
-    padding: 7px 36px;
     border: none;
     border-radius: 4px;
     cursor: pointer;
+
+    &.big {
+        font-size: 20px;
+        padding: 7px 36px;
+    }
+
+    &.medium {
+        font-size: 16px;
+        padding: 7px 27px;
+    }
 
     &.blue {
         color: @primary-white-text;
@@ -20,5 +28,9 @@
     &.white {
         color: @accent-blue;
         background-color: @primary-white-text;
+
+        &:hover{
+            background-color: @button-white-hover;
+        }
     }
 }
