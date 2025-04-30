@@ -1,7 +1,22 @@
 ---
 import 'src/components/input/Input.less';
+
+const {
+  type = "text",
+  placeholder,
+  value,
+  name,
+  id,
+  required,
+} = Astro.props;
 ---
 
-<input class="input">
-    <slot />
-</input>
+<input
+    class="input"
+    id={id || name}
+    name={name}
+    type={type}
+    placeholder={placeholder}
+    value={value}
+    required={required}
+/>

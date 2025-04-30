@@ -1,13 +1,24 @@
 ---
 import Input from 'src/components/input/Input.astro';
+import Textarea from 'src/components/textarea/Textarea.astro';
+import Button from 'src/components/button/Button.astro';
 import 'src/components/form/Form.less';
 ---
 
 <form class="form">    
     <div class="form-content">
-        <div class="text">РАССКАЖИТЕ О СВОЕМ ПРОЕКТЕ И МЫ РЕШИМ ВАШУ ЗАДАЧУ</div>
+        <div class="title">РАССКАЖИТЕ О СВОЕМ ПРОЕКТЕ И МЫ РЕШИМ ВАШУ ЗАДАЧУ</div>
+
+        <div class="fields-wrapper">
         <div class="fields">
-            <Input/>
+            <Input placeholder="Имя"/>
+            <Input placeholder="E-mail"/>
+            <Textarea placeholder="Сообщение"/>
         </div>
+
+        <p class="agreement">Оставляя заявку, вы даете согласие на обработку персональных данных в соответствии с нашей Политикой</p>
+
+        <Button label="Оставить заявку" variant="white"/>
+    </div>
     </div>
 </form>

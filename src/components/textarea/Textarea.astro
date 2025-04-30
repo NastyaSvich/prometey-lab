@@ -1,0 +1,24 @@
+---
+import 'src/components/textarea/Textarea.less';
+
+const {
+    placeholder,
+    value,
+    rows = 5,
+    cols = 40,
+    name,
+    id,
+    required,
+} = Astro.props;
+---
+
+<textarea
+    class="textarea"
+    id={id || name}
+    name={name}
+    placeholder={placeholder}
+    rows={rows}
+    cols={cols}
+    required={required}
+    value={value}
+/>

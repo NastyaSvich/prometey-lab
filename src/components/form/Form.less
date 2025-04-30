@@ -12,15 +12,34 @@
 
     .form-content {
         display: flex;
-        width: @max-width;
+        max-width: @max-width;
         padding: 114px 0;
-
-        .text {
+   
+        .title {
             .fontOpenSansBold();
             font-size: 40px;
-            color: @text-white;
-            width: 619px;
+            color: @primary-white-text;
+            width: 615px;
             height: 254px;
+            margin-right: 103px;
+        }
+
+        .fields-wrapper {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+
+            .fields {
+                display: flex;
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .agreement {
+                .fontOpenSansRegular();
+                font-size: 13px;
+                color: @secondary-white-text;
+            }
         }
     }
 }
