@@ -1,8 +1,25 @@
 ---
-import Service from 'src/logic/service/Service.astro';
-// import 'src/logic/main-info/MaiInfo.less';
+import Button from 'src/components/button/Button.astro';
+import Service from 'src/components/service/Service.astro';
+import VerticalLineTitle from 'src/components/vertical-line-title/VerticalLineTitle.astro';
+import 'src/logic/main-info/MainInfo.less';
+
+/**
+ * Компонент главной информации о странице.
+ */
 ---
 
 <div class="main-info">
+    <div class="info">
+        <VerticalLineTitle title="DEVOPS И БАЗЫ ДАННЫХ" className="info">
+            <div>
+                Комплексные услуги по сопровождению баз данных, включая работу с
+                <span class="bold">PostgreSQL, Oracle, MySQL и MS SQL</span>
+            </div>
+        </VerticalLineTitle>
+
+        <Button label="Заказать" />
+    </div>
+
     <Service />
 </div>

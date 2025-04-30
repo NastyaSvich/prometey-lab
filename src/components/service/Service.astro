@@ -1,9 +1,12 @@
 ---
 import ServiceCard, {
     type CardServiceProps,
-} from 'src/logic/service/service-card/ServiceCard.astro';
-import 'src/logic/service/Service.less';
+} from 'src/components/service/service-card/ServiceCard.astro';
+import 'src/components/service/Service.less';
 
+/**
+ * Компонент списка услуг.
+ */
 const services: CardServiceProps[] = [
     {
         title: 'БАЗЫ ДАННЫХ',

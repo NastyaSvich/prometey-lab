@@ -1,0 +1,23 @@
+---
+import 'src/components/vertical-line-title/VerticalLineTitle.less';
+
+export type VerticalLineTitleProps = {
+    title: string;
+    className?: string;
+};
+
+const {title, className=''} = Astro.props as VerticalLineTitleProps;
+
+/**
+ * Компонент отображения контента с чертой слева.
+ *
+ * Отображение:
+ * |Заголовок
+ * |Контент
+ */
+---
+
+<div class="vertical-line-title">
+    <div class="title">{title}</div>
+    <div class={`content ${className}`}><slot /></div>
+</div>

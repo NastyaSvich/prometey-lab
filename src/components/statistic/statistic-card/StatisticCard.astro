@@ -1,5 +1,5 @@
 ---
-import 'src/logic/statistic/statistic-card/StatisticCard.less';
+import 'src/components/statistic/statistic-card/StatisticCard.less';
 
 type ButtonProps = {
   title: string;
@@ -11,8 +11,11 @@ const {
     description
 } = Astro.props as ButtonProps;
 
----
 
+/**
+ * Компонент карточки статистики.
+ */
+---
 
 <div class="statistic-card">
     <div class="title">{title}</div>

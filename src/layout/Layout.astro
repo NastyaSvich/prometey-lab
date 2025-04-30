@@ -2,14 +2,12 @@
 import Header from 'src/layout/header/Header.astro';
 import Footer from 'src/layout/footer/Footer.astro';
 import 'src/layout/Layout.less';
-import Statistic from 'src/logic/statistic/Statistic.astro';
-import EngineersHelps from 'src/logic/main-page/engineers-helps/EngineersHelps.astro';
 
 export type LayoutProps = {
-    className?: string,
+    className?: string;
 };
 
-const {className} = Astro.props as LayoutProps;
+const {className = ''} = Astro.props as LayoutProps;
 
 /**
  * HTML-шаблон для всех страниц.
@@ -31,9 +29,6 @@ const {className} = Astro.props as LayoutProps;
         <main class={className}>
             <slot />
         </main>
-
-
-        <EngineersHelps />
 
         <Footer />
 
