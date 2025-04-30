@@ -5,7 +5,7 @@
 header {
     width: 100%;
     max-width: @max-width;
-    display: flex;
+    display: flex !important;
     flex-direction: column;
     align-items: center;
     justify-content: center;
@@ -21,23 +21,115 @@ header {
         background-color: @header-background;
         border-radius: 0 0 20px 20px;
         padding: 20px 30px 26px;
-    }
-
-    .header-bottom {
-        width: 100%;
-        padding: 20px 0;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
+        order: 1;
 
         .mediaPhone({
-            padding: 30px 20px 20px 20px;
+            padding: 10px 20px 20px 20px;
+            background-color: @primary-white-text;
+            color: @primary-black-text;
+            order: 2;
+            font-size: 15px;
         });
+}
+
+.header-bottom {
+    width: 100%;
+    padding: 20px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    order: 2;
+
+    .mediaPhone({
+        padding: 30px 20px 20px 20px;
+        order: 1;
+    });
+
+.logo-content {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    .logo {
+        width: 34px;
+        height: 57px;
+    }
+
+    .text {
+        .fontOpenSansBold();
+        font-size: 27px;
+        color: @primary-black-text;
+    }
+}
+
+.hamburger {
+    display: none;
+    width: 36px;
+    height: 36px;
+    position: relative;
+    cursor: pointer;
+    z-index: 1100;
+    padding: 6px;
+
+    .line {
+        position: absolute;
+        width: 24px;
+        height: 2px;
+        background-color: @accent-blue;
+        transition: transform 0.3s, opacity 0.3s;
+    }
+
+    .line:nth-child(1) {
+        top: 6px;
+    }
+
+    .line:nth-child(2) {
+        top: 15px;
+    }
+
+    .line:nth-child(3) {
+        top: 24px;
+    }
+
+    &.active {
+        .line:nth-child(1) {
+            top: 13px;
+            transform: rotate(45deg);
+        }
+
+        .line:nth-child(2) {
+            opacity: 0;
+        }
+
+        .line:nth-child(3) {
+            top: 13px;
+            transform: rotate(-45deg);
+        }
+    }
+
+    .mediaPhone({
+        display: block;
+    });
+}
+
+.menu {
+    display: flex;
+    gap: 50px;
+    align-items: center;
+
+    .menu-header {
+        display: none;
+        width: 100%;
+        padding-top: 30px;
+        align-items: center;
 
         .logo-content {
             display: flex;
             align-items: center;
             gap: 10px;
+            border-bottom: 1px solid @header-border;
+            padding-bottom: 25px;
+            margin-right: 20px;
 
             .logo {
                 width: 34px;
@@ -46,94 +138,102 @@ header {
 
             .text {
                 .fontOpenSansBold();
-                font-size: 30px;
+                font-size: 27px;
                 color: @primary-black-text;
-            }
-        }
-
-        .hamburger {
-            display: none;
-            width: 36px;
-            height: 36px;
-            position: relative;
-            cursor: pointer;
-            z-index: 1100;
-            padding: 6px;
-
-            .line {
-                position: absolute;
-                width: 24px;
-                height: 2px;
-                background-color: @accent-blue;
-                transition: transform 0.3s, opacity 0.3s;
-            }
-
-            .line:nth-child(1) {
-                top: 6px;
-            }
-            .line:nth-child(2) {
-                top: 15px;
-            }
-            .line:nth-child(3) {
-                top: 24px;
-            }
-
-            &.active {
-                .line:nth-child(1) {
-                    top: 13px;
-                    transform: rotate(45deg);
-                }
-
-                .line:nth-child(2) {
-                    opacity: 0;
-                }
-
-                .line:nth-child(3) {
-                    top: 13px;
-                    transform: rotate(-45deg);
-                }
-            }
-
-            .mediaPhone({
-              display: block;
-            });
-        }
-
-        .menu {
-            display: flex;
-            gap: 50px;
-            align-items: center;
-
-            .navigation {
-                .fontOpenSansRegular();
-                font-size: 20px;
-                color: @primary-black-text;
-                display: flex;
-                gap: 34px;
-            }
-
-            .mediaPhone({
-              display: none;
-              flex-direction: column;
-              align-items: center;
-              justify-content: center;
-              position: fixed;
-              inset: 0;
-              background-color: white;
-              z-index: 1000;
-              gap: 30px;
-
-                .navigation {
-                    display: flex;
-                    flex-direction: column;
-                }
-            });
-
-            &.expanded {
-                .mediaPhone({
-                display: flex;
-              });
             }
         }
     }
+
+    .navigation {
+        .fontOpenSansRegular();
+        font-size: 20px;
+        color: @primary-black-text;
+        display: flex;
+        gap: 34px;
+    }
+
+    .contact-information {
+        display: none;
+        .fontOpenSansBold();
+        color: @primary-black-text;
+
+        li a {
+            font-size: 20px;
+            margin: 11px 0;
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+        }
+    }
+
+    span.bold {
+        .fontOpenSansBold();
+    }
+
+    .right-shift {
+        margin-right: 10px;
+    }
+
+    ul {
+        margin: 0;
+        padding: 60px 0;
+
+        .mediaPhone({
+            padding: 0;
+        });
+
+    li {
+        list-style: none;
+
+        .logo-container {
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+        }
+
+        .logo {
+            width: 40px;
+            height: 40px;
+        }
+    }
+}
+
+.mediaPhone({
+    display: none;
+    flex-direction: column;
+    align-items: flex-start;
+    position: fixed;
+    inset: 0;
+    background-color: @burger-background;
+    padding-left: 20px;
+    z-index: 1000;
+    gap: 25px;
+
+    .navigation {
+        display: flex;
+        flex-direction: column;
+        padding-right: 20px;
+        min-width: 95%;
+        gap: 20px;
+    }
+
+    .menu-header {
+        display: block;
+    }
+
+    .contact-information {
+        display: flex;
+    }
+});
+
+&.expanded {
+    .mediaPhone({
+        display: flex;
+    });
+}
+}
+}
 }
