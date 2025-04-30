@@ -56,12 +56,18 @@ footer {
 .logo {
     width: 34px;
     height: 57px;
+    .mediaPhone({
+        width: 30px;
+        height: 51px;
+    });
 }
 
 .text {
     .fontOpenSansBold();
-    font-size: 30px;
     color: @primary-white-text;
+    .mediaPhone({
+        font-size: 24px;
+    });
 }
 }
 
@@ -88,6 +94,7 @@ footer {
         flex: 0 0 100%;
         flex-direction: column;
         align-items: flex-start;
+        font-size: 18px;
     });
 
 }
@@ -111,14 +118,20 @@ footer {
     .legal-information {
         li {
             padding: 4px 0;
+            .mediaPhone({
+                font-size: 13px;
+            });
 
         }
     }
 
     .contact-information {
         .fontOpenSansBold();
-        min-width: 417px;
+        max-width: 417px;
 
+        .mediaPhone({
+            font-size: 15px;
+        });
         li a {
             margin: 11px 0;
             display: inline-flex;
@@ -172,4 +185,10 @@ footer {
 .owner-informaiton,
 .address-and-work-hours {
     .fontOpenSansRegular();
+
+}
+.address-and-work-hours {
+    .mediaPhone({
+        font-size: 13px;
+    });
 }
