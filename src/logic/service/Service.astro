@@ -1,0 +1,39 @@
+---
+import ServiceCard, {
+    type CardServiceProps,
+} from 'src/logic/service/service-card/ServiceCard.astro';
+import 'src/logic/service/Service.less';
+
+const services: CardServiceProps[] = [
+    {
+        title: 'БАЗЫ ДАННЫХ',
+        subtitle:
+            'В сложных случаях подключаем экспертизу Senior DevOps, Senior SRE',
+        description: 'от 100 тыс. руб',
+    },
+    {
+        title: 'DEVOPS',
+        subtitle:
+            'В сложных случаях подключаем экспертизу Senior DevOps, Senior SRE',
+        description: 'от 100 тыс. руб',
+    },
+    {
+        title: 'SRE',
+        subtitle:
+            'В сложных случаях подключаем экспертизу Senior DevOps, Senior SRE',
+        description: 'от 100 тыс. руб',
+    },
+];
+---
+
+<div class={'service'}>
+    {
+        services.map((service) => (
+            <ServiceCard
+                title={service.title}
+                subtitle={service.subtitle}
+                description={service.description}
+            />
+        ))
+    }
+</div>

@@ -4,6 +4,12 @@ import Footer from 'src/layout/footer/Footer.astro';
 import 'src/layout/Layout.less';
 import Statistic from 'src/logic/statistic/Statistic.astro';
 
+export type LayoutProps = {
+    className?: string,
+};
+
+const {className} = Astro.props as LayoutProps;
+
 /**
  * HTML-шаблон для всех страниц.
  */
@@ -21,7 +27,7 @@ import Statistic from 'src/logic/statistic/Statistic.astro';
     <body>
         <Header />
 
-        <main>
+        <main class={className}>
             <slot />
         </main>
 

@@ -1,9 +1,11 @@
 ---
-import Layout from "src/layout/Layout.astro";
-import Form from "src/components/form/Form.astro";
-// import "./index.less";
+import Layout from 'src/layout/Layout.astro';
+import Form from 'src/logic/form/Form.astro';
+import MainInfo from 'src/logic/main-info/MainInfo.astro';
+import 'src/pages/index.less';
 ---
 
-<Layout>
-	<Form/>
-</Layout>	
+<Layout className="main-page">
+    <MainInfo />
+    <Form />
+</Layout>

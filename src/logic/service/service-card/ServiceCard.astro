@@ -1,0 +1,25 @@
+---
+import arrow from 'src/assets/images/arrow.svg';
+import 'src/logic/service/service-card/ServiceCard.less';
+
+export type CardServiceProps = {
+    title: string;
+    subtitle: string;
+    description: string;
+};
+
+const {
+    title,
+    subtitle,
+    description
+} = Astro.props as CardServiceProps;
+---
+
+<div class="service-card">
+    <h2 class="title">{title}</h2>
+    <h3 class="subtitle">{subtitle}</h3>
+    <div class="description">
+        <p>{description}</p>
+        <img src={arrow.src} alt="icon" class="icon" />
+    </div>
+</div>
