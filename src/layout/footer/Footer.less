@@ -56,12 +56,18 @@ footer {
 .logo {
     width: 34px;
     height: 57px;
+    .mediaPhone({
+        width: 30px;
+        height: 51px;
+    });
 }
 
 .text {
     .fontOpenSansBold();
-    font-size: 30px;
     color: @primary-white-text;
+    .mediaPhone({
+        font-size: 24px;
+    });
 }
 }
 
@@ -88,6 +94,7 @@ footer {
         flex: 0 0 100%;
         flex-direction: column;
         align-items: flex-start;
+        font-size: 18px;
     });
 
 }
@@ -108,9 +115,12 @@ footer {
         gap: 20px;
     });
 
-.legal-information {
-    li {
-        padding: 4px 0;
+    .legal-information {
+        li {
+            padding: 4px 0;
+            .mediaPhone({
+                font-size: 13px;
+            });
 
     }
 }
@@ -118,6 +128,9 @@ footer {
 .contact-information {
     .fontOpenSansBold();
     min-width: 300px;
+    .contact-information {
+        .fontOpenSansBold();
+        max-width: 417px;
 
     li a {
         margin: 11px 0;
@@ -126,6 +139,16 @@ footer {
         align-items: center;
     }
 }
+        .mediaPhone({
+            font-size: 15px;
+        });
+        li a {
+            margin: 11px 0;
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+        }
+    }
 
 span.bold {
     .fontOpenSansBold();
@@ -156,10 +179,10 @@ li {
         border-radius: 50%;
     }
 
-    .logo {
-        width: 40px;
-        height: 40px;
-    }
+            .logo {
+                width: 40px;
+                height: 40px;
+            }
 
     .minimized {
         width: 23px;
@@ -172,4 +195,10 @@ li {
 .owner-informaiton,
 .address-and-work-hours {
     .fontOpenSansRegular();
+
+}
+.address-and-work-hours {
+    .mediaPhone({
+        font-size: 13px;
+    });
 }

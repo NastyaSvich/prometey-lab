@@ -1,0 +1,63 @@
+@import '@styles/globals.less';
+
+.service-card {
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.06);
+    max-width: 352px;
+    border-radius: 10px;
+    padding: 20px 12px 10px 20px;
+    gap: 12px;
+    border-width: 1px;
+    background-color: @background-white;
+    border: 1px solid @outline;
+    cursor: pointer;
+
+    .mediaPhone({
+        width: 240px;
+        height: 156px;
+        padding: 16px 12px 10px 16px;
+    });
+
+    .title {
+        .fontOpenSansExtraBold();
+        font-size: 22px;
+        color: @primary-black-text;
+
+        .mediaPhone({
+            font-size: 18px;
+        });
+    }
+
+    .subtitle {
+        .fontOpenSansRegular();
+        font-size: 15px;
+        margin-top: 4px;
+        color: @secondary-black-text;
+
+        .mediaPhone({
+            font-size: 14px;
+        });
+    }
+
+    .description {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 36px;
+        gap: 12px;
+        .fontOpenSansBold();
+        font-size: 16px;
+        color: @accent-blue;
+        margin-top: 12px;
+
+        .icon {
+            width: 24px;
+            height: 24px;
+            flex-shrink: 0;
+        }
+    }
+
+    &:hover {
+        background-color: @background-blue;
+        border: 1px solid @card-border;
+    }
+}

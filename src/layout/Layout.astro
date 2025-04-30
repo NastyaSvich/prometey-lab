@@ -3,6 +3,12 @@ import Header from 'src/layout/header/Header.astro';
 import Footer from 'src/layout/footer/Footer.astro';
 import 'src/layout/Layout.less';
 
+export type LayoutProps = {
+    className?: string;
+};
+
+const {className = ''} = Astro.props as LayoutProps;
+
 /**
  * HTML-шаблон для всех страниц.
  */
@@ -14,13 +20,13 @@ import 'src/layout/Layout.less';
         <meta charset="UTF-8" />
         <meta name="color-scheme" content="light only" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <!-- <link rel="icon" type="image/svg+xml" href="/favicon.png" /> -->
+        <link rel="icon" type="image/x-icon" href="/favicon.ico" />
         <title>Prometey Lab</title>
     </head>
     <body>
         <Header />
 
-        <main>
+        <main class={className}>
             <slot />
         </main>
 
