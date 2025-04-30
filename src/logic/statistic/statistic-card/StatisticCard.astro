@@ -1,0 +1,20 @@
+---
+import 'src/logic/statistic/statistic-card/StatisticCard.less';
+
+type ButtonProps = {
+  title: string;
+  description: string;
+};
+
+const {
+    title,
+    description
+} = Astro.props as ButtonProps;
+
+---
+
+
+<div class="statistic-card">
+    <div class="title">{title}</div>
+    <div class="description">{description}</div>
+</div>

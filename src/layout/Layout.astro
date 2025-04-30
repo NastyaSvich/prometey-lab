@@ -2,6 +2,7 @@
 import Header from 'src/layout/header/Header.astro';
 import Footer from 'src/layout/footer/Footer.astro';
 import 'src/layout/Layout.less';
+import Statistic from 'src/logic/statistic/Statistic.astro';
 
 /**
  * HTML-шаблон для всех страниц.
@@ -23,6 +24,8 @@ import 'src/layout/Layout.less';
         <main>
             <slot />
         </main>
+
+        <Statistic />
 
         <Footer />
 
