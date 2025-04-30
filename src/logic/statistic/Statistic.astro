@@ -1,11 +1,15 @@
 ---
-import StatisticCard from 'src/logic/statistic/statistic-card/StatisticCard.astro';
-import 'src/logic/statistic/Statistic.less';
+import StatisticCard from "src/logic/statistic/statistic-card/StatisticCard.astro";
+import "src/logic/statistic/Statistic.less";
 ---
 
-<>
-    <StatisticCard title="16" description="Лет опыта"/>
-    <StatisticCard title="82 +" description="Успешных проекта"/>
-    <StatisticCard title="70 +" description="Разработчиков в команде"/>
-    <StatisticCard title="20 +" description="Охваченных отраслей"/>
-</>
+<div class="statistic">
+    <div class="block">
+        <StatisticCard title="16" description="Лет опыта" />
+        <StatisticCard title="82 +" description="Успешных проекта" />
+    </div>
+    <div class="block">
+        <StatisticCard title="70 +" description="Разработчиков в команде" />
+        <StatisticCard title="20 +" description="Охваченных отраслей" />
+    </div>
+</div>
