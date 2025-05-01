@@ -1,10 +1,10 @@
 ---
-import Layout from "src/layout/Layout.astro";
-import Form from "src/components/form/Form.astro";
-import MainInfo from "src/logic/main-page/main-info/MainInfo.astro";
-import Statistic from "src/components/statistic/Statistic.astro";
-import EngineersHelps from "src/logic/main-page/engineers-helps/EngineersHelps.astro";
-import "src/pages/index.less";
+import Layout from 'src/layout/Layout.astro';
+import Form from 'src/components/form/Form.astro';
+import MainInfo from 'src/logic/main-page/main-info/MainInfo.astro';
+import Statistic from 'src/components/statistic/Statistic.astro';
+import EngineersHelps from 'src/logic/main-page/engineers-helps/EngineersHelps.astro';
+import 'src/pages/index.less';
 
 /**
  * Главная страница.
@@ -12,8 +12,10 @@ import "src/pages/index.less";
 ---
 
 <Layout className="main-page">
-    <MainInfo />
-    <Statistic />
-    <EngineersHelps />
+    <div class="middle-content">
+        <MainInfo />
+        <Statistic />
+        <EngineersHelps />
+    </div>
     <Form />
 </Layout>
