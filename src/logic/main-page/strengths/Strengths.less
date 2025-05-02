@@ -1,0 +1,15 @@
+@import '@styles/globals.less';
+
+.strengths {
+    .strengths-content {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+        justify-items: center;
+
+        .mediaPhone({
+            grid-template-columns: 1fr;
+            gap: 12px;
+        });
+    }
+}
