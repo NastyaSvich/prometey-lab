@@ -1,0 +1,41 @@
+---
+import 'src/components/card-default/CardDefault.less';
+
+export type CardDefaultProps = {
+    /**
+     * Фон карточки: может быть цвет, изображение, градиент и т.п.
+     * По умолчанию: "transparent"
+     * Задается форматом: "#ffffff", "url('/images/bg.jpg') center/cover no-repeat".
+     */
+    background?: string;
+
+    /**
+     * Дополнительный css-класс.
+     */
+    className?: string;
+};
+
+const {background = '#ffffff', className = ''} =
+    Astro.props as CardDefaultProps;
+
+/**
+ * Компонент карточки с синим заголовком.
+ * 
+ * Определяющий css-класс: "card-default".
+ * 
+ * Пример использования:
+ * <CardDefault background="url('/images/bg.jpg') center/cover no-repeat">
+ *     <div slot="title">
+ *        Title
+ *     </div>
+ *     <div slot="description">
+ *        Description
+ *     </div>
+ * </CardDefault>
+ */
+---
+
+<div class={`card-default ${className}`} style={`background: ${background};`}>
+    <slot name="title" />
+    <slot name="description" />
+</div>

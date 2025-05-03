@@ -1,0 +1,30 @@
+---
+import 'src/components/trust-reasons/TrustReasons.less';
+import HorizontalLineTitle from 'src/components/horizontal-line-title/HorizontalLineTitle.astro';
+import Swiper from 'src/components/swiper/Swiper.astro';
+import SwiperSlideElement from 'src/components/swiper/SwiperSlideElement.astro';
+import CardDefault from 'src/components/card-default/CardDefault.astro';
+---
+
+<div class={'trust-reasons'}>
+    <HorizontalLineTitle title="6 ПРИЧИН ДОВЕРИТЬСЯ НАМ">
+        <Swiper>
+            <SwiperSlideElement>
+                <CardDefault>
+                <div slot="title">
+                    Title
+                </div>
+
+                <div slot="description">
+                    Description
+                </div>
+                </CardDefault>
+            </SwiperSlideElement>
+            <SwiperSlideElement>Слайд 2</SwiperSlideElement>
+            <SwiperSlideElement>Слайд 3</SwiperSlideElement>
+            <SwiperSlideElement>Слайд 4</SwiperSlideElement>
+            <SwiperSlideElement>Слайд 5</SwiperSlideElement>
+            <SwiperSlideElement>Слайд 6</SwiperSlideElement>
+        </Swiper>
+    </HorizontalLineTitle>
+</div>

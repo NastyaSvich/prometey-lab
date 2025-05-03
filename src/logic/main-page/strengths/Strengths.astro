@@ -1,5 +1,6 @@
 ---
-import Card, {type CardProps} from 'src/components/card/Card.astro';
+import type { CardBlueTitleProps } from 'src/components/card-blue-title/CardBlueTitle.astro';
+import CardBlueTitle from 'src/components/card-blue-title/CardBlueTitle.astro';
 import HorizontalLineTitle from 'src/components/horizontal-line-title/HorizontalLineTitle.astro';
 import 'src/logic/main-page/strengths/Strengths.less';
 
@@ -7,7 +8,7 @@ const createBackground = (fileName: string) => {
     return `url("src/assets/images/${fileName}") center/cover no-repeat`;
 }
 
-const strengths: CardProps[] = [
+const strengths: CardBlueTitleProps[] = [
     {
         title: 'Решение инцидентов',
         description: 'Оперативное реагирование и восстановление',
@@ -53,7 +54,7 @@ const strengths: CardProps[] = [
 >
     {
         strengths.map(({title, description, background}) => (
-            <Card
+            <CardBlueTitle
                 title={title}
                 description={description}
                 background={background}
