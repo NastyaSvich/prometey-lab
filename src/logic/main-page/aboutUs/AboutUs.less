@@ -1,0 +1,71 @@
+@import '@styles/globals.less';
+
+.aboutUs {
+    width: 100%;
+
+    .aboutUs-content {
+
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+        justify-items: center;
+        align-items: start;
+
+        .mediaPhone({
+            grid-template-columns: 1fr;
+            gap: 12px;
+        });
+
+    .cards-grid {
+        display: grid;
+        grid-template-areas:
+            "card1 card2 card3"
+            "divider divider divider"
+            "card4 card5 card6";
+        gap: 20px;
+
+        .divider-line {
+            grid-area: divider;
+            margin-top: -20px;
+            display: block;
+        }
+
+        .mediaPhone({
+            grid-template-areas: "card1"
+            "card2"
+            "card3"
+            "card4"
+            "card5"
+            "card6";
+
+            .divider-line {
+                display: none;
+            }
+        });
+
+    .about-us-card {
+        height: 60%;
+
+    }
+
+    .step {
+        height: 100px;
+        display: flex;
+        .fontOpenSansBold();
+        font-size: 130px;
+        background: linear-gradient(180deg, rgba(17, 85, 204, 0.23), rgba(255, 255, 255, 0));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+
+    .circles-line-wrapper {
+        width: 100%;
+        margin: 40px 0;
+        position: relative;
+
+        .mediaPhone({
+            margin: 30px 0;
+        });
+}
+}
+}
+}

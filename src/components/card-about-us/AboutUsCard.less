@@ -1,0 +1,40 @@
+@import '@styles/globals.less';
+
+.about-us-card-wrapper {
+    min-height: 242px;
+    max-width: 375px;
+}
+
+.about-us-card {
+    min-height: 150px;
+
+
+    .title {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        .fontOpenSansBold();
+        font-size: 22px;
+        color: @primary-black-text;
+
+        .mediaPhone({
+            font-size: 18px;
+        });
+}
+
+.about-us__icon {
+    width: 28px;
+    height: 28px;
+    flex-shrink: 0;
+}
+
+.description {
+    .fontOpenSansRegular();
+    font-size: 16px;
+    color: @secondary-black-text;
+
+    .mediaPhone({
+        font-size: 14px;
+    });
+}
+}

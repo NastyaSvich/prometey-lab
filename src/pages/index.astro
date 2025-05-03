@@ -1,12 +1,13 @@
 ---
-import Layout from 'src/layout/Layout.astro';
-import Form from 'src/components/form/Form.astro';
-import MainInfo from 'src/logic/main-page/main-info/MainInfo.astro';
-import Statistic from 'src/components/statistic/Statistic.astro';
-import EngineersHelps from 'src/logic/main-page/engineers-helps/EngineersHelps.astro';
-import Strengths from 'src/logic/main-page/strengths/Strengths.astro';
-import TrustReasons from 'src/components/trust-reasons/TrustReasons.astro';
-import 'src/pages/index.less';
+import Layout from "src/layout/Layout.astro";
+import Form from "src/components/form/Form.astro";
+import MainInfo from "src/logic/main-page/main-info/MainInfo.astro";
+import Statistic from "src/components/statistic/Statistic.astro";
+import EngineersHelps from "src/logic/main-page/engineers-helps/EngineersHelps.astro";
+import Strengths from "src/logic/main-page/strengths/Strengths.astro";
+import TrustReasons from "src/components/trust-reasons/TrustReasons.astro";
+import AboutUs from "src/logic/main-page/aboutUs/About.astro";
+import "src/pages/index.less";
 
 /**
  * Главная страница.
@@ -14,12 +15,13 @@ import 'src/pages/index.less';
 ---
 
 <Layout className="main-page">
-    <div class="middle-content">
-        <MainInfo />
-        <Statistic />
-        <Strengths />
-        <EngineersHelps />
-        <TrustReasons />
-    </div>
-    <Form />
+        <div class="middle-content">
+                <MainInfo />
+                <Statistic />
+                <Strengths />
+                <EngineersHelps />
+                <AboutUs />
+                <TrustReasons />
+        </div>
+        <Form />
 </Layout>
