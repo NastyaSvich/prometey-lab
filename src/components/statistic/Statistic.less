@@ -1,12 +1,22 @@
+@import '@styles/globals.less';
+
 .statistic {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
     gap: 50px;
-}
 
-.block {
-    display: flex;
-    gap: 50px;
-    flex: 1;
+    .mediaPhone({
+        gap: 30px;
+    });
+
+    .block {
+        display: flex;
+        gap: 50px;
+        flex: 1;
+    
+        .mediaPhone({
+            gap: 30px;
+        });
+    }
 }

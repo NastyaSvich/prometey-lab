@@ -33,72 +33,71 @@ footer {
     .mediaPhone({
         padding-top: 0;
         border-style: none;
-
     });
 
-
-.mediaPhone({
-    flex-direction: column;
-});
-
-.logo-content {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-
     .mediaPhone({
-        width: 100%;
-        border-bottom: 1px solid @footer-border;
-        padding-bottom: 8px;
-        align-self: flex-start;
-    });
-
-.logo {
-    width: 34px;
-    height: 57px;
-    .mediaPhone({
-        width: 30px;
-        height: 51px;
-    });
-}
-
-.text {
-    .fontOpenSansBold();
-    color: @primary-white-text;
-    .mediaPhone({
-        font-size: 24px;
-    });
-}
-}
-
-.menu {
-    display: flex;
-    gap: 50px;
-    align-items: center;
-
-    .mediaPhone({
-        padding-top: 20px;
-        align-items: flex-start;
-        width: 100%;
-        margin-left: 20px;
-    });
-
-.navigation {
-    .fontOpenSansRegular();
-    font-size: 20px;
-    color: @primary-white-text;
-    display: flex;
-    gap: 34px;
-
-    .mediaPhone({
-        flex: 0 0 100%;
         flex-direction: column;
-        align-items: flex-start;
-        font-size: 18px;
     });
 
-}
-}
+    .logo-content {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+
+        .mediaPhone({
+            width: 100%;
+            border-bottom: 1px solid @footer-border;
+            padding-bottom: 8px;
+            align-self: flex-start;
+        });
+
+        .logo {
+            width: 34px;
+            height: 57px;
+
+            .mediaPhone({
+                width: 30px;
+                height: 51px;
+            });
+        }
+
+        .text {
+            .fontOpenSansBold();
+            color: @primary-white-text;
+
+            .mediaPhone({
+                font-size: 24px;
+            });
+        }
+    }
+
+    .menu {
+        display: flex;
+        gap: 50px;
+        align-items: center;
+
+        .mediaPhone({
+            padding-top: 20px;
+            align-items: flex-start;
+            width: 100%;
+            margin-left: 20px;
+        });
+
+        .navigation {
+            .fontOpenSansRegular();
+            font-size: 20px;
+            color: @primary-white-text;
+            display: flex;
+            gap: 34px;
+
+            .mediaPhone({
+                flex: 0 0 100%;
+                flex-direction: column;
+                align-items: flex-start;
+                font-size: 18px;
+            });
+        }
+    }
 }
 
 .footer-down {
@@ -118,85 +117,77 @@ footer {
     .legal-information {
         li {
             padding: 4px 0;
+
             .mediaPhone({
                 font-size: 13px;
             });
-
+        }
     }
-}
 
-.contact-information {
-    .fontOpenSansBold();
-    min-width: 300px;
     .contact-information {
         .fontOpenSansBold();
         max-width: 417px;
-
-    li a {
-        margin: 11px 0;
-        display: inline-flex;
-        justify-content: center;
-        align-items: center;
-    }
-}
-        .mediaPhone({
-            font-size: 15px;
-        });
+  
         li a {
             margin: 11px 0;
             display: inline-flex;
             justify-content: center;
             align-items: center;
+            white-space: nowrap;
         }
+
+        .mediaPhone({
+            font-size: 15px;
+        });
     }
 
-span.bold {
-    .fontOpenSansBold();
-}
+    span.bold {
+        .fontOpenSansBold();
+    }
 
-.right-shift {
-    margin-right: 10px;
-}
+    .right-shift {
+        margin-right: 10px;
+    }
 
-ul {
-    margin: 0;
-    padding: 60px 0;
+    ul {
+        margin: 0;
+        padding: 60px 0;
 
-    .mediaPhone({
+        .mediaPhone({
         padding: 0;
     });
 
-li {
-    list-style: none;
+        li {
+            list-style: none;
 
-    .logo-container {
-        display: inline-flex;
-        justify-content: center;
-        align-items: center;
-        width: 40px;
-        height: 40px;
-        background-color: #619aff;
-        border-radius: 50%;
-    }
+            .logo-container {
+                display: inline-flex;
+                justify-content: center;
+                align-items: center;
+                width: 40px;
+                height: 40px;
+                background-color: #619aff;
+                border-radius: 50%;
+            }
 
             .logo {
                 width: 40px;
                 height: 40px;
             }
 
-    .minimized {
-        width: 23px;
-        height: 23px;
+            .minimized {
+                width: 23px;
+                height: 23px;
+            }
+        }
     }
-}
-}
 }
 
 .owner-informaiton,
 .address-and-work-hours {
     .fontOpenSansRegular();
-
 }
+
 .address-and-work-hours {
     .mediaPhone({
         font-size: 13px;
