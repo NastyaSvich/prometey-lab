@@ -1,17 +1,54 @@
 ---
-import Button from "src/components/button/Button.astro";
 import "src/logic/main-page/offer/Offer.less";
-import Table from "src/logic/main-page/offer/table/Table.astro";
 import HorizontalLineTitle from "src/components/horizontal-line-title/HorizontalLineTitle.astro";
-
+import Options from "src/components/options/Options.astro";
 ---
 
 <div class="offer-container">
     <HorizontalLineTitle title="ИНЖЕНЕРЫ ПОМОГУТ НА ЛЮБОМ ЭТАПЕ">
-        <div class="options">
-            <Button label="Техподдержка БД" />
-            <a class="secondary-offer-option" href="#">DevOps</a>
+        <Options />
+
+        <div class="offer-table">
+            <div class="planning">
+                <span class="inner-border">Планирование</span>
+            </div>
+            <div class="development">
+                <span class="inner-border">Разработка ПО</span>
+            </div>
+            <div class="build"><span class="inner-border">Сборка</span></div>
+            <div class="testing">
+                <span class="inner-border">Тестирование</span>
+            </div>
+            <div class="delivery">
+                <span class="inner-border">Доставка</span>
+            </div>
+            <div class="support">
+                <span class="inner-border">Поддержка</span>
+            </div>
+            <div class="content">
+                <span class="inner-border"
+                    >Минимизируем расходы и планируем сроки создания продукта</span>
+            </div>
+            <div class="content">
+                <span class="inner-border"
+                    >Полностью автоматизируем процессы разработки</span>
+            </div>
+            <div class="content">
+                <span class="inner-border"
+                    >Определяем проблемы на ранних стадиях</span>
+            </div>
+            <div class="content">
+                <span class="inner-border"
+                    >Запускаем авто-тесты и выявляем «баги» раньше пользователей</span>
+            </div>
+            <div class="content">
+                <span class="inner-border"
+                    >Многократные релизы с изменениями</span>
+            </div>
+            <div class="content">
+                <span class="inner-border"
+                    >Сводим время простоя сервиса к минимуму</span>
+            </div>
         </div>
-        <Table />
     </HorizontalLineTitle>
 </div>
