@@ -1,0 +1,20 @@
+---
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
+---
+
+<div class="swiper">
+    <div class="swiper-wrapper">
+        <slot />
+    </div>
+
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-button-next"></div>
+    <div class="swiper-pagination"></div>
+</div>
+
+<script type="module">
+    import {initSwiper} from '/src/components/swiper/SwiperInit.js';
+    initSwiper();
+</script>

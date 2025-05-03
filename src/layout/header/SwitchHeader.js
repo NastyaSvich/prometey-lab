@@ -1,16 +1,14 @@
-document.addEventListener('DOMContentLoaded', () => {
+export function switchHeader() {
   const hamburger = document.querySelector('.hamburger');
   const menu = document.querySelector('.menu');
   const body = document.body;
 
-  hamburger.addEventListener('click', () => {
-    hamburger.classList.toggle('active');
-    menu.classList.toggle('expanded');
+  if (hamburger && menu) {
+    hamburger.addEventListener('click', () => {
+      hamburger.classList.toggle('active');
+      menu.classList.toggle('expanded');
 
-    if (menu.classList.contains('expanded')) {
-      body.style.overflow = 'hidden'; 
-    } else {
-      body.style.overflow = '';
-    }
-  });
-});
+      body.style.overflow = menu.classList.contains('expanded') ? 'hidden' : '';
+    });
+  }
+}
