@@ -1,0 +1,17 @@
+---
+import Button from "src/components/button/Button.astro";
+import "src/logic/main-page/offer/Offer.less";
+import Table from "src/logic/main-page/offer/table/Table.astro";
+import HorizontalLineTitle from "src/components/horizontal-line-title/HorizontalLineTitle.astro";
+
+---
+
+<div class="offer-container">
+    <HorizontalLineTitle title="ИНЖЕНЕРЫ ПОМОГУТ НА ЛЮБОМ ЭТАПЕ">
+        <div class="options">
+            <Button label="Техподдержка БД" />
+            <a class="secondary-offer-option" href="#">DevOps</a>
+        </div>
+        <Table />
+    </HorizontalLineTitle>
+</div>
