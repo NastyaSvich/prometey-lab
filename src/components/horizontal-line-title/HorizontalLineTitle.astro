@@ -1,16 +1,18 @@
 ---
 import 'src/components/horizontal-line-title/HorizontalLineTitle.less';
 
-const {
-  title,
-} = Astro.props;
+const {title, subtitle, className = '', contentClassName = ''} = Astro.props;
 
 /**
  *  Заголовок с горизонтальной линией перед заголовком.
  */
 ---
 
-<div class="horizontal-line-title">
-    <div class="horizontal-line" />
-    <div class="title">{title}</div>
+<div class={`horizontal-line-title ${className}`}>
+    <div class="line-title-container">
+        <div class="horizontal-line"></div>
+        <div class="title">{title}</div>
+    </div>
+    <div class="subtitle">{subtitle}</div>
+    <div class={`content ${contentClassName}`}><slot /></div>
 </div>

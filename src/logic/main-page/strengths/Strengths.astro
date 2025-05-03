@@ -1,0 +1,63 @@
+---
+import Card, {type CardProps} from 'src/components/card/Card.astro';
+import HorizontalLineTitle from 'src/components/horizontal-line-title/HorizontalLineTitle.astro';
+import 'src/logic/main-page/strengths/Strengths.less';
+
+const createBackground = (fileName: string) => {
+    return `url("src/assets/images/${fileName}") center/cover no-repeat`;
+}
+
+const strengths: CardProps[] = [
+    {
+        title: 'Решение инцидентов',
+        description: 'Оперативное реагирование и восстановление',
+        background: createBackground('card-background-1.png'),
+    },
+    {
+        title: 'Мониторинг',
+        description: 'Предотвращаем инциденты до появления влияния',
+        background: createBackground('card-background-2.png'),
+    },
+    {
+        title: 'Привлечение экспертов',
+        description:
+            'В сложных случаях подключаем экспертизу Senior DevOps, Senior SRE, Senior Network Engineer',
+        background: createBackground('card-background-1.png'),
+    },
+    {
+        title: 'Автоматизацию рутинных задач',
+        description: 'Экономия времени и снижение ручных ошибок',
+        background: createBackground('card-background-3.png'),
+    },
+    {
+        title: 'Прозрачные регламентные работы',
+        description: 'Оперативное реагирование и восстановление',
+        background: createBackground('card-background-4.png'),
+    },
+    {
+        title: 'Консультации по работе с Базами данных',
+        description: 'Помогаем оптимизировать и улучшать процессы',
+        background: createBackground('card-background-5.png'),
+    },
+];
+
+/**
+ * Компонент раздела "Сильные стороны".
+ */
+---
+
+<HorizontalLineTitle
+    title="СИЛЬНЫЕ СТОРОНЫ"
+    className="strengths"
+    contentClassName="strengths-content"
+>
+    {
+        strengths.map(({title, description, background}) => (
+            <Card
+                title={title}
+                description={description}
+                background={background}
+            />
+        ))
+    }
+</HorizontalLineTitle>
