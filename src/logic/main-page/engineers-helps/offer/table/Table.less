@@ -1,12 +1,29 @@
 @import '@styles/globals.less';
 
 .offer-table {
-    background-color: @background-blue;
     display: grid;
+    background-color: @background-blue;
     grid-template-columns: repeat(6, 1fr);
+    border-radius: 10px;
 
-    div {
+    .mediaDefault({
+        min-width: 860px;
+        max-width: 1170px;
+    });
+
+    .mediaPhone({
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(6, 1fr);
+        grid-auto-flow: column;
+        padding: 8px 12px;
+    });
+
+
+    >div {
         padding: 12px 10px;
+        .mediaPhone({
+            padding: 6px 0;
+        });
 
         .inner-border {
             width: 100%;
@@ -16,29 +33,63 @@
     }
 
     div:not(:nth-child(6n)) {
+        .mediaPhone({
+            border-bottom: 1px solid @outline;
+        });
         .inner-border {
-            border-right: 1px solid @accent-blue;
+            .mediaDefault({
+                border-right: 1px solid @accent-blue;
+            });
         }
     }
+
+    .mediaPhone({
+        div:nth-child(-n + 6) .inner-border {
+            border-right: 1px solid @outline;
+        }
+        >div:nth-child(n) .inner-border {
+            font-size: 10px;
+            padding: 18px 11px 18px 0;
+        }
+    });
 
     div:nth-child(-n + 6) {
         .fontOpenSansBold();
         font-size: 20px;
-        border-bottom: 1px solid @accent-blue;
+        .mediaDefault({
+            border-bottom: 1px solid @accent-blue;
 
-        .inner-border {
-            padding: 14px 35px;
-        }
+            .inner-border {
+                padding: 14px 16px;
+            }
+        });
+
     }
 
     div:nth-child(n + 7) {
         .fontOpenSansRegular();
         font-size: 15px;
-        border-bottom: 1px solid @accent-blue;
+
         .inner-border {
             padding: 10px;
         }
     }
+}
 
-    div:not(:nth-child(6n)) {}
+@media (min-width: 941px) and (max-width: 1380px) {
+    .offer-table {
+        >div {
+            padding: 12px 0;
+        }
+
+        div:nth-child(-n + 6)>.inner-border {
+            padding: 14px 5px;
+            text-align: center;
+        }
+
+        div:nth-child(n + 7)>.inner-border {
+            padding: 10px 5px;
+        }
+    }
+
 }
