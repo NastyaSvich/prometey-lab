@@ -1,5 +1,4 @@
 ---
-import 'src/components/trust-reasons/TrustReasons.less';
 import HorizontalLineTitle from 'src/components/horizontal-line-title/HorizontalLineTitle.astro';
 import Swiper from 'src/components/swiper/Swiper.astro';
 import SwiperSlideElement from 'src/components/swiper/SwiperSlideElement.astro';
@@ -11,10 +10,11 @@ import clock from 'src/assets/images/clock.svg';
 import lock from 'src/assets/images/lock.svg';
 import team from 'src/assets/images/team.svg';
 import wallet from 'src/assets/images/wallet.svg';
+import 'src/components/trust-reasons/TrustReasons.less';
 
 export type TrustReasonsProps = {
     title: string;
-    icon: any;
+    icon: ImageMetadata;
     description: string;
 };
 

@@ -1,0 +1,50 @@
+---
+import HorizontalLineTitle from 'src/components/horizontal-line-title/HorizontalLineTitle.astro';
+import Swiper from 'src/components/swiper/Swiper.astro';
+import SwiperSlideElement from 'src/components/swiper/SwiperSlideElement.astro';
+import {Image} from 'astro:assets';
+import client1 from 'src/assets/images/client-1.png';
+import client2 from 'src/assets/images/client-2.png';
+import client3 from 'src/assets/images/client-3.png';
+import client4 from 'src/assets/images/client-4.png';
+
+import 'src/logic/main-page/trust-us/TrustUs.less';
+
+export type TrustUsProps = {
+    icon: ImageMetadata;
+};
+
+const clients: TrustUsProps[] = [
+    {icon: client1},
+    {icon: client2},
+    {icon: client3},
+    {icon: client4},
+    {icon: client1},
+    {icon: client2},
+    {icon: client3},
+    {icon: client4},
+];
+---
+
+<div class="trust-us">
+    <HorizontalLineTitle
+        title="НАМ ДОВЕРЯЮТ"
+        subtitle="При работе с нашими клиентами мы готовые привлекать сторонних экспертов для решения сложных задач, аудита и оптимизации"
+        className="trust-us-container"
+        contentClassName="trust-us-content"
+    >
+        <Swiper
+            desktopSlidesPerView={4}
+            tabletSlidesPerView={3}
+            spaceBetween={6}
+        >
+            {
+                clients.map(({icon}) => (
+                    <SwiperSlideElement>
+                        <Image src={icon} alt="icon" class="client-image" />
+                    </SwiperSlideElement>
+                ))
+            }
+        </Swiper>
+    </HorizontalLineTitle>
+</div>

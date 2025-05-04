@@ -1,22 +1,71 @@
 ---
 import 'swiper/css';
 import 'swiper/css/navigation';
-import 'swiper/css/pagination';
 import 'src/components/swiper/Swiper.less';
+import {randomUUID} from 'crypto';
+
+export type SwiperProps = {
+    /**
+     * Количество слайдов отображаемое при десктопном расширении экрана.
+     *
+     * По умолчанию = 3.
+     */
+    desktopSlidesPerView?: number;
+
+    /**
+     * Количество слайдов отображаемое при планшетном расширении экрана.
+     *
+     * По умолчанию = 2.
+     */
+    tabletSlidesPerView?: number;
+
+    /**
+     * Количество слайдов отображаемое при мобильном расширении экрана.
+     *
+     * По умолчанию = 1.
+     */
+    mobileSlidesPerView?: number;
+
+    /**
+     * Расстояние между карточками.
+     *
+     * По умолчанию = 10.
+     */
+    spaceBetween: number;
+};
+
+const id = `id-${randomUUID()}`;
+
+const {
+    desktopSlidesPerView = 3,
+    tabletSlidesPerView = 2,
+    mobileSlidesPerView = 1,
+    spaceBetween = 10,
+} = Astro.props as SwiperProps;
+
+const config = {
+    id,
+    spaceBetween,
+    desktopSlidesPerView,
+    tabletSlidesPerView,
+    mobileSlidesPerView,
+};
 ---
 
 <div class="swiper-container">
-    <div class="swiper">
+    <div class=`swiper ${id}`>
         <div class="swiper-wrapper">
             <slot />
         </div>
     </div>
 
-    <div class="arrow arrow-left"></div>
-    <div class="arrow arrow-right"></div>
+    <div class=`arrow arrow-left ${id}`></div>
+    <div class=`arrow arrow-right ${id}`></div>
 </div>
 
-<script type="module">
+<script type="module" define:vars={{config}}>
     import {initSwiper} from '/src/components/swiper/SwiperInit.js';
-    initSwiper();
+
+    // @ts-ignore
+    initSwiper(config);
 </script>

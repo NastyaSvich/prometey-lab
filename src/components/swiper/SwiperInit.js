@@ -3,24 +3,30 @@ import {Navigation} from 'swiper/modules';
 
 Swiper.use([Navigation]);
 
-export function initSwiper() {
-    new Swiper('.swiper', {
+export function initSwiper({
+    desktopSlidesPerView,
+    tabletSlidesPerView,
+    mobileSlidesPerView,
+    spaceBetween,
+    id,
+}) {
+    new Swiper(`.swiper.${id}`, {
         loop: true,
         navigation: {
-            nextEl: '.arrow.arrow-right',
-            prevEl: '.arrow.arrow-left',
+            nextEl: `.arrow.arrow-right.${id}`,
+            prevEl: `.arrow.arrow-left.${id}`,
         },
         grabCursor: true,
-        slidesPerView: 1,
-        spaceBetween: 20,
+        slidesPerView: mobileSlidesPerView,
+        spaceBetween: spaceBetween,
         breakpoints: {
             // when window width is >=
             941: {
-                slidesPerView: 2,
+                slidesPerView: tabletSlidesPerView,
             },
             1190: {
-                slidesPerView: 3,
-            }
+                slidesPerView: desktopSlidesPerView,
+            },
         },
     });
 }
