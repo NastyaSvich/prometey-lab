@@ -1,0 +1,41 @@
+---
+import Button from 'src/components/button/Button.astro';
+import 'src/components/modal/Modal.less';
+
+export type ModalProps = {
+    isOpen: boolean;
+    closeModal: () => void;
+};
+---
+
+<div class="modal-overlay" id="modalOverlay">
+    <div class="modal-content">
+        <div class="modal-title">БЛАГОДАРИМ ВАС ЗА ОСТАВЛЕННУЮ ЗАЯВКУ!</div>
+        <div class="modal-subtitle">
+            Команда PROMETEY LAB свяжется с вами в ближайшее время
+        </div>
+        <Button label="На главную" className="modal-button" size="medium" />
+    </div>
+</div>
+
+<script type="module">
+    import {openModal, closeModal} from '/src/components/modal/Modal.js';
+
+    const openModalBtn = document.getElementById('openModalBtn');
+    const modalOverlay = document.getElementById('modalOverlay');
+    const closeModalBtn = document.getElementById('closeModalBtn');
+
+    openModalBtn?.addEventListener('click', () => {
+        openModal(modalOverlay);
+    });
+
+    closeModalBtn?.addEventListener('click', () => {
+        closeModal(modalOverlay);
+    });
+
+    modalOverlay?.addEventListener('click', (event) => {
+        if (event.target === modalOverlay) {
+            closeModal(modalOverlay);
+        }
+    });
+</script>

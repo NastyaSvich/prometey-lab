@@ -2,23 +2,50 @@
 import Input from 'src/components/input/Input.astro';
 import Textarea from 'src/components/textarea/Textarea.astro';
 import Button from 'src/components/button/Button.astro';
+import {openModal, closeModal} from 'src/components/modal/Modal.js';
+import Modal from 'src/components/modal/Modal.astro';
 import 'src/components/form/Form.less';
+
+// if (Astro.request.method === 'POST') {
+//     try {
+//         const data = await Astro.request.formData();
+//         const name = data.get('name');
+//         const email = data.get('email');
+//         const password = data.get('message');
+//         console.log(name);
+//     } catch (error) {
+//         if (error instanceof Error) {
+//             console.error(error.message);
+//         }
+//     }
+// }
 ---
 
-<form class="form">    
+<form class="form" method="post">
     <div class="form-content">
-        <div class="title">РАССКАЖИТЕ О СВОЕМ ПРОЕКТЕ И МЫ РЕШИМ ВАШУ ЗАДАЧУ</div>
-
-        <div class="fields-wrapper">
-        <div class="fields">
-            <Input placeholder="Имя"/>
-            <Input placeholder="E-mail"/>
-            <Textarea placeholder="Сообщение"/>
+        <div class="title">
+            РАССКАЖИТЕ О СВОЕМ ПРОЕКТЕ И МЫ РЕШИМ ВАШУ ЗАДАЧУ
         </div>
 
-        <p class="agreement">Оставляя заявку, вы даете согласие на обработку персональных данных в соответствии с нашей Политикой</p>
+        <div class="fields-wrapper">
+            <div class="fields">
+                <Input placeholder="Имя" name="name" required/>
+                <Input placeholder="E-mail" name="email" required/>
+                <Textarea placeholder="Сообщение" name="message" required/>
+            </div>
 
-        <Button label="Оставить заявку" variant="white"/>
-    </div>
+            <p class="agreement">
+                Оставляя заявку, вы даете согласие на обработку персональных
+                данных в соответствии с нашей Политикой
+            </p>
+
+            <Button
+                label="Оставить заявку"
+                variant="white"
+                onClick={openModal}
+            />
+
+            <Modal />
+        </div>
     </div>
 </form>
