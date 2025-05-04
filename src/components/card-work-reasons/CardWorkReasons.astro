@@ -1,8 +1,8 @@
 ---
-import "src/components/card-about-us/AboutUsCard.less";
+import "src/components/card-work-reasons/CardWorkReasons.less";
 import CardDefault from "src/components/card-default/CardDefault.astro";
 
-export type CardAboutProps = {
+export type CardWorkReasonsProps = {
     step: string;
     icon: string;
     title: string;
@@ -13,15 +13,14 @@ export type CardAboutProps = {
 const { step, icon, title, description, className = "" } = Astro.props;
 ---
 
-<div class="about-us-card-wrapper">
+<div class="card-work-reasons-wrapper">
     <div class="step">{step}</div>
 
-    <CardDefault className={`about-us-card ${className}`}>
+    <CardDefault className={`card-work-reasons ${className}`}>
         <div slot="title" class="title">
-            <img src={icon} alt="Иконка" class="about-us-icon" />
+            <img src={icon} alt="Иконка" class="work-reasons-icon" />
             {title}
         </div>
         <div slot="description" class="description">{description}</div>
-        </Ca
     </CardDefault>
 </div>
