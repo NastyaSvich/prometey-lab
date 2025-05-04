@@ -1,3 +1,61 @@
+@import '@styles/globals.less';
+
+@max-width: 1250px;
+
 .trust-reasons {
-    
+    width: 100%;
+    background-color: @background-grey;
+
+    .trust-reasons-container {
+        padding: 48px 40px;
+        width: 100%;
+        margin: 0 auto;
+        max-width: @max-width;
+
+        .mediaPhone({
+            padding: 40px 20px;
+        });
+
+        .trust-reasons-card {
+            .mediaPhone({
+                max-width: 220px;
+            });
+
+            .title-content {
+                display: flex;
+                justify-content: flex-start;
+                gap: 6px;
+
+                .title {
+                    .fontOpenSansBold();
+                    font-size: 18px;
+                    color: @primary-black-text;
+
+                    .mediaPhone({
+                        font-size: 15px;
+                    });
+                }
+
+                .icon {
+                    width: 26px;
+                    height: 26px;
+
+                    .mediaPhone({
+                        width: 20px;
+                        height: 20px;
+                    });
+                }
+            }
+
+            .description {
+                .fontOpenSansRegular();
+                font-size: 15px;
+                color: @secondary-black-text;
+
+                .mediaPhone({
+                    font-size: 12px;
+                });
+            }
+        }
+    }
 }

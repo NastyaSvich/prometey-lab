@@ -1,18 +1,32 @@
 import Swiper from 'swiper';
-import { Navigation, Pagination } from 'swiper/modules';
+import {Navigation} from 'swiper/modules';
 
-Swiper.use([Navigation, Pagination]);
+Swiper.use([Navigation]);
 
-export function initSwiper() {
-  new Swiper('.swiper', {
-    loop: true,
-    navigation: {
-      nextEl: '.swiper-button-next',
-      prevEl: '.swiper-button-prev',
-    },
-    pagination: {
-      el: '.swiper-pagination',
-      clickable: true,
-    },
-  });
+export function initSwiper({
+    desktopSlidesPerView,
+    tabletSlidesPerView,
+    mobileSlidesPerView,
+    spaceBetween,
+    id,
+}) {
+    new Swiper(`.swiper.${id}`, {
+        loop: true,
+        navigation: {
+            nextEl: `.arrow.arrow-right.${id}`,
+            prevEl: `.arrow.arrow-left.${id}`,
+        },
+        grabCursor: true,
+        slidesPerView: mobileSlidesPerView,
+        spaceBetween: spaceBetween,
+        breakpoints: {
+            // when window width is >=
+            941: {
+                slidesPerView: tabletSlidesPerView,
+            },
+            1190: {
+                slidesPerView: desktopSlidesPerView,
+            },
+        },
+    });
 }
