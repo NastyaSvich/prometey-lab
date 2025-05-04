@@ -1,8 +1,6 @@
-@import '@styles/globals.less';
-
+@import "@styles/globals.less";
 
 .horizontal-line-title {
-
     .line-title-container {
         .fontOpenSansExtraBold();
         display: flex;
@@ -15,28 +13,27 @@
             gap: 8px;
         });
 
-    .horizontal-line,
-    .title {
-        display: inline-block;
-    }
+        .horizontal-line,
+        .title {
+            display: inline-block;
+        }
 
-    .horizontal-line {
-        margin-top: 27px;
-        width: 61px;
-        height: 3px;
-        border-bottom: 3px solid @accent-blue;
-        border-radius: 10px;
+        .horizontal-line {
+            margin-top: 27px;
+            width: 61px;
+            height: 3px;
+            border-bottom: 3px solid @accent-blue;
+            border-radius: 10px;
 
-        .mediaPhone({
-            margin-top: 13px;
-            width: 30px;
-        });
-    }
+            .mediaPhone({
+                margin-top: 13px;
+                width: 30px;
+            });
+        }
 
         .title {
             color: @primary-black-text;
         }
-
     }
 
     .subtitle {

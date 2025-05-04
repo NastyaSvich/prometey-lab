@@ -1,39 +1,39 @@
-@import '@styles/globals.less';
+@import "@styles/globals.less";
 
 .card-work-reasons-wrapper {
     min-height: 242px;
     max-width: 375px;
-}
 
-.card-work-reasons {
-    min-height: 150px;
+    .card-work-reasons {
+        min-height: 150px;
 
-    .title {
-        display: flex;
-        align-items: center;
-        gap: 10px;
-        .fontOpenSansBold();
-        font-size: 22px;
-        color: @primary-black-text;
+        .title {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            .fontOpenSansBold();
+            font-size: 22px;
+            color: @primary-black-text;
 
-        .mediaPhone({
-            font-size: 18px;
-        });
-}
+            .mediaPhone({
+                font-size: 18px;
+            });
+        }
 
-.work-reasons-icon {
-    width: 28px;
-    height: 28px;
-    flex-shrink: 0;
-}
+        .work-reasons-icon {
+            width: 28px;
+            height: 28px;
+            flex-shrink: 0;
+        }
 
-.description {
-    .fontOpenSansRegular();
-    font-size: 16px;
-    color: @secondary-black-text;
+        .description {
+            .fontOpenSansRegular();
+            font-size: 16px;
+            color: @secondary-black-text;
 
-    .mediaPhone({
+            .mediaPhone({
         font-size: 14px;
     });
-}
+        }
+    }
 }
