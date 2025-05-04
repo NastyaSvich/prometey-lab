@@ -2,16 +2,18 @@
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
+import 'src/components/swiper/Swiper.less';
 ---
 
-<div class="swiper">
-    <div class="swiper-wrapper">
-        <slot />
+<div class="swiper-container">
+    <div class="swiper">
+        <div class="swiper-wrapper">
+            <slot />
+        </div>
     </div>
 
-    <div class="swiper-button-prev"></div>
-    <div class="swiper-button-next"></div>
-    <div class="swiper-pagination"></div>
+    <div class="arrow arrow-left"></div>
+    <div class="arrow arrow-right"></div>
 </div>
 
 <script type="module">
