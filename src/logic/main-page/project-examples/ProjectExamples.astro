@@ -1,13 +1,85 @@
 ---
+import Button from "src/components/button/Button.astro";
 import HorizontalLineTitle from "src/components/horizontal-line-title/HorizontalLineTitle.astro";
 import Options from "src/components/options/Options.astro";
+import "src/logic/main-page/project-examples/ProjectExamples.less";
+
+const tasks = {
+    "project-1": `<b>Задача:</b> Разработать и внедрить новую архитектуру совместно с
+    ИТ-специалистами заказчика`,
+    "project-2": `<b>Задача:</b> Разработать и внедрить новую архитектуру совместно с
+    ИТ-специалистами заказчика`,
+    "project-3": `<b>Задача:</b> Разработать и внедрить новую архитектуру совместно с
+    ИТ-специалистами заказчика`,
+};
+
+const details = {};
 ---
 
-<HorizontalLineTitle
-    title="ПРИМЕРЫ ПРОЕКТОВ"
-    subtitle="Стоимость проектов индивидуальна — все зависит от конечных задач, утвержденных с вами"
-    className="project-examples"
->
-    <Options />
-    
-</HorizontalLineTitle>
+<project-examples data-tasks={JSON.stringify(tasks)} data-details={details}>
+    <HorizontalLineTitle
+        title="ПРИМЕРЫ ПРОЕКТОВ"
+        subtitle="Стоимость проектов индивидуальна — все зависит от конечных задач, утвержденных с вами"
+        className="project-examples"
+    >
+        <Options />
+        <div class="projects">
+            <div class="project project-1 active" id="project-1">
+                Небольшой интернет-магазин
+            </div>
+            <div class="project project-2" id="project-2">
+                B2С-маркетплейс в стадии активной разработки
+            </div>
+            <div class="project project-3" id="project-3">
+                Крупная логистическая компания
+            </div>
+            <div class="task" set:html={tasks["project-1"]} />
+            <div class="details">
+                <b>Состав проекта:</b>
+                <ul>
+                    <li>2+ виртуальных машин в облаке</li>
+                    <li>Yandex Managed Service for PostgreSQL</li>
+                    <li>2 проекта (сайт, API)</li>
+                    <li>CI/CD для автоматического деплоя</li>
+                    <li>Балансировка нагрузки</li>
+                    <li>
+                        Стек: Nginx, PostgreSQL, Redis, PHP, Node.js, Docker,
+                        GitLab
+                    </li>
+                </ul>
+                <Button variant="outline" label="от 100 тыс. руб" />
+            </div>
+        </div>
+    </HorizontalLineTitle>
+</project-examples>
+
+<script>
+    class ProjectExamples extends HTMLElement {
+        constructor() {
+            super();
+            // Find all projects in table.
+            const projectsHTML =
+                document.querySelectorAll(".projects .project");
+            const taskHTML = document.querySelector(".projects .task");
+
+            const tasks = JSON.parse(this.dataset?.tasks || "");
+
+            // Handle clicks on each project.
+            projectsHTML.forEach((project) => {
+                project.addEventListener("click", (clicked) => {
+                    projectsHTML.forEach((project) => {
+                        project?.classList?.remove("active");
+                    });
+                    if (clicked?.target instanceof HTMLElement) {
+                        clicked?.target?.classList?.add("active");
+                        const id = clicked?.target?.id;
+                        if (taskHTML instanceof HTMLElement && tasks?.[id]) {
+                            taskHTML.innerHTML = tasks[id];
+                        }
+                    }
+                });
+            });
+        }
+    }
+    customElements.define("project-examples", ProjectExamples);
+</script>

@@ -1,0 +1,135 @@
+@import '@styles/globals.less';
+
+.projects {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    border: 1px solid @accent-blue;
+    border-radius: 10px;
+    background-color: @background-blue;
+    overflow: hidden;
+
+
+
+    .mediaPhone({
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(3, 1fr) auto auto;
+    });
+
+    .project-1,
+    .project-2,
+    .project-3 {
+        display: flex;
+        align-items: center;
+        justify-self: stretch;
+        cursor: pointer;
+
+        .mediaDefault({
+            padding: 35px 12px 35px 24px;
+            border-right: 1px solid @accent-blue;
+        });
+        .mediaPhone({
+            padding: 14px 12px;
+        });
+        .fontOpenSansMedium();
+        font-size: 20px;
+    }
+
+    .project-1.active,
+    .project-2.active,
+    .project-3.active {
+        color: @primary-white-text;
+        background-color: @accent-blue;
+    }
+
+    .project-2 {
+        border-top: 1px solid @accent-blue;
+        border-bottom: 1px solid @accent-blue;
+    }
+
+    .mediaPhone({
+        .project-3 {
+            border-bottom: 1px solid @accent-blue;
+        }
+    });
+
+    .header() {
+        .fontOpenSansBold();
+        display: block;
+        font-size: 22px;
+    }
+
+    .body() {
+        .fontOpenSansRegular();
+        font-size: 16px;
+    }
+
+    .task {
+        .body();
+        .mediaDefault({
+            padding: 34px 12px 34px 24px;
+            border-right: 1px solid @accent-blue;
+        });
+        .mediaPhone({
+            padding: 14px 12px 0 14px;
+        });
+        b {
+            .header();
+            padding-bottom: 10px;
+
+        }
+    }
+    .details {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        .body();
+        .mediaDefault({
+            padding: 24px 20px 24px 24px;
+        });
+        .mediaPhone({
+            padding: 14px 12px;
+        });
+        b {
+            .header();
+        }
+        ul  {
+            .body();
+            padding-left: 24px;
+            li {
+                padding: 4px 0;
+                &::marker {
+                    color: @accent-blue;
+                }
+            }
+        }
+        .button {
+            padding: 8px 30px;
+            margin-top: auto;
+            align-self: flex-end;
+            align-content: flex-end;
+
+        }
+
+    }
+
+
+
+    .mediaDefault({
+        .task {
+            grid-row: 1 / 4;
+            grid-column: 2 / 3;
+        }
+        .details {
+            grid-row: 1 / 4;
+            grid-column: 3 / 4;
+        }
+    });
+
+    .mediaPhone({
+        .task,
+        .details {
+            background-color: @background-light-gray;
+        }
+    });
+}
