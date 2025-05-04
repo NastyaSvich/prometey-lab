@@ -1,0 +1,47 @@
+@import '@styles/globals.less';
+
+.list-item {
+    .icon {
+        .mediaPhone({
+            zoom: 0.5;
+            display: inline-block;
+        });
+    }
+
+    .image-with-header {
+        display: flex;
+    }
+
+.header-title {
+    .fontOpenSansBold();
+    margin-top: 8px;
+    font-size: 24px;
+
+    .mediaPhone({
+        display: inline-block;
+        margin-top: 0;
+
+        margin-left: 5px;
+        font-size: 18px;
+    });
+}
+
+ul {
+    .fontOpenSansRegular();
+    font-size: 16px;
+    padding-left: 22px;
+    padding-top: 14px;
+
+    .mediaPhone({
+        font-size: 14px;
+    });
+
+li {
+    padding: 3px 0;
+
+    &::marker {
+        color: @accent-blue;
+    }
+}
+}
+}
