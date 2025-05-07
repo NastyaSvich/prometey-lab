@@ -3,6 +3,8 @@ import {defineConfig} from 'astro/config';
 import path from 'path';
 import relativeLinks from 'astro-relative-links';
 
+import netlify from '@astrojs/netlify';
+
 export default defineConfig({
     outDir: process.env.BUILD_DIR || 'dist',
     base: '/prometey-lab/',
@@ -16,4 +18,6 @@ export default defineConfig({
             },
         },
     },
+
+  adapter: netlify(),
 });
