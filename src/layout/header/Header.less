@@ -8,7 +8,7 @@
 
     .mediaDefault({
         padding: 0 40px;
-    });    
+    });
 
     .header-content {
         width: 100%;
@@ -16,7 +16,7 @@
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        border-bottom: 1px solid #BFBFBF;
+        border-bottom: 1px solid @header-border;
 
         .header-top {
             .fontOpenSansBold();
@@ -126,6 +126,13 @@
                     color: @primary-black-text;
                     display: flex;
                     gap: 34px;
+
+                    a {
+                        &:hover {
+                            text-decoration: underline;
+                            text-underline-offset: 6px;
+                        }
+                    }
                 }
 
                 .contact-information {
@@ -159,7 +166,6 @@
                     });
 
                     li {
-                        
                         list-style: none;
 
                         .logo-container {

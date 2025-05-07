@@ -1,9 +1,9 @@
 ---
-import Button from "src/components/button/Button.astro";
+import Tab from "src/components/tab/Tab.astro";
 import "src/components/options/Options.less"
 
 ---
 <div class="options">
-    <Button label="Техподдержка БД" />
-    <a class="secondary-offer-option" href="#">DevOps</a>
+    <Tab label="Техподдержка БД" isActive={true}/>
+    <Tab label="DevOps" />
 </div>

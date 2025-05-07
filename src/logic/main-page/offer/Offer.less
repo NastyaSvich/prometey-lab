@@ -93,3 +93,43 @@
     }
 
 }
+
+h2.service {
+    .fontOpenSansExtraBold();
+    margin-top: 40px;
+    font-size: 24px;
+    .mediaPhone({
+        font-size: 16px;
+    });
+
+}
+
+.promotion {
+    display: flex;
+    gap: 60px;
+    justify-content: space-between;
+    margin-top: 4px;
+    .mediaPhone({
+        flex-direction: column;
+        gap: 20px;
+    });
+    .main-image {
+        align-self: center;
+        zoom: 0.85;
+
+        .mediaPhone({
+            zoom: 0.65;
+        });
+    }
+    .cards {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr 1fr;
+        gap: 25px; 
+
+        .mediaPhone({
+            grid-template-columns: 1fr;
+            grid-template-rows: repeat(4, auto);
+        });
+    }
+}

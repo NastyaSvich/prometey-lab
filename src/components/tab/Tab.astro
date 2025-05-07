@@ -1,0 +1,22 @@
+---
+import 'src/components/tab/Tab.less';
+
+export type TabProps = {
+    label: string;
+    className?: string;
+    isActive?: boolean;
+};
+
+const {
+    label,
+    className = "",
+    isActive = false,
+} = Astro.props as TabProps;
+
+const classNameStyle = `tab ${className} ${isActive ? "active" : ""}`;
+---
+
+<div class={classNameStyle}>
+    {label}
+</div>
+

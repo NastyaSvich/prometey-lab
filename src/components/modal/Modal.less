@@ -1,0 +1,58 @@
+@import '@styles/globals.less';
+
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: @overlay;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    transition: opacity 0.3s ease;
+    z-index: 9999;
+
+    &.open {
+        display: flex;
+    }
+
+    .modal-content {
+        background: url("@assets/images/prometey.png") no-repeat right center / contain;
+        background-color: @background-white;
+        padding: 50px;
+        border-radius: 22px;
+        max-width: 690px;
+        width: 100%;
+
+        .mediaPhone({
+          padding: 20px;
+          max-width: 300px;
+        });
+
+        .modal-title {
+          .fontOpenSansExtraBold();
+          font-size: 24px;
+          color: @primary-black-text;
+
+          .mediaPhone({
+              font-size: 16px;
+          });
+        }
+
+        .modal-subtitle {
+          .fontOpenSansRegular();
+          font-size: 16px;
+          color: @primary-black-text;
+          margin-top: 5px;
+
+          .mediaPhone({
+            font-size: 12px;
+          });
+        }
+
+        .modal-button {
+          margin-top: 30px;
+        }
+    }
+}

@@ -2,6 +2,13 @@
 import "src/logic/main-page/offer/Offer.less";
 import HorizontalLineTitle from "src/components/horizontal-line-title/HorizontalLineTitle.astro";
 import Options from "src/components/options/Options.astro";
+import ListItem from "src/logic/main-page/offer/ListItem.astro";
+import StructuresAndApps from "src/assets/images/structures-and-apps.jpg";
+import { Image } from "astro:assets";
+import Expertise from "@assets/images/expertise.svg";
+import Message from "@assets/images/message.svg";
+import MoneyBag from "@assets/images/money-bag.svg";
+import ShieldLock from "@assets/images/shield-lock.svg";
 ---
 
 <div class="offer-container">
@@ -27,27 +34,84 @@ import Options from "src/components/options/Options.astro";
             </div>
             <div class="content">
                 <span class="inner-border"
-                    >Минимизируем расходы и планируем сроки создания продукта</span>
+                    >Минимизируем расходы и планируем сроки создания продукта</span
+                >
             </div>
             <div class="content">
                 <span class="inner-border"
-                    >Полностью автоматизируем процессы разработки</span>
+                    >Полностью автоматизируем процессы разработки</span
+                >
             </div>
             <div class="content">
                 <span class="inner-border"
-                    >Определяем проблемы на ранних стадиях</span>
+                    >Определяем проблемы на ранних стадиях</span
+                >
             </div>
             <div class="content">
                 <span class="inner-border"
-                    >Запускаем авто-тесты и выявляем «баги» раньше пользователей</span>
+                    >Запускаем авто-тесты и выявляем «баги» раньше пользователей</span
+                >
             </div>
             <div class="content">
                 <span class="inner-border"
-                    >Многократные релизы с изменениями</span>
+                    >Многократные релизы с изменениями</span
+                >
             </div>
             <div class="content">
                 <span class="inner-border"
-                    >Сводим время простоя сервиса к минимуму</span>
+                    >Сводим время простоя сервиса к минимуму</span
+                >
+            </div>
+        </div>
+
+        <h2 class="service">ТЕХПОДДЕРЖКА БАЗ ДАННЫХ</h2>
+        <div class="promotion">
+            <Image
+                src={StructuresAndApps}
+                alt="image"
+                class="main-image"
+            />
+            <div class="cards">
+                <ListItem
+                    icon={Expertise}
+                    header="Экспертиза"
+                    list={[
+                        "Инфраструктура и CI/CD",
+                        "Миграция в облака и Kubernetes",
+                        "Комплексный подход к устранению неполадок",
+                        "SRE, DevOps практика и инструменты разработки, поддержка",
+                    ]}
+                />
+                <ListItem
+                    icon={Message}
+                    header="Коммуникация"
+                    list={[
+                        "Отлаженный Workflow",
+                        "Команда SRE инженеров для внедрения DevOps",
+                        "Чат-бот для связи с командой",
+                        "Прозрачная отчетность о ходе работы DevOps автоматизации",
+                    ]}
+                />
+                <ListItem
+                    icon={MoneyBag}
+                    header="Экономия"
+                    list={[
+                        "Обеспечение оптимальной стоимости вашей инфраструктуры",
+                        "Свобода в выборе облаков и других поставщиков услуг",
+                        "Нет потерь информации при частой смене сотрудников",
+                        "Быстрый старт, гибкое масштабирование рабочей силы",
+                    ]}
+                />
+                <ListItem
+                    icon={ShieldLock}
+                    header="Отсутствие рисков"
+                    list={[
+                        "Поддержка 24/7 с 15-минутным SLA",
+                        "Vendor-agnostic инфраструктура",
+                        "Решения на основе открытого исходного кода",
+                        "Клиентский портал c историческими данными",
+                    ]}
+                />
             </div>
         </div>
     </HorizontalLineTitle>
