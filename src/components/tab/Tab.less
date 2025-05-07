@@ -1,0 +1,36 @@
+@import '@styles/globals.less';
+
+@padding-height-desktop: 10px;
+@padding-width-desktop: 30px;
+@padding-height-mobile: 10px;
+@padding-width-mobile: 20px;
+@border: 2px;
+
+.tab {
+    .fontOpenSansRegular();
+    font-size: 18px;
+    color: @primary-black-text;
+    cursor: pointer;
+    padding: @padding-height-desktop @padding-width-desktop;
+    border-radius: 4px;
+
+    .mediaPhone({
+        font-size: 12px;
+        padding: @padding-height-mobile @padding-width-mobile;
+    });
+
+    &:hover {
+        border: 2px solid @accent-blue;
+        padding: @padding-height-desktop - @border @padding-width-desktop - @border;
+
+        .mediaPhone({
+            padding: @padding-height-mobile - @border @padding-width-mobile - @border;
+        });
+    }
+
+    &.active {
+        .fontOpenSansBold();
+        color: @primary-white-text;
+        background: @accent-blue;
+    }
+}
