@@ -1,0 +1,78 @@
+---
+import type { CardWorkReasonsProps } from "src/components/card-work-reasons/CardWorkReasons.astro";
+import CardWorkReasons from "src/components/card-work-reasons/CardWorkReasons.astro";
+import HorizontalLineTitle from "src/components/horizontal-line-title/HorizontalLineTitle.astro";
+import "src/logic/main-page/work-reasons/WorkReasons.less";
+import ThreeCirclesLine from "src/components/HorizontalLineCircles/HorizontalLineCircles.astro";
+
+const cardWorkReasons: CardWorkReasonsProps[] = [
+    {
+        step: "01",
+        icon: "src/assets/images/icon-paper.svg",
+        title: "Подписываем NDA",
+        description:
+            "Начинаем DevOps проект с подписания договора о неразглашении",
+    },
+    {
+        step: "02",
+        icon: "src/assets/images/icon-message.svg",
+        title: "Создаем канал связи",
+        description:
+            "Устанавливаем связь наших команд для простоты коммуникации",
+    },
+    {
+        step: "03",
+        icon: "src/assets/images/icon-carbon.svg",
+        title: "Утверждаем план работ",
+        description: "Создаём и декомпозируем список задач",
+    },
+    {
+        step: "04",
+        icon: "src/assets/images/icon-robot.svg",
+        title: "Ежемесячный отчёт",
+        description:
+            "В конце месяца Бот отправит вам полный список выполненных задач с часовой оценкой и исполнителями",
+    },
+    {
+        step: "05",
+        icon: "src/assets/images/icon-money.svg",
+        title: "Согласовываем бюджет",
+        description: "Продумываем стоимость DevOps услуг под ваши ресурсы",
+    },
+    {
+        step: "06",
+        icon: "src/assets/images/icon-control.svg",
+        title: "Контроль выполнения",
+        description:
+            "Отчитываемся о выполненных задачах в Slack / Telegram. Проводим Stand-Up сессии",
+    },
+];
+
+/**
+ * Компонент раздела "ПОЧЕМУ С НАМИ УДОБНО РАБОТАТЬ".
+ */
+---
+
+<HorizontalLineTitle
+    title="ПОЧЕМУ С НАМИ УДОБНО РАБОТАТЬ"
+    className="work-reasons"
+    contentClassName="work-reasons-content"
+>
+    {
+        (
+            <div class="cards-grid">
+                {cardWorkReasons.slice(0, 3).map((card) => (
+                    <CardWorkReasons {...card} />
+                ))}
+
+                <div class="divider-line">
+                    <ThreeCirclesLine />
+                </div>
+
+                {cardWorkReasons.slice(3).map((card) => (
+                    <CardWorkReasons {...card} />
+                ))}
+            </div>
+        )
+    }
+</HorizontalLineTitle>

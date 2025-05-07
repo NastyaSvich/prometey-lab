@@ -1,0 +1,24 @@
+---
+import "src/components/HorizontalLineCircles/HorizontalLineCircles.less";
+
+/**
+ * Компонент горизонтальной линии с тремя кружками
+ * Каждый кружок содержит два внутренних шарика
+ */
+---
+
+<div class="circles-line-container">
+    <div class="horizontal-line-circle"></div>
+
+    <div class="circles-wrapper">
+        {
+            new Array(3).fill(null).map(() => (
+                <div class="circle">
+                    <div class="inner-circle middle-circle">
+                        <div class="inner-circle small-circle" />
+                    </div>
+                </div>
+            ))
+        }
+    </div>
+</div>

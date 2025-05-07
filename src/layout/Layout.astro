@@ -1,13 +1,13 @@
 ---
-import Header from 'src/layout/header/Header.astro';
-import Footer from 'src/layout/footer/Footer.astro';
-import 'src/layout/Layout.less';
+import Header from "src/layout/header/Header.astro";
+import Footer from "src/layout/footer/Footer.astro";
+import "src/layout/Layout.less";
 
 export type LayoutProps = {
     className?: string;
 };
 
-const {className = ''} = Astro.props as LayoutProps;
+const { className = "" } = Astro.props as LayoutProps;
 
 /**
  * HTML-шаблон для всех страниц.

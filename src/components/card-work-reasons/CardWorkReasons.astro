@@ -1,0 +1,26 @@
+---
+import "src/components/card-work-reasons/CardWorkReasons.less";
+import CardDefault from "src/components/card-default/CardDefault.astro";
+
+export type CardWorkReasonsProps = {
+    step: string;
+    icon: string;
+    title: string;
+    description: string;
+    className?: string;
+};
+
+const { step, icon, title, description, className = "" } = Astro.props;
+---
+
+<div class="card-work-reasons-wrapper">
+    <div class="step">{step}</div>
+
+    <CardDefault className={`card-work-reasons ${className}`}>
+        <div slot="title" class="title">
+            <img src={icon} alt="Иконка" class="work-reasons-icon" />
+            {title}
+        </div>
+        <div slot="description" class="description">{description}</div>
+    </CardDefault>
+</div>

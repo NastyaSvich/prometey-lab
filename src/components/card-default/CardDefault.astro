@@ -1,5 +1,5 @@
 ---
-import 'src/components/card-default/CardDefault.less';
+import "src/components/card-default/CardDefault.less";
 
 export type CardDefaultProps = {
     /**
@@ -15,14 +15,14 @@ export type CardDefaultProps = {
     className?: string;
 };
 
-const {background = '#ffffff', className = ''} =
+const { background = "#ffffff", className = "" } =
     Astro.props as CardDefaultProps;
 
 /**
  * Дефолтный компонент карточки.
  * 
  * Определяющий css-класс: "card-default".
- * 
+ *
  * Пример использования:
  * <CardDefault background="url('/images/bg.jpg') center/cover no-repeat">
  *     <div slot="title">
