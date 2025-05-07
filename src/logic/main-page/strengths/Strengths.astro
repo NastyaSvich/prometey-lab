@@ -1,44 +1,51 @@
 ---
+import { Image, getImage } from 'astro:assets';
 import type { CardBlueTitleProps } from 'src/components/card-blue-title/CardBlueTitle.astro';
 import CardBlueTitle from 'src/components/card-blue-title/CardBlueTitle.astro';
 import HorizontalLineTitle from 'src/components/horizontal-line-title/HorizontalLineTitle.astro';
+import card1 from 'src/assets/images/card-background-1.png';
+import card2 from 'src/assets/images/card-background-2.png';
+import card3 from 'src/assets/images/card-background-3.png';
+import card4 from 'src/assets/images/card-background-4.png';
+import card5 from 'src/assets/images/card-background-5.png';
 import 'src/logic/main-page/strengths/Strengths.less';
 
-const createBackground = (fileName: string) => {
-    return `url("src/assets/images/${fileName}") center/cover no-repeat`;
+const createBackground = async (image: ImageMetadata) => {
+    const img = await getImage({ src: image })
+    return `url(${img.src}) center/cover no-repeat`;
 }
 
 const strengths: CardBlueTitleProps[] = [
     {
         title: 'Решение инцидентов',
         description: 'Оперативное реагирование и восстановление',
-        background: createBackground('card-background-1.png'),
+        background: await createBackground(card1),
     },
     {
         title: 'Мониторинг',
         description: 'Предотвращаем инциденты до появления влияния',
-        background: createBackground('card-background-2.png'),
+        background: await createBackground(card2),
     },
     {
         title: 'Привлечение экспертов',
         description:
             'В сложных случаях подключаем экспертизу Senior DevOps, Senior SRE, Senior Network Engineer',
-        background: createBackground('card-background-1.png'),
+        background: await createBackground(card1),
     },
     {
         title: 'Автоматизацию рутинных задач',
         description: 'Экономия времени и снижение ручных ошибок',
-        background: createBackground('card-background-3.png'),
+        background: await createBackground(card3),
     },
     {
         title: 'Прозрачные регламентные работы',
         description: 'Оперативное реагирование и восстановление',
-        background: createBackground('card-background-4.png'),
+        background: await createBackground(card4),
     },
     {
         title: 'Консультации по работе с Базами данных',
         description: 'Помогаем оптимизировать и улучшать процессы',
-        background: createBackground('card-background-5.png'),
+        background: await createBackground(card5),
     },
 ];
 
