@@ -1,8 +1,8 @@
 ---
-import 'swiper/css';
-import 'swiper/css/navigation';
-import 'src/components/swiper/Swiper.less';
-import {randomUUID} from 'crypto';
+import "swiper/css";
+import "swiper/css/navigation";
+import "src/components/swiper/Swiper.less";
+import { randomUUID } from "crypto";
 
 export type SwiperProps = {
     /**
@@ -42,17 +42,16 @@ const {
     mobileSlidesPerView = 1,
     spaceBetween = 10,
 } = Astro.props as SwiperProps;
-
-const config = {
-    id,
-    spaceBetween,
-    desktopSlidesPerView,
-    tabletSlidesPerView,
-    mobileSlidesPerView,
-};
 ---
 
-<div class="swiper-container">
+<astro-swiper
+    class="swiper-container"
+    data-id={id}
+    data-space-between={spaceBetween}
+    data-mobile-slides-per-view={mobileSlidesPerView}
+    data-tablet-slides-per-view={tabletSlidesPerView}
+    data-desktop-slides-per-view={desktopSlidesPerView}
+>
     <div class=`swiper ${id}`>
         <div class="swiper-wrapper">
             <slot />
@@ -61,11 +60,43 @@ const config = {
 
     <div class=`arrow arrow-left ${id}`></div>
     <div class=`arrow arrow-right ${id}`></div>
-</div>
+</astro-swiper>
 
-<script type="module" define:vars={{config}}>
-    import {initSwiper} from '/src/components/swiper/SwiperInit.js';
+<script>
+    import SwiperLib from "swiper";
+    import { Navigation } from "swiper/modules";
 
-    // @ts-ignore
-    initSwiper(config);
+    class Swiper extends HTMLElement {
+        connectedCallback() {
+            let id = this.dataset.id;
+            let spaceBetween = Number(this.dataset.spaceBetween);
+            let mobileSlidesPerView = Number(this.dataset.mobileSlidesPerView);
+            let tabletSlidesPerView = Number(this.dataset.tabletSlidesPerView);
+            let desktopSlidesPerView = Number(
+                this.dataset.desktopSlidesPerView,
+            );
+
+            new SwiperLib(`.swiper.${id}`, {
+                modules: [Navigation],
+                loop: true,
+                navigation: {
+                    nextEl: `.arrow.arrow-right.${id}`,
+                    prevEl: `.arrow.arrow-left.${id}`,
+                },
+                grabCursor: true,
+                slidesPerView: mobileSlidesPerView,
+                spaceBetween: spaceBetween,
+                breakpoints: {
+                    // when window width is >=
+                    941: {
+                        slidesPerView: tabletSlidesPerView,
+                    },
+                    1190: {
+                        slidesPerView: desktopSlidesPerView,
+                    },
+                },
+            });
+        }
+    }
+    customElements.define("astro-swiper", Swiper);
 </script>

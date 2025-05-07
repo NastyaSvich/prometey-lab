@@ -1,10 +1,10 @@
 ---
-import Button from 'src/components/button/Button.astro';
-import logo from 'src/assets/images/logo-black.png';
-import 'src/layout/header/Header.less';
-import email from '@assets/images/email2.svg';
-import telegram from '@assets/images/telegram3.svg';
-import telephone from '@assets/images/telephone2.svg';
+import Button from "src/components/button/Button.astro";
+import logo from "src/assets/images/logo-black.png";
+import "src/layout/header/Header.less";
+import email from "@assets/images/email2.svg";
+import telegram from "@assets/images/telegram3.svg";
+import telephone from "@assets/images/telephone2.svg";
 
 const LogoComponent = `
   <div class="logo-content">
@@ -85,6 +85,18 @@ const LogoComponent = `
 </header>
 
 <script type="module">
-    import { switchHeader } from "/src/layout/header/SwitchHeader.js";
-    switchHeader();
+    const hamburger = document.querySelector(".hamburger");
+    const menu = document.querySelector(".menu");
+    const body = document.body;
+
+    if (hamburger && menu) {
+        hamburger.addEventListener("click", () => {
+            hamburger.classList.toggle("active");
+            menu.classList.toggle("expanded");
+
+            body.style.overflow = menu.classList.contains("expanded")
+                ? "hidden"
+                : "";
+        });
+    }
 </script>

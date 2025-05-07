@@ -1,6 +1,6 @@
 ---
-import Button from 'src/components/button/Button.astro';
-import 'src/components/modal/Modal.less';
+import Button from "src/components/button/Button.astro";
+import "src/components/modal/Modal.less";
 
 export type ModalProps = {
     isOpen: boolean;
@@ -18,24 +18,22 @@ export type ModalProps = {
     </div>
 </div>
 
-<script type="module">
-    import {openModal, closeModal} from '/src/components/modal/Modal.js';
+<script >
+    const openModalBtn = document.getElementById("openModalBtn");
+    const modalOverlay = document.getElementById("modalOverlay");
+    const closeModalBtn = document.getElementById("closeModalBtn");
 
-    const openModalBtn = document.getElementById('openModalBtn');
-    const modalOverlay = document.getElementById('modalOverlay');
-    const closeModalBtn = document.getElementById('closeModalBtn');
-
-    openModalBtn?.addEventListener('click', () => {
-        openModal(modalOverlay);
+    openModalBtn?.addEventListener("click", () => {
+        modalOverlay?.classList.add("open");
     });
 
-    closeModalBtn?.addEventListener('click', () => {
-        closeModal(modalOverlay);
+    closeModalBtn?.addEventListener("click", () => {
+        modalOverlay?.classList.remove("open");
     });
 
-    modalOverlay?.addEventListener('click', (event) => {
+    modalOverlay?.addEventListener("click", (event) => {
         if (event.target === modalOverlay) {
-            closeModal(modalOverlay);
+            modalOverlay.classList.remove("open");
         }
     });
 </script>
