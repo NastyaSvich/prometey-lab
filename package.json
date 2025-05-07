@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "astro": "5.7.8",
+    "astro-relative-links": "0.4.2",
     "less": "4.3.0",
     "swiper": "11.2.6"
   },
