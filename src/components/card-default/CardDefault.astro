@@ -20,7 +20,7 @@ const { background = "#ffffff", className = "" } =
 
 /**
  * Дефолтный компонент карточки.
- * 
+ *
  * Определяющий css-класс: "card-default".
  *
  * Пример использования:
@@ -36,6 +36,7 @@ const { background = "#ffffff", className = "" } =
 ---
 
 <div class={`card-default ${className}`} style={`background: ${background};`}>
+    <slot name="image" />
     <slot name="title" />
     <slot name="description" />
 </div>

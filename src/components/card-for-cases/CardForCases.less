@@ -1,0 +1,84 @@
+@import "@styles/globals.less";
+
+.devops-card {
+    min-height: 386px;
+    max-width: 375px;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    gap: 10px;
+
+    .mediaPhone({
+        gap: 10px;
+        padding: 0px;
+    });
+
+    .devops-image {
+        margin: 0 auto;
+        max-height: 210px;
+        max-width: 229px;
+    }
+
+    .title-wrapper {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        width: 100%;
+        position: relative;
+    }
+
+    .icon-link {
+        position: absolute;
+        right: 0;
+        top: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    > div[slot="title"] {
+        > .title-wrapper > .vertical-line-title {
+            gap: 0px;
+            padding-left: 10px;
+
+            > .title {
+                color: @primary-black-text;
+                font-size: 20px;
+
+                .mediaPhone({
+                    font-size: 18px;
+                });
+            }
+        }
+    }
+
+    .simple-title {
+        .fontOpenSansBold();
+        color: @primary-black-text;
+        font-size: 20px;
+        margin-bottom: 10px;
+    }
+
+    .subtitle {
+        .fontOpenSansBold();
+        color: @accent-blue;
+
+        .mediaPhone({
+            font-size: 18px;
+        });
+    }
+
+    .devops-content {
+        .fontOpenSansRegular();
+        color: @secondary-black-text;
+        font-size: 16px;
+
+        .mediaPhone({
+            font-size: 14px;
+        });
+    }
+
+    .case-text {
+        margin-bottom: 10px;
+    }
+}

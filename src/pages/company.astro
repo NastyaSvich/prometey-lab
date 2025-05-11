@@ -1,0 +1,35 @@
+---
+import Layout from "src/layout/Layout.astro";
+import Form from "src/components/form/Form.astro";
+import MainInfo from "src/logic/company-page/main-info/MainInfo.astro";
+import ReasonsForService from "src/logic/company-page/reasons-for-service/ReasonsForService.astro";
+import OurProjects from "src/logic/company-page/our-projects/OurProjects.astro";
+import "src/pages/index.less";
+import SupportStructure from "src/logic/cases-page/support-structure/SupportStructure.astro";
+import AppealReasons from "src/logic/company-page/appeal-reasons/AppealReasons.astro";
+import ManagersInfo from "src/logic/company-page/managers-info/ManagersInfo.astro";
+import Partners from "src/logic/company-page/partners/Partners.astro";
+import CLients from "src/logic/company-page/clients/CLients.astro";
+
+/**
+ * Страница кейсов.
+ */
+---
+
+<Layout className="main-page">
+    <div class="middle-content">
+        <MainInfo />
+        <ReasonsForService />
+        <AppealReasons />
+        <ManagersInfo />
+    </div>
+
+    <Partners />
+    <CLients />
+
+    <div class="middle-content">
+        <OurProjects />
+    </div>
+
+    <Form />
+</Layout>

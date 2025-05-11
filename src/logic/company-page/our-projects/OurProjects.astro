@@ -1,0 +1,114 @@
+---
+import HorizontalLineTitle from "src/components/horizontal-line-title/HorizontalLineTitle.astro";
+import Swiper from "src/components/swiper/Swiper.astro";
+import SwiperSlideElement from "src/components/swiper/SwiperSlideElement.astro";
+import "src/logic/company-page/our-projects/OurProjects.less";
+import { Image } from "astro:assets";
+import company1 from "src/assets/images/partner-6.png";
+import company2 from "src/assets/images/partner-5.png";
+import company3 from "src/assets/images/partner-8.png";
+
+const projects = [
+    {
+        image: company1,
+        title: "Небольшой интернет-магазин",
+        task: `<b>Задача:</b> <p>Ускоряем создание цифровых продуктов и проектируем приложения, которые используют более 5 миллионов пользователей ежедневно.</p>
+                            <p>Создаем высокопроизводительные системы, повышаем стабильность ПО</p>`,
+        details: `
+    <b>Решение:</b>
+    <p>Ускоряем создание цифровых продуктов и проектируем приложения, которые используют более 5 миллионов пользователей ежедневно.</p>
+    <ul>
+      <li>2+ виртуальных машин в облаке</li>
+      <li>Yandex Managed Service for PostgreSQL</li>
+      <li>2 проекта (сайт, API)</li>
+      <li>CI/CD для автоматического деплоя</li>
+      <li>Балансировка нагрузки</li>
+      <li><strong>Стек:</strong> Nginx, PostgreSQL, Redis, PHP, Node.js, Docker, GitLab</li>
+    </ul>
+  `,
+    },
+    {
+        image: company2,
+        title: "Небольшой интернет-магазин",
+        task: `<b>Задача:</b> <p>Ускоряем создание цифровых продуктов и проектируем приложения, которые используют более 5 миллионов пользователей ежедневно.</p>
+                            <p>Создаем высокопроизводительные системы, повышаем стабильность ПО</p>`,
+        details: `
+    <b>Решение:</b>
+    <p>Ускоряем создание цифровых продуктов и проектируем приложения, которые используют более 5 миллионов пользователей ежедневно.</p>
+    <ul>
+      <li>2+ виртуальных машин в облаке</li>
+      <li>Yandex Managed Service for PostgreSQL</li>
+      <li>2 проекта (сайт, API)</li>
+      <li>CI/CD для автоматического деплоя</li>
+      <li>Балансировка нагрузки</li>
+      <li><strong>Стек:</strong> Nginx, PostgreSQL, Redis, PHP, Node.js, Docker, GitLab</li>
+    </ul>
+  `,
+    },
+    {
+        image: company3,
+        title: "Небольшой интернет-магазин",
+        task: `<b>Задача:</b> <p>Ускоряем создание цифровых продуктов и проектируем приложения, которые используют более 5 миллионов пользователей ежедневно.</p>
+                            <p>Создаем высокопроизводительные системы, повышаем стабильность ПО</p>`,
+        details: `
+    <b>Решение:</b>
+    <p>Ускоряем создание цифровых продуктов и проектируем приложения, которые используют более 5 миллионов пользователей ежедневно.</p>
+    <ul>
+      <li>2+ виртуальных машин в облаке</li>
+      <li>Yandex Managed Service for PostgreSQL</li>
+      <li>2 проекта (сайт, API)</li>
+      <li>CI/CD для автоматического деплоя</li>
+      <li>Балансировка нагрузки</li>
+      <li><strong>Стек:</strong>: Nginx, PostgreSQL, Redis, PHP, Node.js, Docker, GitLab</li>
+    </ul>
+  `,
+    },
+];
+
+/**
+ * Компонент раздела "Наши проекты".
+ */
+---
+
+<div class="our-projects">
+    <HorizontalLineTitle title="НАШИ ПРОЕКТЫ" className="projects-container">
+        <div class="projects-wrapper">
+            <Swiper
+                desktopSlidesPerView={1}
+                tabletSlidesPerView={1}
+                mobileSlidesPerView={1}
+                className="projects-swiper"
+            >
+                {
+                    projects.map((project) => (
+                        <SwiperSlideElement>
+                            <div class="projects">
+                                <div class="image-header">
+                                    <Image
+                                        src={project.image}
+                                        alt={project.title}
+                                        class="header-image"
+                                    />
+                                </div>
+                                <div class="project-content">
+                                    <div class="task-section">
+                                        <div
+                                            class="task"
+                                            set:html={project.task}
+                                        />
+                                    </div>
+                                    <div class="solution-section">
+                                        <div
+                                            class="details"
+                                            set:html={project.details}
+                                        />
+                                    </div>
+                                </div>
+                            </div>
+                        </SwiperSlideElement>
+                    ))
+                }
+            </Swiper>
+        </div>
+    </HorizontalLineTitle>
+</div>

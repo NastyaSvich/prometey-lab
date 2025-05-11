@@ -1,0 +1,70 @@
+@import "@styles/globals.less";
+
+.managers-info {
+    margin: 100px 0;
+    width: 100%;
+
+    .mediaPhone({
+        margin: 60px 0;
+
+    });
+
+    .managers-content {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        justify-items: center;
+        padding: 20px;
+
+        .devops-card {
+            max-width: 510px;
+            padding: 0;
+
+            .devops-image {
+                max-height: 300px;
+                max-width: 300px;
+                border-radius: 50%;
+                filter: grayscale(100%);
+                margin: 0;
+                margin-bottom: 35px;
+
+                .mediaPhone({
+                    max-height: 160px;
+                    max-width: 160px;
+                    margin: auto;
+                    margin-bottom: 12px;
+                });
+            }
+
+            > div[slot="title"] {
+                > .title-wrapper > .vertical-line-title {
+                    gap: 0px;
+                    padding-left: 10px;
+
+                    > .title {
+                        color: @accent-blue;
+                        font-size: 28px;
+
+                        .mediaPhone({
+                            font-size: 18px;
+                        });
+                    }
+                }
+            }
+
+            .subtitle {
+                .fontOpenSansRegular();
+                color: @secondary-black-text;
+
+                .mediaPhone({
+                    font-size: 18px;
+                });
+            }
+        }
+
+        .mediaPhone({
+            grid-template-columns: 1fr;
+            gap: 12px;
+            padding: 0;
+        });
+    }
+}

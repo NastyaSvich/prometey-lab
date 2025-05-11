@@ -1,0 +1,81 @@
+@import "@styles/globals.less";
+
+@max-width: 1250px;
+
+.partners {
+    width: 100%;
+    background-color: @background-grey;
+
+    .partners-container {
+        padding: 48px 40px;
+        width: 100%;
+        margin: 0 auto;
+        max-width: @max-width;
+
+        .mediaPhone({
+            padding: 40px 20px;
+        });
+    }
+
+    .partners-description {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin: 40px 0;
+        width: 100%;
+
+        .mediaPhone({
+            flex-direction: column;
+            align-items: flex-start;
+            margin: 30px 0;
+            gap: 15px;
+        });
+
+        .recommendation-text {
+            .fontOpenSansRegular();
+            font-size: 18px;
+            color: @secondary-black-text;
+            margin: 0;
+            max-width: 567px;
+
+            .mediaPhone({
+                font-size: 14px;
+                max-width: 100%;
+            });
+
+            strong {
+                .fontOpenSansBold();
+            }
+        }
+
+        .partner-button {
+            margin-left: 20px;
+            width: 358px;
+
+            .mediaPhone({
+                margin: 0;
+                width: 280px;
+                margin-top: 10px;
+                font-size: 18px;
+            });
+        }
+    }
+
+    .partners-images {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 30px;
+        width: 100%;
+
+        .mediaPhone({
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        });
+
+        .partner-image {
+            max-width: 100%;
+            height: auto;
+            object-fit: contain;
+        }
+    }
+}

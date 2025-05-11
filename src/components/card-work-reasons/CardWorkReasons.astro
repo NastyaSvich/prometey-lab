@@ -3,14 +3,40 @@ import "src/components/card-work-reasons/CardWorkReasons.less";
 import CardDefault from "src/components/card-default/CardDefault.astro";
 
 export type CardWorkReasonsProps = {
+    /**
+     * Номер карточки.
+     */
     step: string;
+
+    /**
+     * иконка пунктов у карточек.
+     */
     icon: string;
+
+    /**
+     * Заголовок карточки.
+     */
     title: string;
+
+    /**
+     * Описание карточки.
+     */
     description: string;
+
+    /**
+     * Дополнительный css-класс.
+     */
     className?: string;
 };
 
 const { step, icon, title, description, className = "" } = Astro.props;
+
+/**
+ * Компонент карточки для "Как мы помогли бизнесу".
+ *
+ * Определяющий css-класс: "card-work-reasons".
+ *
+ */
 ---
 
 <div class="card-work-reasons-wrapper">

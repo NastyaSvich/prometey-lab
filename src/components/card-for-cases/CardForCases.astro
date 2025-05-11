@@ -1,0 +1,149 @@
+---
+import "src/components/card-for-cases/CardForCases.less";
+import { Image } from "astro:assets";
+import VerticalLineTitle from "src/components/vertical-line-title/VerticalLineTitle.astro";
+import Button from "src/components/button/Button.astro";
+
+export type CardForCasesProps = {
+    /**
+     * Картинка карточки.
+     */
+    image?: ImageMetadata;
+
+    /**
+     * иконка карточки.
+     */
+    icon?: ImageMetadata;
+
+    /**
+     * Ссылка для иконки.
+     */
+    iconLink?: string;
+
+    /**
+     * Заголовок и подзаголовок карточки.
+     */
+    title?: string;
+    subtitle?: string;
+
+    /**
+     * описание карточки.
+     * firstPart, secondPart - жирный шифт
+     */
+    descriptions?: {
+        firstPart?: string;
+        firstHighlight?: string;
+        secondPart?: string;
+        secondHighlight?: string;
+    };
+
+    /**
+     * Дополнительный css-класс.
+     */
+    className?: string;
+
+    /**
+     * Текст у кнопки.
+     */
+    buttonLabel?: string;
+
+    /**
+     * Отображение вертикальной линии и кнопки.
+     * По умолчанию видимы.
+     */
+    showVerticalLine?: boolean;
+    showButton?: boolean;
+};
+
+const {
+    image,
+    icon,
+    iconLink,
+    title,
+    subtitle,
+    descriptions = {},
+    buttonLabel = "Читать",
+    className = "",
+    showVerticalLine = true,
+    showButton = true,
+} = Astro.props;
+
+/**
+ * Компонент карточки с фото и заголовками в синей вертикльной линии.
+ *
+ * Определяющий css-класс: "devops-card".
+ *
+ */
+---
+
+<div class={`devops-card ${className}`}>
+    <Image
+        slot="image"
+        src={image}
+        alt={title || "icon"}
+        class="devops-image"
+    />
+
+    <div slot="title" class="title-container">
+        {
+            showVerticalLine ? (
+                <div class="title-wrapper">
+                    {" "}
+                    <VerticalLineTitle title={title} class="devops-title">
+                        {subtitle && <span class="subtitle">{subtitle}</span>}
+                        {icon && (
+                            <a href={iconLink} class="icon-link">
+                                <Image
+                                    src={icon}
+                                    alt="Action icon"
+                                    class="action-icon"
+                                />
+                            </a>
+                        )}
+                    </VerticalLineTitle>
+                </div>
+            ) : (
+                <h3 class="simple-title">{title}</h3>
+            )
+        }
+    </div>
+
+    <div slot="description" class="devops-content">
+        {
+            descriptions.firstPart && (
+                <p class="case-text">
+                    <strong>{descriptions.firstPart}</strong>
+                    {descriptions.firstHighlight}
+                </p>
+            )
+        }
+        {
+            descriptions.firstHighlight && !descriptions.firstPart && (
+                <p class="case-text">{descriptions.firstHighlight}</p>
+            )
+        }
+        {
+            descriptions.secondPart && (
+                <p class="case-text">
+                    <strong>{descriptions.secondPart}</strong>{" "}
+                    {descriptions.secondHighlight}
+                </p>
+            )
+        }
+        {
+            descriptions.secondHighlight && !descriptions.secondPart && (
+                <p class="case-text">{descriptions.secondHighlight}</p>
+            )
+        }
+        {
+            showButton && (
+                <Button
+                    label={buttonLabel}
+                    variant="blue"
+                    size="medium"
+                    className="devops-button"
+                />
+            )
+        }
+    </div>
+</div>

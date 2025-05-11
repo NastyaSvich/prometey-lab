@@ -1,0 +1,148 @@
+@import "@styles/globals.less";
+
+.our-projects {
+    margin: 100px 0;
+    width: 100%;
+
+    .mediaPhone({
+        margin: 60px 0;
+    });
+
+    .projects-container {
+        .projects-wrapper {
+            .projects {
+                border: 1px solid @accent-blue;
+                border-radius: 10px;
+                background-color: @background-light-gray;
+                overflow: hidden;
+                margin: auto;
+
+                .image-header {
+                    .header-image {
+                        height: auto;
+                    }
+                }
+
+                .project-content {
+                    display: grid;
+                    grid-template-columns: 1fr 1fr;
+                    background-color: @background-blue;
+                    overflow: hidden;
+
+                    .mediaPhone({
+                        display: flex;
+                        flex-direction: column;
+                        grid-template-columns: 1fr;
+                    });
+
+                    .task-section,
+                    .solution-section {
+                        padding: 24px;
+                        background-color: @background-light-gray;
+                        border-top: 1px solid @accent-blue;
+
+                        .mediaPhone({
+                            padding: 16px;
+                        });
+                    }
+
+                    .task-section {
+                        border-right: 1px solid @accent-blue;
+
+                        .mediaPhone({
+                            order: 2;
+                            border-right: none; 
+                        });
+                    }
+
+                    .solution-section {
+                        .mediaPhone({
+                            order: 3;
+                        });
+                    }
+
+                    .task,
+                    .details {
+                        .fontOpenSansRegular();
+                        font-size: 16px;
+                        color: @secondary-black-text;
+
+                        .mediaPhone({
+                            font-size: 12px;
+                        });
+
+                        b {
+                            .fontOpenSansBold();
+                            font-size: 22px;
+                            display: block;
+                            margin-bottom: 10px;
+                            color: @primary-black-text;
+
+                            .mediaPhone({
+                                font-size: 16px;
+                                margin-bottom: 6px;
+                            });
+                        }
+
+                        p {
+                            margin-bottom: 20px;
+
+                            .mediaPhone({
+                                margin-bottom: 0px;
+                            });
+                        }
+
+                        ul {
+                            padding-left: 24px;
+                            margin: 15px 0;
+                            margin-bottom: 50px;
+
+                            .mediaPhone({
+                                margin: 6px;
+                                padding-left: 12px;
+                            });
+
+                            li {
+                                margin-bottom: 8px;
+                                &::marker {
+                                    color: @outline;
+                                }
+
+                                .mediaPhone({
+                                    margin-bottom: 2px;
+                                });
+                            }
+                        }
+                    }
+                }
+            }
+
+            .swiper-navigation {
+                position: absolute;
+                top: 50%;
+                width: 100%;
+                display: flex;
+                justify-content: space-between;
+                z-index: 10;
+                pointer-events: none;
+
+                .swiper-button {
+                    pointer-events: auto;
+                    background: fade(@accent-blue, 50%);
+                    width: 40px;
+                    height: 40px;
+                    border-radius: 50%;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    cursor: pointer;
+                    transition: background 0.3s;
+
+                    &:hover {
+                        background: @accent-blue;
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,27 @@
+---
+import HorizontalLineTitle from "src/components/horizontal-line-title/HorizontalLineTitle.astro";
+import "src/logic/company-page/appeal-reasons/AppealReasons.less";
+
+/**
+ * Компонент раздела "К нам обращаютя, потому что мы...".
+ */
+---
+
+<HorizontalLineTitle
+    title="К НАМ ОБРАЩАЮТСЯ, ПОТОМУ ЧТО МЫ..."
+    className="appeal"
+    contentClassName="appeal-content"
+>
+    <div class="appeal-grid">
+        <ul class="appeal-reasons appeal-left">
+            <li>Спроектировали более 120 отказоустойчивых систем.</li>
+            <li>На 65% экономим деньги при построении инфраструктуры.</li>
+            <li>В четыре раза сокращаем расходы на штатных сотрудников.</li>
+        </ul>
+        <ul class="appeal-reasons appeal-right">
+            <li>Спроектировали более 120 отказоустойчивых систем.</li>
+            <li>На 65% экономим деньги при построении инфраструктуры.</li>
+            <li>В четыре раза сокращаем расходы на штатных сотрудников.</li>
+        </ul>
+    </div>
+</HorizontalLineTitle>

@@ -1,0 +1,61 @@
+---
+import Button from "src/components/button/Button.astro";
+import VerticalLineTitle from "src/components/vertical-line-title/VerticalLineTitle.astro";
+import "src/components/info-block/InfoBlock.less";
+import { Image } from "astro:assets";
+
+export type InfoBlockProps = {
+    title: string;
+    descriptions: string[];
+    buttonLabel?: string;
+    image?: ImageMetadata;
+    alt?: string;
+    className?: string;
+    showButton?: boolean;
+};
+
+const {
+    title,
+    descriptions = [],
+    buttonLabel,
+    image,
+    alt = "Image",
+    className = "",
+    showButton = true,
+} = Astro.props;
+
+/**
+ *  Начальный блок с информацией.
+ */
+---
+
+<div class={`main-info ${className}`}>
+    <div class="content-container">
+        <div class="info-content">
+            <div class="info">
+                <VerticalLineTitle title={title} className="info">
+                    <div class="text-content">
+                        {
+                            descriptions.map((text: string) => (
+                                <div class="text-line" set:html={text} />
+                            ))
+                        }
+                    </div>
+                </VerticalLineTitle>
+
+                {showButton && <Button class="button" label={buttonLabel} />}
+            </div>
+        </div>
+
+        {
+            image && (
+                <div class="image-content">
+                    <Image src={image} alt={alt} class="main-image" />
+                </div>
+            )
+        }
+    </div>
+
+    <slot name="additionalContent" />
+    {/* Это должно быть вне VerticalLineTitle */}
+</div>

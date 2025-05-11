@@ -1,0 +1,86 @@
+@import "@styles/globals.less";
+
+@max-width: 1250px;
+
+.clients {
+    width: 100%;
+    background-color: @background-grey;
+
+    .clients-container {
+        padding: 48px 40px;
+        width: 100%;
+        margin: 0 auto;
+        max-width: @max-width;
+
+        .mediaPhone({
+            padding: 0px 20px;
+        });
+    }
+
+    .clients-description {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin: 40px 0;
+        width: 100%;
+
+        .mediaPhone({
+            flex-direction: column;
+            align-items: flex-start;
+            margin: 30px 0;
+            gap: 15px;
+        });
+
+        .button-wrapper {
+            position: relative;
+
+            .mobile-button-text {
+                display: none;
+            }
+
+            .mediaPhone({
+            .client-button {
+                visibility: hidden;
+                
+                .button-text {
+                    visibility: hidden;
+                }
+            }
+            
+            .mobile-button-text {
+                .fontOpenSansBold();
+                display: block;
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 280px;
+                height: 42px;
+                line-height: 42px;
+                text-align: center;
+                border: 1px solid @accent-blue;
+                color: @accent-blue;
+                border-radius: 4px;
+                font-size: 18px;
+            }
+        });
+        }
+    }
+
+    .clients-images {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 30px;
+        width: 100%;
+
+        .mediaPhone({
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        });
+
+        .client-image {
+            max-width: 100%;
+            height: auto;
+            object-fit: contain;
+        }
+    }
+}

@@ -1,0 +1,21 @@
+---
+import InfoBlock from "src/components/info-block/InfoBlock.astro";
+import Structure from "src/assets/images/devops-case-3.svg";
+import "src/logic/company-page/main-info/MainInfo.less";
+
+/**
+ * Компонент раздела "Prometey lab".
+ */
+---
+
+<InfoBlock
+    title="PROMETEY LAB"
+    descriptions={[
+        "Ускоряем создание цифровых продуктов и проектируем приложения, которые используют более 5 миллионов пользователей ежедневно.",
+        "Создаем высокопроизводительные системы, повышаем стабильность ПО",
+        "Отслеживаем бизнес-метрики и улучшаем системы мониторинга, а также обеспечиваем круглосуточную техническую поддержку.",
+    ]}
+    buttonLabel="Консультация"
+    image={Structure}
+    alt="DevOps Case"
+/>

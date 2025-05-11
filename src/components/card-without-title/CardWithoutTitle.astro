@@ -1,0 +1,45 @@
+---
+import "src/components/card-without-title/CardWithoutTitle.less";
+import CardDefault from "src/components/card-default/CardDefault.astro";
+
+export type CardWithoutTitleProps = {
+    /**
+     * Описание карточки.
+     */
+    description: string;
+
+    /**
+     * Фон карточки: может быть цвет, изображение, градиент и т.п.
+     * По умолчанию: "transparent"
+     * Задается форматом: "#ffffff", "url('/images/bg.jpg') center/cover no-repeat".
+     */
+    background?: string;
+
+    /**
+     * Дополнительный css-класс.
+     */
+    className?: string;
+};
+
+const {
+    description,
+    background = "transparent",
+    className = "",
+} = Astro.props as CardWithoutTitleProps;
+
+/**
+ * Компонент карточки без заголовка.
+ *
+ * Определяющий css-класс: "card-without-title".
+ *
+ * Пример использования:
+ * <CardWithoutTitle background="url('/images/bg.jpg') center/cover no-repeat" description="Description" />
+ */
+---
+
+<CardDefault
+    className={`card-without-title ${className}`}
+    background={background}
+>
+    <div slot="description" class="description">{description}</div>
+</CardDefault>

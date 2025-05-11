@@ -1,0 +1,61 @@
+---
+import HorizontalLineTitle from "src/components/horizontal-line-title/HorizontalLineTitle.astro";
+import type { CardForCasesProps } from "src/components/card-for-cases/CardForCases.astro";
+import CardForCases from "src/components/card-for-cases/CardForCases.astro";
+import "src/components/business-assistance/BusinessAssistance.less";
+import ceo from "src/assets/images/ceo.png";
+import cto from "src/assets/images/cto.png";
+import telegram from "@assets/images/telegram3.svg";
+import "src/logic/company-page/managers-info/ManagersInfo.less";
+
+const managers: CardForCasesProps[] = [
+    {
+        image: ceo,
+        icon: telegram,
+        iconLink: "https://t.me/AndreyDorin",
+        title: "Андрей Дорин",
+        subtitle: "CEO компании",
+        descriptions: {
+            firstHighlight:
+                "Обладаю широким кругозором как в техподдержке, так и в разработке IT-систем. Знаю как строить надежные сервисы техподдержки на основе практик ITIL из опыта работы в банках и в Госуслугах. Последние 7 лет больше сконцентрирован на организации эффективных scrum-команд, выстраивании системных продаж, управлении ожиданиями заказчиков и организации аккаунт-менеджмента.",
+        },
+    },
+    {
+        image: cto,
+        icon: telegram,
+        iconLink: "https://t.me/bushmelev_work",
+        title: "Антон Бушмелев",
+        subtitle: "CTO компании",
+        descriptions: {
+            firstHighlight:
+                "Обладаю широким кругозором как в техподдержке, так и в разработке IT-систем. Знаю как строить надежные сервисы техподдержки на основе практик ITIL из опыта работы в банках и в Госуслугах. Последние 7 лет больше сконцентрирован на организации эффективных scrum-команд, выстраивании системных продаж, управлении ожиданиями заказчиков и организации аккаунт-менеджмента.",
+        },
+    },
+];
+
+/**
+ * Компонент раздела "Кто двигает ваш бизнес вперед".
+ */
+---
+
+<div class="managers-info">
+    <HorizontalLineTitle
+        title="КТО ДВИГАЕТ ВАШ БИЗНЕС ВПЕРЕД"
+        className="managers"
+        contentClassName="managers-content"
+    >
+        {
+            managers.map((managers) => (
+                <CardForCases
+                    image={managers.image}
+                    icon={managers.icon}
+                    iconLink={managers.iconLink}
+                    title={managers.title}
+                    subtitle={managers.subtitle}
+                    descriptions={managers.descriptions || {}}
+                    showButton={false}
+                />
+            ))
+        }
+    </HorizontalLineTitle>
+</div>

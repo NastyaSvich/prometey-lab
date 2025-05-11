@@ -1,0 +1,71 @@
+---
+import type { CardForCasesProps } from "src/components/card-for-cases/CardForCases.astro";
+import CardForCases from "src/components/card-for-cases/CardForCases.astro";
+import HorizontalLineTitle from "src/components/horizontal-line-title/HorizontalLineTitle.astro";
+import "src/components/business-assistance/BusinessAssistance.less";
+import card1 from "src/assets/images/devops-case-1.svg";
+import card2 from "src/assets/images/devops-case-2.png";
+import card3 from "src/assets/images/devops-case-3.svg";
+
+const assistances: CardForCasesProps[] = [
+    {
+        image: card1,
+        title: "DEVOPS",
+        subtitle: "КЕЙС",
+        descriptions: {
+            firstPart: "Корректные изменения ",
+            firstHighlight:
+                "в коде будут в пару кликов отражены в продукте без простоя.",
+            secondPart: "Ошибки ",
+            secondHighlight: "не пройдут через систему автоматических тестов.",
+        },
+    },
+    {
+        image: card2,
+        title: "DEVOPS",
+        subtitle: "КЕЙС",
+        descriptions: {
+            firstPart: "Системы ",
+            firstHighlight:
+                "сами балансировать нагрузку, находить неработающие элементы и обслуживать приложения.",
+            secondPart: "Сервер ",
+            secondHighlight:
+                "не упадет от роста запросов — выдержит высокие нагрузки на Черную пятницу, IPO или промоакцию.",
+        },
+    },
+    {
+        image: card3,
+        title: "DEVOPS",
+        subtitle: "КЕЙС",
+        descriptions: {
+            firstPart: "Системы ",
+            firstHighlight:
+                "мониторинга с оповещениями по любым каналам и в любое время.",
+            secondPart: "Прием заявок ",
+            secondHighlight:
+                "по инцидентам через чат-боты в Telegram и Slack будет автоматическим.",
+        },
+    },
+];
+
+/**
+ * Компонент раздела "Как мы помогли бизнесу".
+ */
+---
+
+<HorizontalLineTitle
+    title="КАК МЫ ПОМОГЛИ БИЗНЕСУ"
+    className="assistances"
+    contentClassName="assistances-content"
+>
+    {
+        assistances.map((assistance) => (
+            <CardForCases
+                image={assistance.image}
+                title={assistance.title}
+                subtitle={assistance.subtitle}
+                descriptions={assistance.descriptions || {}}
+            />
+        ))
+    }
+</HorizontalLineTitle>

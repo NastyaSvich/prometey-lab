@@ -1,0 +1,81 @@
+@import "@styles/globals.less";
+
+.appeal {
+    margin-top: 100px;
+
+    .appeal-content {
+        .appeal-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            width: 100%;
+
+            .appeal-reasons {
+                list-style: none;
+                padding-left: 0;
+                margin: 0;
+
+                li {
+                    .fontOpenSansRegular();
+                    color: @secondary-black-text;
+                    margin-bottom: 20px;
+                    padding-left: 35px;
+                    position: relative;
+                    font-size: 18px;
+
+                    &::before {
+                        content: "";
+                        position: absolute;
+                        left: 0;
+                        top: 50%;
+                        transform: translateY(-50%);
+                        width: 24px;
+                        height: 24px;
+                        border-radius: 50%;
+                        border: 1px solid @outline;
+                    }
+
+                    &::after {
+                        content: "✓";
+                        position: absolute;
+                        left: 5px;
+                        top: 50%;
+                        transform: translateY(-55%);
+                        color: @accent-blue;
+                        width: 24px;
+                        height: 24px;
+                    }
+                }
+            }
+        }
+    }
+
+    .mediaPhone({
+        margin-top: 50px;
+        
+        .appeal-content {
+            .appeal-grid {
+                grid-template-columns: 1fr;
+                gap: 16px;
+                
+                .appeal-reasons {
+                    li {
+                        font-size: 14px;
+                        margin-bottom: 8px;
+                        padding-left: 32px;
+                        
+                        &::before {
+                            width: 20px;
+                            height: 20px;
+                        }
+                        
+                        &::after {
+                            left: 5px;
+                            transform: translateY(-45%);
+                        }
+                    }
+                }
+            }
+        }
+    });
+}
