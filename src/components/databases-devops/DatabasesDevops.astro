@@ -1,0 +1,77 @@
+---
+import Button from "src/components/button/Button.astro";
+import HorizontalLineTitle from "src/components/horizontal-line-title/HorizontalLineTitle.astro";
+import Options from "src/components/options/Options.astro";
+import "src/components/databases-devops/DatabasesDevops.less";
+
+const {
+    title = "ПРИМЕРЫ ПРОЕКТОВ",
+    subtitle = "Стоимость проектов индивидуальна — все зависит от конечных задач, утвержденных с вами",
+} = Astro.props;
+
+const tasks = {
+    "project-1": `<span>Задача:</span> Разработать и внедрить новую архитектуру совместно с ИТ-специалистами заказчика`,
+    "project-2": `<span>Задача:</span> Разработать и внедрить новую архитектуру совместно с ИТ-специалистами заказчика`,
+    "project-3": `<span>Задача:</span> Разработать и внедрить новую архитектуру совместно с ИТ-специалистами заказчика`,
+};
+---
+
+<project-examples data-tasks={JSON.stringify(tasks)}>
+    <HorizontalLineTitle
+        title={title}
+        subtitle={subtitle}
+        className="project-examples"
+    >
+        <Options />
+        <div class="projects">
+            <div class="project project-1 active" id="project-1">
+                Небольшой интернет-магазин
+            </div>
+            <div class="project project-2" id="project-2">
+                B2С-маркетплейс в стадии активной разработки
+            </div>
+            <div class="project project-3" id="project-3">
+                Крупная логистическая компания
+            </div>
+            <div class="task" set:html={tasks["project-1"]} />
+            <div class="details">
+                <span>Состав проекта:</span>
+                <ul>
+                    <li>2+ виртуальных машин в облаке</li>
+                    <li>Yandex Managed Service for PostgreSQL</li>
+                    <li>2 проекта (сайт, API)</li>
+                    <li>CI/CD для автоматического деплоя</li>
+                    <li>Балансировка нагрузки</li>
+                    <li>
+                        Стек: Nginx, PostgreSQL, Redis, PHP, Node.js, Docker,
+                        GitLab
+                    </li>
+                </ul>
+                <Button variant="outline" label="от 100 тыс. руб" />
+            </div>
+        </div>
+    </HorizontalLineTitle>
+</project-examples>
+
+<script is:inline>
+    class ProjectExamples extends HTMLElement {
+        constructor() {
+            super();
+            const projectsHTML = this.querySelectorAll(".projects .project");
+            const taskHTML = this.querySelector(".projects .task");
+            const tasks = JSON.parse(this.dataset?.tasks || "{}");
+
+            projectsHTML.forEach((project) => {
+                project.addEventListener("click", (clicked) => {
+                    projectsHTML.forEach((p) => p.classList.remove("active"));
+                    clicked.target.classList.add("active");
+                    const id = clicked.target.id;
+                    if (taskHTML && tasks[id]) {
+                        taskHTML.innerHTML = tasks[id];
+                    }
+                });
+            });
+        }
+    }
+    customElements.define("project-examples", ProjectExamples);
+</script>

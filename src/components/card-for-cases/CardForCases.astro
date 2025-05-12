@@ -21,9 +21,13 @@ export type CardForCasesProps = {
     iconLink?: string;
 
     /**
-     * Заголовок и подзаголовок карточки.
+     * Заголовок карточки.
      */
     title?: string;
+
+    /**
+     * Подзаголовок карточки.
+     */
     subtitle?: string;
 
     /**
@@ -48,10 +52,15 @@ export type CardForCasesProps = {
     buttonLabel?: string;
 
     /**
-     * Отображение вертикальной линии и кнопки.
-     * По умолчанию видимы.
+     * Отображение вертикальной линии.
+     * По умолчанию видима.
      */
     showVerticalLine?: boolean;
+
+    /**
+     * Отображение кнопки.
+     * По умолчанию видима.
+     */
     showButton?: boolean;
 };
 
@@ -69,7 +78,7 @@ const {
 } = Astro.props;
 
 /**
- * Компонент карточки с фото и заголовками в синей вертикльной линии.
+ * Компонент карточки с фото и заголовками в синей вертикальной линии.
  *
  * Определяющий css-класс: "devops-card".
  *
@@ -110,30 +119,26 @@ const {
 
     <div slot="description" class="devops-content">
         {
-            descriptions.firstPart && (
+            descriptions.firstPart || descriptions.firstHighlight ? (
                 <p class="case-text">
-                    <strong>{descriptions.firstPart}</strong>
+                    {descriptions.firstPart && (
+                        <span>{descriptions.firstPart}</span>
+                    )}
                     {descriptions.firstHighlight}
                 </p>
-            )
+            ) : null
         }
+
         {
-            descriptions.firstHighlight && !descriptions.firstPart && (
-                <p class="case-text">{descriptions.firstHighlight}</p>
-            )
-        }
-        {
-            descriptions.secondPart && (
+            descriptions.secondPart || descriptions.secondHighlight ? (
                 <p class="case-text">
-                    <strong>{descriptions.secondPart}</strong>{" "}
-                    {descriptions.secondHighlight}
+                    {descriptions.secondPart && (
+                        <span>{descriptions.secondPart}</span>
+                    )}
+                    {descriptions.secondHighlight &&
+                        ` ${descriptions.secondHighlight}`}
                 </p>
-            )
-        }
-        {
-            descriptions.secondHighlight && !descriptions.secondPart && (
-                <p class="case-text">{descriptions.secondHighlight}</p>
-            )
+            ) : null
         }
         {
             showButton && (

@@ -17,9 +17,20 @@
                 overflow: hidden;
                 margin: auto;
 
+                .mediaPhone({
+                    margin: 0 20px;
+                });
+
                 .image-header {
                     .header-image {
                         height: auto;
+
+                        .mediaPhone({
+                            height: auto;
+                            width: 162px;
+                            display: block;
+                            margin: 0 auto;
+                        });
                     }
                 }
 
@@ -51,7 +62,7 @@
 
                         .mediaPhone({
                             order: 2;
-                            border-right: none; 
+                            border-right: none;
                         });
                     }
 
@@ -61,85 +72,65 @@
                         });
                     }
 
-                    .task,
-                    .details {
+                    h3 {
+                        .fontOpenSansBold();
+                        font-size: 22px;
+                        margin-bottom: 15px;
+                        color: @primary-black-text;
+                    }
+
+                    h4 {
+                        .fontOpenSansBold();
+                        font-size: 18px;
+                        margin-bottom: 12px;
+                        color: @primary-black-text;
+
+                        .mediaPhone({
+                            font-size: 14px;
+                            margin-bottom: 5px;
+                        });
+                    }
+
+                    p {
                         .fontOpenSansRegular();
                         font-size: 16px;
                         color: @secondary-black-text;
+                        margin-bottom: 15px;
 
                         .mediaPhone({
                             font-size: 12px;
+                            margin-bottom: 5px;
+                        });
+                    }
+
+                    ul {
+                        padding-left: 24px;
+                        margin: 15px 0;
+
+                        .mediaPhone({
+                            padding-left: 18px;
+                            margin: 0;
                         });
 
-                        b {
-                            .fontOpenSansBold();
-                            font-size: 22px;
-                            display: block;
-                            margin-bottom: 10px;
-                            color: @primary-black-text;
+                        li {
+                            .fontOpenSansRegular();
+                            font-size: 16px;
+                            color: @secondary-black-text;
+                            margin-bottom: 8px;
 
                             .mediaPhone({
-                                font-size: 16px;
-                                margin-bottom: 6px;
-                            });
-                        }
-
-                        p {
-                            margin-bottom: 20px;
-
-                            .mediaPhone({
+                                font-size: 12px;
                                 margin-bottom: 0px;
                             });
-                        }
 
-                        ul {
-                            padding-left: 24px;
-                            margin: 15px 0;
-                            margin-bottom: 50px;
+                            &::marker {
+                                color: @outline;
+                            }
 
-                            .mediaPhone({
-                                margin: 6px;
-                                padding-left: 12px;
-                            });
-
-                            li {
-                                margin-bottom: 8px;
-                                &::marker {
-                                    color: @outline;
-                                }
-
-                                .mediaPhone({
-                                    margin-bottom: 2px;
-                                });
+                            span {
+                                .fontOpenSansBold();
                             }
                         }
-                    }
-                }
-            }
-
-            .swiper-navigation {
-                position: absolute;
-                top: 50%;
-                width: 100%;
-                display: flex;
-                justify-content: space-between;
-                z-index: 10;
-                pointer-events: none;
-
-                .swiper-button {
-                    pointer-events: auto;
-                    background: fade(@accent-blue, 50%);
-                    width: 40px;
-                    height: 40px;
-                    border-radius: 50%;
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-                    cursor: pointer;
-                    transition: background 0.3s;
-
-                    &:hover {
-                        background: @accent-blue;
                     }
                 }
             }

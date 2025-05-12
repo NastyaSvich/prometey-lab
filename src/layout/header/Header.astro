@@ -22,7 +22,9 @@ const LogoComponent = `
         </div>
 
         <div class="header-bottom">
-            <div set:html={LogoComponent} />
+            <a href="/" class="logo-link">
+                <div set:html={LogoComponent} />
+            </a>
 
             <div class="hamburger">
                 <span class="line"></span>
@@ -36,9 +38,9 @@ const LogoComponent = `
                 </div>
 
                 <nav class="navigation">
-                    <a href="/services/">Услуги</a>
-                    <a href="/cases/">Кейсы</a>
-                    <a href="/company/">О компании</a>
+                    <a href="/services">Услуги</a>
+                    <a href="/cases">Кейсы</a>
+                    <a href="/company">О компании</a>
                     <a href="#">Блог</a>
                 </nav>
 

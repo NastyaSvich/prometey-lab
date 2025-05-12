@@ -1,0 +1,73 @@
+---
+import "src/layout/contact-us/ContactUs.less";
+import viber from "@assets/images/viber.svg";
+import telegram from "@assets/images/telegram3.svg";
+import watsapp from "@assets/images/watsapp.svg";
+import messages from "@assets/images/sticky-messages.svg";
+import ceo from "@assets/images/ceo.png";
+
+const showForm = false;
+---
+
+<div class="sticky-container">
+    <div class="contact-button-bg">
+        <button
+            id="contact-button"
+            class="contact-button"
+            aria-label="Открыть контакты"
+        >
+            <img src={messages.src} alt="Chat Icon" />
+        </button>
+    </div>
+
+    <div id="contact-form" class="contact-form hidden">
+        <div class="contact-header">
+            <img src={ceo.src} class="avatar" alt="CEO" />
+            <div class="employee">
+                <span class="name">Андрей Дорин</span>
+                <div class="position">CEO компании</div>
+            </div>
+        </div>
+        <p class="contact-description">
+            Здравствуйте! <span>Свяжитесь</span> с нами любым удобным вам способом
+            и мы ответим на все вопросы
+        </p>
+        <div class="contact-options">
+            <a
+                href="https://t.me/AndreyDorin"
+                class="contact-link telegram"
+                target="_blank"
+                rel="noopener"
+            >
+                <img src={telegram.src} alt="Telegram" /> Telegram
+            </a>
+            <a
+                href="https://viber.com/your-viber"
+                class="contact-link viber"
+                target="_blank"
+                rel="noopener"
+            >
+                <img src={viber.src} alt="Viber" /> Viber
+            </a>
+            <a
+                href="https://wa.me/your-whatsapp"
+                class="contact-link whatsapp"
+                target="_blank"
+                rel="noopener"
+            >
+                <img src={watsapp.src} alt="WhatsApp" /> WhatsApp
+            </a>
+        </div>
+    </div>
+</div>
+
+<script is:inline>
+    document.addEventListener("DOMContentLoaded", () => {
+        const button = document.getElementById("contact-button");
+        const form = document.getElementById("contact-form");
+
+        button.addEventListener("click", () => {
+            form.classList.toggle("hidden");
+        });
+    });
+</script>

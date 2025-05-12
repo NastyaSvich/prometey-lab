@@ -1,4 +1,4 @@
-@import '@styles/globals.less';
+@import "@styles/globals.less";
 
 .projects {
     display: grid;
@@ -8,8 +8,6 @@
     border-radius: 10px;
     background-color: @background-blue;
     overflow: hidden;
-
-
 
     .mediaPhone({
         grid-template-columns: 1fr;
@@ -73,10 +71,9 @@
         .mediaPhone({
             padding: 14px 12px 0 14px;
         });
-        b {
+        span {
             .header();
             padding-bottom: 10px;
-
         }
     }
     .details {
@@ -90,10 +87,10 @@
         .mediaPhone({
             padding: 14px 12px;
         });
-        b {
+        span {
             .header();
         }
-        ul  {
+        ul {
             .body();
             padding-left: 24px;
             li {
@@ -108,12 +105,8 @@
             margin-top: auto;
             align-self: flex-end;
             align-content: flex-end;
-
         }
-
     }
-
-
 
     .mediaDefault({
         .task {

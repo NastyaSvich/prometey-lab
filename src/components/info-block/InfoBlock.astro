@@ -5,12 +5,40 @@ import "src/components/info-block/InfoBlock.less";
 import { Image } from "astro:assets";
 
 export type InfoBlockProps = {
+    /**
+     * Заголовок блока.
+     */
     title: string;
+
+    /**
+     * Описание блока.
+     */
     descriptions: string[];
+
+    /**
+     * Надпись на кнопке.
+     */
     buttonLabel?: string;
+
+    /**
+     * Изображение у блока.
+     */
     image?: ImageMetadata;
+
+    /**
+     * Описание изображения блока.
+     */
     alt?: string;
+
+    /**
+     * Дополнительный css-класс.
+     */
     className?: string;
+
+    /**
+     * Отображение кнопки.
+     * По умолчанию видима.
+     */
     showButton?: boolean;
 };
 
@@ -57,5 +85,4 @@ const {
     </div>
 
     <slot name="additionalContent" />
-    {/* Это должно быть вне VerticalLineTitle */}
 </div>

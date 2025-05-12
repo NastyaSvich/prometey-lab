@@ -1,6 +1,8 @@
 ---
 import Header from "src/layout/header/Header.astro";
 import Footer from "src/layout/footer/Footer.astro";
+import ContactUs from "src/layout/contact-us/ContactUs.astro";
+
 import "src/layout/Layout.less";
 
 export type LayoutProps = {
@@ -29,6 +31,8 @@ const { className = "" } = Astro.props as LayoutProps;
         <main class={className}>
             <slot />
         </main>
+
+        <ContactUs />
 
         <Footer />
     </body>

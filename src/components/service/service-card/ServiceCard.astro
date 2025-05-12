@@ -1,19 +1,26 @@
 ---
-import arrow from 'src/assets/images/arrow.svg';
-import { Image } from 'astro:assets';
-import 'src/components/service/service-card/ServiceCard.less';
+import arrow from "src/assets/images/arrow.svg";
+import { Image } from "astro:assets";
+import "src/components/service/service-card/ServiceCard.less";
 
 export type CardServiceProps = {
+    /**
+     * Заголовок карточки.
+     */
     title: string;
+
+    /**
+     * Подзаголвок карточки.
+     */
     subtitle: string;
+
+    /**
+     * Описание карточки.
+     */
     description: string;
 };
 
-const {
-    title,
-    subtitle,
-    description
-} = Astro.props as CardServiceProps;
+const { title, subtitle, description } = Astro.props as CardServiceProps;
 
 /**
  * Компонент карточки услуг.
