@@ -1,12 +1,15 @@
 @import '@styles/globals.less';
 
 .statistic {
-    display: flex;
+    display: grid;
     justify-content: center;
+    grid-template-columns: repeat(4, 1fr);
+    justify-items: center;
     flex-wrap: wrap;
     gap: 50px;
 
     .mediaPhone({
+        grid-template-columns: repeat(2, 1fr);
         gap: 30px;
     });
 
@@ -14,7 +17,7 @@
         display: flex;
         gap: 50px;
         flex: 1;
-    
+
         .mediaPhone({
             gap: 30px;
         });
