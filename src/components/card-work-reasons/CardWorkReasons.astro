@@ -1,6 +1,7 @@
 ---
 import "src/components/card-work-reasons/CardWorkReasons.less";
 import CardDefault from "src/components/card-default/CardDefault.astro";
+import { Image } from "astro:assets";
 
 export type CardWorkReasonsProps = {
     /**
@@ -11,7 +12,7 @@ export type CardWorkReasonsProps = {
     /**
      * иконка пунктов у карточек.
      */
-    icon: string;
+    icon: ImageMetadata;
 
     /**
      * Заголовок карточки.
@@ -44,7 +45,7 @@ const { step, icon, title, description, className = "" } = Astro.props;
 
     <CardDefault className={`card-work-reasons ${className}`}>
         <div slot="title" class="title">
-            <img src={icon} alt="Иконка" class="work-reasons-icon" />
+            <Image src={icon} alt="Иконка" class="work-reasons-icon" />
             {title}
         </div>
         <div slot="description" class="description">{description}</div>
