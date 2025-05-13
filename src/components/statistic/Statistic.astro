@@ -1,6 +1,8 @@
 ---
 import StatisticCard from "src/components/statistic/statistic-card/StatisticCard.astro";
 import "src/components/statistic/Statistic.less";
+import 'src/components/statistic/Counter.css';
+
 
 /**
  * Компонент статистики.
@@ -8,12 +10,8 @@ import "src/components/statistic/Statistic.less";
 ---
 
 <div class="statistic">
-    <div class="block">
-        <StatisticCard title="16" description="Лет опыта" />
-        <StatisticCard title="82 +" description="Успешных проекта" />
-    </div>
-    <div class="block">
-        <StatisticCard title="70 +" description="Разработчиков в команде" />
-        <StatisticCard title="20 +" description="Охваченных отраслей" />
-    </div>
+    <StatisticCard description="Лет опыта" />
+    <StatisticCard description="Успешных проекта" />
+    <StatisticCard description="Разработчиков в команде" />
+    <StatisticCard description="Охваченных отраслей" />
 </div>

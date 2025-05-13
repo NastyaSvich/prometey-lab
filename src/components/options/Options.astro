@@ -1,9 +1,24 @@
 ---
 import Tab from "src/components/tab/Tab.astro";
-import "src/components/options/Options.less"
-
+import "src/components/options/Options.less";
 ---
+
 <div class="options">
-    <Tab label="Техподдержка БД" isActive={true}/>
-    <Tab label="DevOps" />
+    <Tab label="Техподдержка БД" isActive={true} />
+    <Tab label="DevOPS/SRE" />
 </div>
+
+<script>
+    const options = document.querySelectorAll(".options");
+    options.forEach((option) => {
+        const tabs = option.querySelectorAll(".tab");
+        tabs.forEach((tab) => {
+            tab.addEventListener("click", (clicked) => {
+                tabs.forEach((el) => el.classList.remove("active"));
+                if (clicked?.target instanceof HTMLElement) {
+                    clicked.target?.classList?.add?.("active")
+                }
+            });
+        });
+    });
+</script>

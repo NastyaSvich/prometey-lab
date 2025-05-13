@@ -4,7 +4,6 @@
   "version": "0.0.1",
   "scripts": {
     "build": "astro build",
-    "deploy": "npx cross-env BUILD_DIR=docs astro build",
     "dev": "astro dev --host",
     "preview": "astro preview"
   },
