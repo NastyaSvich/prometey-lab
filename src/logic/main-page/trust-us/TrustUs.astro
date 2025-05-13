@@ -1,28 +1,32 @@
 ---
-import HorizontalLineTitle from 'src/components/horizontal-line-title/HorizontalLineTitle.astro';
-import Swiper from 'src/components/swiper/Swiper.astro';
-import SwiperSlideElement from 'src/components/swiper/SwiperSlideElement.astro';
-import {Image} from 'astro:assets';
-import client1 from 'src/assets/images/client-1.png';
-import client2 from 'src/assets/images/client-2.png';
-import client3 from 'src/assets/images/client-3.png';
-import client4 from 'src/assets/images/client-4.png';
+import HorizontalLineTitle from "src/components/horizontal-line-title/HorizontalLineTitle.astro";
+import Swiper from "src/components/swiper/Swiper.astro";
+import SwiperSlideElement from "src/components/swiper/SwiperSlideElement.astro";
+import { Image } from "astro:assets";
+import vinlab from "src/assets/images/vinlab.svg";
+import storeez from "src/assets/images/12storeez.svg";
+import monastyrev from "src/assets/images/monastyrev.svg";
+import teamIdea from "src/assets/images/TeamIdea.svg";
+import yandex from "src/assets/images/yandex.svg";
+import ozon from "src/assets/images/ozon.svg";
+import sberBank from "src/assets/images/SberBank.svg";
+import gosUslugi from "src/assets/images/GosUslugi.svg";
 
-import 'src/logic/main-page/trust-us/TrustUs.less';
+import "src/logic/main-page/trust-us/TrustUs.less";
 
 export type TrustUsProps = {
     icon: ImageMetadata;
 };
 
 const clients: TrustUsProps[] = [
-    {icon: client1},
-    {icon: client2},
-    {icon: client3},
-    {icon: client4},
-    {icon: client1},
-    {icon: client2},
-    {icon: client3},
-    {icon: client4},
+    { icon: vinlab },
+    { icon: storeez },
+    { icon: monastyrev },
+    { icon: teamIdea },
+    { icon: yandex },
+    { icon: ozon },
+    { icon: sberBank },
+    { icon: gosUslugi },
 ];
 ---
 
@@ -39,7 +43,7 @@ const clients: TrustUsProps[] = [
             spaceBetween={6}
         >
             {
-                clients.map(({icon}) => (
+                clients.map(({ icon }) => (
                     <SwiperSlideElement>
                         <Image src={icon} alt="icon" class="client-image" />
                     </SwiperSlideElement>
