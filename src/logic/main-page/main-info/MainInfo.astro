@@ -1,7 +1,5 @@
 ---
-import Button from "src/components/button/Button.astro";
 import Service from "src/components/service/Service.astro";
-import VerticalLineTitle from "src/components/vertical-line-title/VerticalLineTitle.astro";
 import InfoBlock from "src/components/info-block/InfoBlock.astro";
 import "src/logic/main-page/main-info/MainInfo.less";
 
@@ -16,8 +14,10 @@ import "src/logic/main-page/main-info/MainInfo.less";
         "Комплексные услуги по сопровождению баз данных, включая работу с <span class='bold'>PostgreSQL, Oracle, MySQL и MS SQL</span>",
     ]}
     buttonLabel="Заказать"
+    className="main-info"
+    class:list={['box']}
 >
-    <div slot="additionalContent">
+    <div slot="additional-content">
         <Service />
     </div>
 </InfoBlock>

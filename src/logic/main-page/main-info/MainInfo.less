@@ -1,17 +1,9 @@
 @import "@styles/globals.less";
 
 .main-info {
-    background: url("@assets/images/main-info-background.png") center/cover
-        no-repeat;
-    background-color: @background-grey;
     padding: 92px 40px 40px 40px;
-    border-radius: 20px;
 
     .mediaPhone({
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
         padding: 20px 30px;
     });
 
@@ -27,14 +19,6 @@
 
         .bold {
             .fontOpenSansBoldItalic();
-        }
-
-        .button {
-            margin-top: 40px;
-
-            .mediaPhone({
-                margin-top: 20px;
-            });
         }
     }
 

@@ -57,11 +57,11 @@ const {
  */
 ---
 
-<div class={`main-info ${className}`}>
+<div class={`info-block ${className}`}>
     <div class="content-container">
         <div class="info-content">
             <div class="info">
-                <VerticalLineTitle title={title} className="info">
+                <VerticalLineTitle title={title} className="info-block-title">
                     <div class="text-content">
                         {
                             descriptions.map((text: string) => (
@@ -84,5 +84,5 @@ const {
         }
     </div>
 
-    <slot name="additionalContent" />
+    <slot name="additional-content"/>
 </div>
