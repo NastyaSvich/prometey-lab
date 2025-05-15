@@ -7,8 +7,6 @@
     .work-reasons-content {
         grid-template-columns: repeat(3, 1fr);
         gap: 20px;
-        justify-items: center;
-        align-items: start;
 
         .mediaPhone({
             grid-template-columns: 1fr;
@@ -17,6 +15,7 @@
 
         .cards-grid {
             display: grid;
+            justify-content: center;
             grid-template-areas:
                 "card1 card2 card3"
                 "divider divider divider"

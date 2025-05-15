@@ -1,135 +1,132 @@
-@import "@styles/globals.less";
+@import '@styles/globals.less';
 
 .our-projects {
-    margin: 100px 0;
-    width: 100%;
+    margin-bottom: 100px;
 
     .mediaPhone({
-        margin: 60px 0;
+        margin-bottom: 50px;
     });
+    
+    .projects-wrapper {
+        .projects {
+            border: 1px solid @accent-blue;
+            border-radius: 10px;
+            background-color: @background-light-gray;
+            overflow: hidden;
+            margin: auto;
 
-    .projects-container {
-        .projects-wrapper {
-            .projects {
-                border: 1px solid @accent-blue;
-                border-radius: 10px;
-                background-color: @background-light-gray;
-                overflow: hidden;
-                margin: auto;
-
-                .mediaPhone({
+            .mediaPhone({
                     margin: 0 20px;
                 });
 
-                .image-header {
-                    .header-image {
-                        height: auto;
+            .image-header {
+                .header-image {
+                    height: auto;
 
-                        .mediaPhone({
+                    .mediaPhone({
                             height: auto;
                             width: 162px;
                             display: block;
                             margin: 0 auto;
                         });
-                    }
                 }
+            }
 
-                .project-content {
-                    display: grid;
-                    grid-template-columns: 1fr 1fr;
-                    background-color: @background-blue;
-                    overflow: hidden;
+            .project-content {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                background-color: @background-blue;
+                overflow: hidden;
 
-                    .mediaPhone({
+                .mediaPhone({
                         display: flex;
                         flex-direction: column;
                         grid-template-columns: 1fr;
                     });
 
-                    .task-section,
-                    .solution-section {
-                        padding: 24px;
-                        background-color: @background-light-gray;
-                        border-top: 1px solid @accent-blue;
+                .task-section,
+                .solution-section {
+                    padding: 24px;
+                    background-color: @background-light-gray;
+                    border-top: 1px solid @accent-blue;
 
-                        .mediaPhone({
+                    .mediaPhone({
                             padding: 16px;
                         });
-                    }
+                }
 
-                    .task-section {
-                        border-right: 1px solid @accent-blue;
+                .task-section {
+                    border-right: 1px solid @accent-blue;
 
-                        .mediaPhone({
+                    .mediaPhone({
                             order: 2;
                             border-right: none;
                         });
-                    }
+                }
 
-                    .solution-section {
-                        .mediaPhone({
+                .solution-section {
+                    .mediaPhone({
                             order: 3;
                         });
-                    }
+                }
 
-                    h3 {
-                        .fontOpenSansBold();
-                        font-size: 22px;
-                        margin-bottom: 15px;
-                        color: @primary-black-text;
-                    }
+                h3 {
+                    .fontOpenSansBold();
+                    font-size: 22px;
+                    margin-bottom: 15px;
+                    color: @primary-black-text;
+                }
 
-                    h4 {
-                        .fontOpenSansBold();
-                        font-size: 18px;
-                        margin-bottom: 12px;
-                        color: @primary-black-text;
+                h4 {
+                    .fontOpenSansBold();
+                    font-size: 18px;
+                    margin-bottom: 12px;
+                    color: @primary-black-text;
 
-                        .mediaPhone({
+                    .mediaPhone({
                             font-size: 14px;
                             margin-bottom: 5px;
                         });
-                    }
+                }
 
-                    p {
-                        .fontOpenSansRegular();
-                        font-size: 16px;
-                        color: @secondary-black-text;
-                        margin-bottom: 15px;
+                p {
+                    .fontOpenSansRegular();
+                    font-size: 16px;
+                    color: @secondary-black-text;
+                    margin-bottom: 15px;
 
-                        .mediaPhone({
+                    .mediaPhone({
                             font-size: 12px;
                             margin-bottom: 5px;
                         });
-                    }
+                }
 
-                    ul {
-                        padding-left: 24px;
-                        margin: 15px 0;
+                ul {
+                    padding-left: 24px;
+                    margin: 15px 0;
 
-                        .mediaPhone({
+                    .mediaPhone({
                             padding-left: 18px;
                             margin: 0;
                         });
 
-                        li {
-                            .fontOpenSansRegular();
-                            font-size: 16px;
-                            color: @secondary-black-text;
-                            margin-bottom: 8px;
+                    li {
+                        .fontOpenSansRegular();
+                        font-size: 16px;
+                        color: @secondary-black-text;
+                        margin-bottom: 8px;
 
-                            .mediaPhone({
+                        .mediaPhone({
                                 font-size: 12px;
                                 margin-bottom: 0px;
                             });
 
-                            &::marker {
-                                color: @outline;
-                            }
+                        &::marker {
+                            color: @outline;
+                        }
 
-                            span {
-                                .fontOpenSansBold();
-                            }
+                        span {
+                            .fontOpenSansBold();
                         }
                     }
                 }

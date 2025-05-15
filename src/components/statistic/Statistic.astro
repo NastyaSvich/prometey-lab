@@ -1,8 +1,6 @@
 ---
 import StatisticCard from "src/components/statistic/statistic-card/StatisticCard.astro";
 import "src/components/statistic/Statistic.less";
-import 'src/components/statistic/Counter.css';
-
 
 /**
  * Компонент статистики.
@@ -15,3 +13,31 @@ import 'src/components/statistic/Counter.css';
     <StatisticCard description="Разработчиков в команде" />
     <StatisticCard description="Охваченных отраслей" />
 </div>
+
+<script>
+    function animateCounter(el: HTMLElement, to: number, duration: number, showPlus: boolean): void {
+    let startTime: number | null = null;
+
+    const step = (timestamp: number) => {
+        if (startTime === null) startTime = timestamp;
+        const progress = timestamp - startTime;
+        const value = Math.min(Math.floor((progress / duration) * to), to);
+        el.textContent = showPlus ? `${value} +` : `${value}`;
+        if (value < to) {
+            requestAnimationFrame(step);
+        }
+    };
+
+    requestAnimationFrame(step);
+}
+
+    const elements = Array.from(document.querySelectorAll<HTMLElement>('.statistic-card .title'));
+    const values: number[] = [16, 82, 70, 20];
+    const firstIndex = 0;
+    elements.forEach((el, i) => {
+        if (i < values.length) {
+            const showPlus = i !== firstIndex;
+            animateCounter(el, values[i], 5000, showPlus);
+        }
+    });
+</script>

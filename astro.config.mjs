@@ -3,7 +3,7 @@ import path from 'path';
 import relativeLinks from 'astro-relative-links';
 
 export default defineConfig({
-    outDir: process.env.BUILD_DIR || 'dist',
+    outDir: 'dist',
     integrations: [relativeLinks()],
     vite: {
         resolve: {

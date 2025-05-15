@@ -1,31 +1,18 @@
-@import "@styles/globals.less";
+@import '@styles/globals.less';
 
-.service-info {
-    .services {
-        width: 100%;
+.services {
+    width: 100%;
 
-        .services-content {
-            justify-items: center;
-
-            .service {
-                margin-top: 70px;
-                width: 100%;
-                gap: 20px;
-            }
-        }
-    }
-
-    .service {
-        margin-top: 70px;
+    .services-content {
+        display: flex;
+        justify-content: center;
         width: 100%;
         gap: 20px;
 
         .mediaPhone({
-            margin-top: 30px;
-
             .service-card {
                 width: 280px;
             }
-        });
+        })
     }
 }

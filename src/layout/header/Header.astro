@@ -8,8 +8,12 @@ import telephone from "@assets/images/telephone2.svg";
 
 const LogoComponent = `
   <div class="logo-content">
-    <img class="logo" alt="Logo Prometey" src="${logo.src}" />
-    <span class="text">PROMETEY LAB</span>
+    <a href="/" class="logo-link">
+        <img class="logo" alt="Logo Prometey" src="${logo.src}" />
+    </a>
+    <a href="/" class="logo-link">
+        <span class="text">PROMETEY LAB</span>
+    </a>
   </div>
 `;
 ---
@@ -22,9 +26,8 @@ const LogoComponent = `
         </div>
 
         <div class="header-bottom">
-            <a href="/" class="logo-link">
-                <div set:html={LogoComponent} />
-            </a>
+            
+            <div set:html={LogoComponent} />
 
             <div class="hamburger">
                 <span class="line"></span>
@@ -44,7 +47,9 @@ const LogoComponent = `
                     <a href="#">Блог</a>
                 </nav>
 
-                <Button label="Контакты" size="medium" />
+                <a href="#contacts" class="contacts-link">
+                    <Button label="Контакты" size="medium" />
+                </a>
 
                 <div class="contact-information">
                     <ul>

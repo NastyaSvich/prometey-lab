@@ -1,9 +1,9 @@
 ---
-import HorizontalLineTitle from "src/components/horizontal-line-title/HorizontalLineTitle.astro";
-import Swiper from "src/components/swiper/Swiper.astro";
-import SwiperSlideElement from "src/components/swiper/SwiperSlideElement.astro";
-import "src/components/our-projects/OurProjects.less";
-import { Image } from "astro:assets";
+import HorizontalLineTitle from 'src/components/horizontal-line-title/HorizontalLineTitle.astro';
+import Swiper from 'src/components/swiper/Swiper.astro';
+import SwiperSlideElement from 'src/components/swiper/SwiperSlideElement.astro';
+import 'src/components/our-projects/OurProjects.less';
+import {Image} from 'astro:assets';
 
 /**
  * Интерфейс задания проекта.
@@ -76,72 +76,67 @@ interface Project {
 }
 
 const {
-    title = "НАШИ ПРОЕКТЫ",
+    title = 'НАШИ ПРОЕКТЫ',
     projects = [] as Project[],
-    className = "",
+    className = '',
 } = Astro.props;
 ---
 
-<div class={`our-projects ${className}`}>
-    <HorizontalLineTitle title={title} className="projects-container">
-        <div class="projects-wrapper">
-            <Swiper
-                desktopSlidesPerView={1}
-                tabletSlidesPerView={1}
-                mobileSlidesPerView={1}
-                className="projects-swiper"
-            >
-                {
-                    projects.map((project: Project) => (
-                        <SwiperSlideElement>
-                            <div class="projects">
-                                <div class="image-header">
-                                    <Image
-                                        src={project.image}
-                                        alt="firm"
-                                        class="header-image"
-                                    />
+<HorizontalLineTitle title={title} className={`our-projects ${className}`}>
+    <div class="projects-wrapper">
+        <Swiper
+            desktopSlidesPerView={1}
+            tabletSlidesPerView={1}
+            mobileSlidesPerView={1}
+            className="projects-swiper"
+        >
+            {
+                projects.map((project: Project) => (
+                    <SwiperSlideElement>
+                        <div class="projects">
+                            <div class="image-header">
+                                <Image
+                                    src={project.image}
+                                    alt="firm"
+                                    class="header-image"
+                                />
+                            </div>
+                            <div class="project-content">
+                                <div class="task-section">
+                                    <div class="task">
+                                        <h4>{project.task.header}</h4>
+                                        {project.task.descriptions.map(
+                                            (desc: string) => (
+                                                <p>{desc}</p>
+                                            )
+                                        )}
+                                    </div>
                                 </div>
-                                <div class="project-content">
-                                    <div class="task-section">
-                                        <div class="task">
-                                            <h4>{project.task.header}</h4>
-                                            {project.task.descriptions.map(
-                                                (desc: string) => (
-                                                    <p>{desc}</p>
+                                <div class="solution-section">
+                                    <div class="solution">
+                                        <h4>{project.solution.header}</h4>
+                                        <p>{project.solution.description}</p>
+                                        <ul>
+                                            {project.solution.items.map(
+                                                (item: ProjectItem) => (
+                                                    <li>
+                                                        {item.label && (
+                                                            <span>
+                                                                {item.label}:{' '}
+                                                            </span>
+                                                        )}
+                                                        {item.text}
+                                                    </li>
                                                 )
                                             )}
-                                        </div>
-                                    </div>
-                                    <div class="solution-section">
-                                        <div class="solution">
-                                            <h4>{project.solution.header}</h4>
-                                            <p>
-                                                {project.solution.description}
-                                            </p>
-                                            <ul>
-                                                {project.solution.items.map(
-                                                    (item: ProjectItem) => (
-                                                        <li>
-                                                            {item.label && (
-                                                                <span>
-                                                                    {item.label}
-                                                                    :{" "}
-                                                                </span>
-                                                            )}
-                                                            {item.text}
-                                                        </li>
-                                                    )
-                                                )}
-                                            </ul>
-                                        </div>
+                                        </ul>
                                     </div>
                                 </div>
                             </div>
-                        </SwiperSlideElement>
-                    ))
-                }
-            </Swiper>
-        </div>
-    </HorizontalLineTitle>
-</div>
+                        </div>
+                    </SwiperSlideElement>
+                ))
+            }
+        </Swiper>
+    </div>
+</HorizontalLineTitle>
