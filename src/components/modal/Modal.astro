@@ -14,18 +14,13 @@ export type ModalProps = {
         <div class="modal-subtitle">
             Команда PROMETEY LAB свяжется с вами в ближайшее время
         </div>
-        <Button label="На главную" className="modal-button" size="medium" />
+        <Button label="На главную" id="closeModalBtn" className="modal-button" size="medium" />
     </div>
 </div>
 
 <script >
-    const openModalBtn = document.getElementById("openModalBtn");
     const modalOverlay = document.getElementById("modalOverlay");
     const closeModalBtn = document.getElementById("closeModalBtn");
-
-    openModalBtn?.addEventListener("click", () => {
-        modalOverlay?.classList.add("open");
-    });
 
     closeModalBtn?.addEventListener("click", () => {
         modalOverlay?.classList.remove("open");
