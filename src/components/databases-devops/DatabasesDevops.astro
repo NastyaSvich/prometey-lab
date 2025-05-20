@@ -9,14 +9,28 @@ const {
     subtitle = "Стоимость проектов индивидуальна — все зависит от конечных задач, утвержденных с вами",
 } = Astro.props;
 
-const tasks = {
+const titlesDB = {
+    "project-1": "Аудит СУБД",
+    "project-2": "Администрирование баз данных",
+    "project-3": "Миграция баз данных",
+    "project-4": "Сопровождение mission critical баз",
+};
+
+const titlesDevops = {
+    "project-1": "Небольшой интернет-магазин",
+    "project-2": "B2C-маркетплейс в разработке",
+    "project-3": "Крупная логистическая компания",
+    "project-4": "FinTech с распределённой инфраструктурой",
+};
+
+const tasksDB = {
     "project-1": `<span>Задача:</span> Выявление слабых мест, предотвращение сбоев`,
     "project-2": `<span>Задача:</span> Полное сопровождение СУБД`,
     "project-3": `<span>Задача:</span> Миграция баз данных Oracle → Open Source`,
     "project-4": `<span>Задача:</span> Обеспечение высокой доступности и быстрого времени отклика (≤3 сек)`,
 };
 
-const details = {
+const detailsDB = {
     "project-1": `
         <span>Состав проекта:</span>
         <ul>
@@ -46,26 +60,94 @@ const details = {
     "project-4": `
         <span>Состав проекта:</span>
         <ul>
-            <li> <strong>Фронт:</strong> Нагрузка 2000 TPS</li>
-            <li>Кластер MySQL из 3х нод  (dev, stage, prod)</li>
-            <li>20 кластеров PostgreSQL: Patroni, pgBouncer, etcd (dev, stage, prod)</li>
-            <li>PostgreSQL DWH: 4 ТБ, master-slave, 100 MB WAL/sec (dev и prod )</li>
+            <li><strong>Фронт:</strong> Нагрузка 2000 TPS</li>
+            <li>Кластер MySQL из 3х нод  (Dev, Stage, Prod)</li>
+            <li>20 кластеров PostgreSQL: Patroni, pgBouncer, etcd (Dev, Stage, Prod)</li>
+            <li>PostgreSQL DWH: 4 ТБ, master-slave, 100 MB WAL/sec (Dev и Prod)</li>
         </ul>
     `,
 };
 
-const prices = {
+const pricesDB = {
     "project-1": "120 тыс. руб",
     "project-2": "200 тыс. руб/мес",
     "project-3": "300 тыс. руб",
     "project-4": "480 тыс. руб/мес",
 };
+
+const tasksDevops = {
+    "project-1": `<span>Задача:</span> Разработать и внедрить новую архитектуру совместно с ИТ-специалистами заказчика`,
+    "project-2": `<span>Задача:</span> Повысить отказоустойчивость, развернуть Kubernetes и настроить CI/CD с динамическими окружениями`,
+    "project-3": `<span>Задача:</span> Внедрить решения для обработки Big Data с использование LLM и ML, организовать отказоустойчивую инфраструктуру на базе AWS и Kubernetes`,
+    "project-4": `<span>Задача:</span> Запустить сервис, развернуть инфраструктуру, настроить CI/CD-процессы, сократить Time-To-Market. Поддержка 24/7 с порогом SLA 99.5%`,
+};
+const detailsDevops = {
+    "project-1": `
+        <span>Состав проекта:</span>
+        <ul>
+            <li>2+ виртуальных машин в облаке</li>
+            <li>Yandex Managed Service for PostgreSQL</li>
+            <li>2 проекта (сайт, API)</li>
+            <li>CI/CD для автоматического деплоя</li>
+            <li>Балансировка нагрузки</li>
+            <li><strong>Стек:</strong> Nginx, PostgreSQL, Redis, PHP, Node.js, Docker, GitLab</li>
+        </ul>
+    `,
+    "project-2": `
+        <span>Состав проекта:</span>
+        <ul>
+            <li>2 кластера Kubernetes и PostgreSQL в облаке</li>
+            <li>Балансировщики нагрузки</li>
+            <li>10+ репозиториев</li>
+            <li>Сервис защиты от DDOS-атак</li>
+            <li>Динамические окружения (Dev, Stage, Prod)</li>
+            <li>CI/CD на Gitlab</li>
+            <li><strong>Стек:</strong> Gitlab, Docker, Kubernetes, React, PHP, Redis, PostgreSQL, EFK, Prometheus, Grafana, Helm, S3, CloudFlare</li>
+        </ul>
+    `,
+    "project-3": `
+        <span>Состав проекта:</span>
+        <ul>
+            <li>Многозональная инфраструктура в AWS</li>
+            <li>Балансировщики нагрузки</li>
+            <li>15+ репозиториев</li>
+            <li>CDC на базе Kafka + Spark для обработки данных</li>
+            <li>AWS EKS+RDS</li>
+            <li>CI/CD, автоматизация масштабирования</li>
+            <li><strong>Стек:</strong> AWS, Olama, Kubernetes, Kafka, Spark, GreenPlum, Oracle Database, ClickHouse, GitLab, Python, Loki, Prometheus, Grafana, Helm, S3, GoLang, PostgreSQL</li>
+        </ul>
+    `,
+    "project-4": `
+        <span>Состав проекта:</span>
+        <ul>
+            <li>Настройка инфраструктуры между двумя дата-центрами</li>
+            <li>120+ виртуальных машин</li>
+            <li>СУБД и различных хранилища (базы данных, брокеры очередей, S3)</li>
+            <li>Элемены гибридной облачной инфраструктуры</li>
+            <li>3 отказоустойчивых кластера Kubernetes (Dev, Stage, Prod)</li>
+            <li>Микросервисная архитектура с 750+ приложениями</li>
+            <li>Полная автоматизация CI/CD (+автотесты)</li>
+            <li><strong>Стек:</strong> Nginx, PostgreSQL, Redis, Minio, Java, React, Flutter, ArgoCD, GitLab, Kubernetes, Dynatrace, Grafana</li>
+        </ul>
+    `,
+};
+const pricesDevops = {
+    "project-1": "150 тыс. руб",
+    "project-2": "200 тыс. руб",
+    "project-3": "500 тыс. руб",
+    "project-4": "800 тыс. руб",
+};
 ---
 
 <project-examples
-    data-tasks={JSON.stringify(tasks)}
-    data-details={JSON.stringify(details)}
-    data-prices={JSON.stringify(prices)}
+    data-db-titles={JSON.stringify(titlesDB)}
+    data-devops-titles={JSON.stringify(titlesDevops)}
+    data-db-tasks={JSON.stringify(tasksDB)}
+    data-db-details={JSON.stringify(detailsDB)}
+    data-db-prices={JSON.stringify(pricesDB)}
+    data-devops-tasks={JSON.stringify(tasksDevops)}
+    data-devops-details={JSON.stringify(detailsDevops)}
+    data-devops-prices={JSON.stringify(pricesDevops)}
 >
     <HorizontalLineTitle
         title={title}
@@ -86,14 +168,14 @@ const prices = {
             <div class="project project-4" id="project-4">
                 Сопровождение mission critical баз
             </div>
-            <div class="task" set:html={tasks["project-1"]} />
+            <div class="task" set:html={tasksDB["project-1"]} />
             <div class="details">
-                <div set:html={details["project-1"]} />
+                <div set:html={detailsDB["project-1"]} />
                 <Button
                     variant="outline"
                     id="project-price"
                     class="button"
-                    label={prices["project-1"]}
+                    label={pricesDB["project-1"]}
                 />
             </div>
         </div>
@@ -104,40 +186,83 @@ const prices = {
     class ProjectExamples extends HTMLElement {
         constructor() {
             super();
-            const projectsHTML = this.querySelectorAll(".projects .project");
+
             const taskHTML = this.querySelector(".projects .task");
             const detailsHTML = this.querySelector(".projects .details div");
             const priceButton = this.querySelector(".button");
 
-            const tasks = JSON.parse(this.dataset?.tasks || "{}");
-            const details = JSON.parse(this.dataset?.details || "{}");
-            const prices = JSON.parse(this.dataset?.prices || "{}");
+            let currentKey = "db";
+            let titles = JSON.parse(
+                this.dataset[`${currentKey}Titles`] || "{}"
+            );
+            let tasks = JSON.parse(this.dataset[`${currentKey}Tasks`] || "{}");
+            let details = JSON.parse(
+                this.dataset[`${currentKey}Details`] || "{}"
+            );
+            let prices = JSON.parse(
+                this.dataset[`${currentKey}Prices`] || "{}"
+            );
 
-            projectsHTML.forEach((project) => {
-                project.addEventListener("click", (clicked) => {
-                    console.log("Project clicked:", clicked.target.id);
-                    projectsHTML.forEach((p) => p.classList.remove("active"));
-                    clicked.target.classList.add("active");
+            const updateContent = (key) => {
+                tasks = JSON.parse(this.dataset[`${key}Tasks`] || "{}");
+                details = JSON.parse(this.dataset[`${key}Details`] || "{}");
+                prices = JSON.parse(this.dataset[`${key}Prices`] || "{}");
+                titles = JSON.parse(this.dataset[`${key}Titles`] || "{}");
 
-                    const id = clicked.target.id;
+                const keyList = Object.keys(tasks);
+                const firstKey = keyList[0];
 
-                    if (taskHTML && tasks[id]) {
-                        taskHTML.innerHTML = tasks[id];
-                    }
-                    if (detailsHTML && details[id]) {
-                        detailsHTML.innerHTML = details[id];
-                    }
+                const projectsContainer = this.querySelector(".projects");
+                const existingProjects =
+                    this.querySelectorAll(".projects .project");
+                existingProjects.forEach((p) => p.remove());
 
-                    if (priceButton && prices[id]) {
-                        priceButton.label = prices[id];
-                        priceButton.textContent = prices[id];
-                        console.log("Price updated to:", prices[id]);
-                    } else {
-                        console.error("Price button not found");
-                    }
+                keyList.forEach((projectId, index) => {
+                    const div = document.createElement("div");
+                    div.classList.add("project", projectId);
+                    if (index === 0) div.classList.add("active");
+                    div.id = projectId;
+                    div.textContent =
+                        titles[projectId] || `Проект ${index + 1}`;
+                    projectsContainer.insertBefore(div, taskHTML);
                 });
+
+                this.querySelectorAll(".projects .project").forEach(
+                    (project) => {
+                        project.addEventListener("click", (clicked) => {
+                            this.querySelectorAll(".projects .project").forEach(
+                                (p) => p.classList.remove("active")
+                            );
+                            clicked.target.classList.add("active");
+
+                            const id = clicked.target.id;
+                            if (taskHTML && tasks[id])
+                                taskHTML.innerHTML = tasks[id];
+                            if (detailsHTML && details[id])
+                                detailsHTML.innerHTML = details[id];
+                            if (priceButton && prices[id])
+                                priceButton.textContent = prices[id];
+                        });
+                    }
+                );
+
+                if (taskHTML && tasks[firstKey])
+                    taskHTML.innerHTML = tasks[firstKey];
+                if (detailsHTML && details[firstKey])
+                    detailsHTML.innerHTML = details[firstKey];
+                if (priceButton && prices[firstKey])
+                    priceButton.textContent = prices[firstKey];
+            };
+
+            updateContent(currentKey);
+
+            document.addEventListener("optionChanged", (e) => {
+                const key = e.detail.key;
+                currentKey = key;
+                updateContent(currentKey);
             });
         }
     }
+
     customElements.define("project-examples", ProjectExamples);
 </script>

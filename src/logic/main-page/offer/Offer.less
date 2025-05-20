@@ -1,4 +1,4 @@
-@import '@styles/globals.less';
+@import "@styles/globals.less";
 
 .offer-table {
     display: grid;
@@ -18,8 +18,7 @@
         padding: 8px 12px;
     });
 
-
-    >div {
+    > div {
         padding: 12px 10px;
         .mediaPhone({
             padding: 6px 3px;
@@ -63,7 +62,6 @@
                 padding: 14px 16px;
             }
         });
-
     }
 
     div:nth-child(n + 7) {
@@ -78,20 +76,19 @@
 
 @media (min-width: 941px) and (max-width: 1380px) {
     .offer-table {
-        >div {
+        > div {
             padding: 12px 0;
         }
 
-        div:nth-child(-n + 6)>.inner-border {
+        div:nth-child(-n + 6) > .inner-border {
             padding: 14px 5px;
             text-align: center;
         }
 
-        div:nth-child(n + 7)>.inner-border {
+        div:nth-child(n + 7) > .inner-border {
             padding: 10px 5px;
         }
     }
-
 }
 
 h2.service {
@@ -101,7 +98,6 @@ h2.service {
     .mediaPhone({
         font-size: 16px;
     });
-
 }
 
 .promotion {
@@ -125,11 +121,19 @@ h2.service {
         display: grid;
         grid-template-columns: 1fr 1fr;
         grid-template-rows: 1fr 1fr;
-        gap: 25px; 
+        gap: 25px;
 
         .mediaPhone({
             grid-template-columns: 1fr;
             grid-template-rows: repeat(4, auto);
         });
+    }
+}
+
+.offer-container.category-db {
+    .offer-table {
+        div:nth-child(-n + 6) {
+            font-size: 14px;
+        }
     }
 }

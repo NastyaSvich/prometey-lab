@@ -1,5 +1,5 @@
 ---
-import 'src/components/tab/Tab.less';
+import "src/components/tab/Tab.less";
 
 export type TabProps = {
     label: string;
@@ -11,12 +11,11 @@ const {
     label,
     className = "",
     isActive = false,
+    ...restProps
 } = Astro.props as TabProps;
-
 const classNameStyle = `tab ${className} ${isActive ? "active" : ""}`;
 ---
 
-<div class={classNameStyle}>
+<div class={classNameStyle} {...restProps}>
     {label}
 </div>
-

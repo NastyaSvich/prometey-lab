@@ -4,21 +4,35 @@ import "src/components/options/Options.less";
 ---
 
 <div class="options">
-    <Tab label="Администрирование СУБД" isActive={true} />
-    <Tab label="DevOPS/SRE" />
+    <Tab label="Администрирование СУБД" data-key="db" isActive={true} />
+    <Tab label="DevOPS/SRE" data-key="devops" />
 </div>
 
-<script>
-    const options = document.querySelectorAll(".options");
-    options.forEach((option) => {
-        const tabs = option.querySelectorAll(".tab");
-        tabs.forEach((tab) => {
-            tab.addEventListener("click", (clicked) => {
-                tabs.forEach((el) => el.classList.remove("active"));
-                if (clicked?.target instanceof HTMLElement) {
-                    clicked.target?.classList?.add?.("active");
-                }
+<script is:inline>
+    (() => {
+        const optionBlocks = document.querySelectorAll(".options");
+
+        optionBlocks.forEach((option) => {
+            const tabs = option.querySelectorAll(".tab");
+
+            tabs.forEach((tab) => {
+                tab.addEventListener("click", (clicked) => {
+                    tabs.forEach((el) => el.classList.remove("active"));
+
+                    const tabEl = clicked.target.closest(".tab");
+                    if (tabEl) {
+                        tabEl.classList.add("active");
+
+                        const selected = tabEl.getAttribute("data-key");
+
+                        document.dispatchEvent(
+                            new CustomEvent("optionChanged", {
+                                detail: { key: selected },
+                            })
+                        );
+                    }
+                });
             });
         });
-    });
+    })();
 </script>
