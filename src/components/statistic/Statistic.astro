@@ -40,10 +40,9 @@ import "src/components/statistic/Statistic.less";
         document.querySelectorAll<HTMLElement>(".statistic-card .title")
     );
     const values: number[] = [20, 82, 15, 20];
-    const thirdIndex = 2;
     elements.forEach((el, i) => {
         if (i < values.length) {
-            const showPlus = i !== thirdIndex;
+            const showPlus = true;
             animateCounter(el, values[i], 5000, showPlus);
         }
     });
