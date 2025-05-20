@@ -16,7 +16,8 @@
 
     .project-1,
     .project-2,
-    .project-3 {
+    .project-3,
+    .project-4 {
         display: flex;
         align-items: center;
         justify-self: stretch;
@@ -35,7 +36,8 @@
 
     .project-1.active,
     .project-2.active,
-    .project-3.active {
+    .project-3.active,
+    .project-4.active {
         color: @primary-white-text;
         background-color: @accent-blue;
     }
@@ -45,8 +47,12 @@
         border-bottom: 1px solid @accent-blue;
     }
 
+    .project-3 {
+        border-bottom: 1px solid @accent-blue;
+    }
+
     .mediaPhone({
-        .project-3 {
+        .project-4 {
             border-bottom: 1px solid @accent-blue;
         }
     });
@@ -110,11 +116,11 @@
 
     .mediaDefault({
         .task {
-            grid-row: 1 / 4;
+            grid-row: 1 / 5;
             grid-column: 2 / 3;
         }
         .details {
-            grid-row: 1 / 4;
+            grid-row: 1 / 5;
             grid-column: 3 / 4;
         }
     });

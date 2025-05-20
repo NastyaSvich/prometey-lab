@@ -4,7 +4,7 @@ import "src/components/options/Options.less";
 ---
 
 <div class="options">
-    <Tab label="Техподдержка БД" isActive={true} />
+    <Tab label="Администрирование СУБД" isActive={true} />
     <Tab label="DevOPS/SRE" />
 </div>
 
@@ -16,7 +16,7 @@ import "src/components/options/Options.less";
             tab.addEventListener("click", (clicked) => {
                 tabs.forEach((el) => el.classList.remove("active"));
                 if (clicked?.target instanceof HTMLElement) {
-                    clicked.target?.classList?.add?.("active")
+                    clicked.target?.classList?.add?.("active");
                 }
             });
         });

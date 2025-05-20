@@ -10,13 +10,63 @@ const {
 } = Astro.props;
 
 const tasks = {
-    "project-1": `<span>Задача:</span> Разработать и внедрить новую архитектуру совместно с ИТ-специалистами заказчика`,
-    "project-2": `<span>Задача:</span> Разработать и внедрить новую архитектуру совместно с ИТ-специалистами заказчика`,
-    "project-3": `<span>Задача:</span> Разработать и внедрить новую архитектуру совместно с ИТ-специалистами заказчика`,
+    "project-1": `<span>Задача:</span> Выявление слабых мест, предотвращение сбоев`,
+    "project-2": `<span>Задача:</span> Полное сопровождение СУБД`,
+    "project-3": `<span>Задача:</span> Миграция баз данных Oracle → Open Source`,
+    "project-4": `<span>Задача:</span> Обеспечение высокой доступности и быстрого времени отклика (≤3 сек)`,
+};
+
+const details = {
+    "project-1": `
+        <span>Состав проекта:</span>
+        <ul>
+            <li>2 сервера СУБД</li>
+            <li>Анализ проблемных мест мониторинга</li>
+            <li>25-страничный отчёт с рекомендациями</li>
+            <li>Сопровождение внедрения</li>
+        </ul>
+    `,
+    "project-2": `
+        <span>Состав проекта:</span>
+        <ul>
+            <li>20 серверов СУБД</li>
+            <li>Настройка мониторинга и проактивных мер</li>
+            <li>Оптимизация быстродействия</li>
+            <li>SLA: 30 мин реакция / 4 часа устранение</li>
+        </ul>
+    `,
+    "project-3": `
+        <span>Состав проекта:</span>
+        <ul>
+            <li>ИТ-система с БД Oracle ( 200ГБ, 50 активных пользователей ) с резервным сервером</li>
+            <li>Разработка и реализация плана миграции с простоем не более 10 минут</li>
+            <li>Мониторинг и постмиграционная поддержка в течение месяца</li>
+        </ul>
+    `,
+    "project-4": `
+        <span>Состав проекта:</span>
+        <ul>
+            <li> <strong>Фронт:</strong> Нагрузка 2000 TPS</li>
+            <li>Кластер MySQL из 3х нод  (dev, stage, prod)</li>
+            <li>20 кластеров PostgreSQL: Patroni, pgBouncer, etcd (dev, stage, prod)</li>
+            <li>PostgreSQL DWH: 4 ТБ, master-slave, 100 MB WAL/sec (dev и prod )</li>
+        </ul>
+    `,
+};
+
+const prices = {
+    "project-1": "120 тыс. руб",
+    "project-2": "200 тыс. руб/мес",
+    "project-3": "300 тыс. руб",
+    "project-4": "480 тыс. руб/мес",
 };
 ---
 
-<project-examples data-tasks={JSON.stringify(tasks)}>
+<project-examples
+    data-tasks={JSON.stringify(tasks)}
+    data-details={JSON.stringify(details)}
+    data-prices={JSON.stringify(prices)}
+>
     <HorizontalLineTitle
         title={title}
         subtitle={subtitle}
@@ -25,29 +75,26 @@ const tasks = {
         <Options />
         <div class="projects">
             <div class="project project-1 active" id="project-1">
-                Небольшой интернет-магазин
+                Аудит СУБД
             </div>
             <div class="project project-2" id="project-2">
-                B2С-маркетплейс в стадии активной разработки
+                Администрирование баз данных
             </div>
             <div class="project project-3" id="project-3">
-                Крупная логистическая компания
+                Миграция баз данных
+            </div>
+            <div class="project project-4" id="project-4">
+                Сопровождение mission critical баз
             </div>
             <div class="task" set:html={tasks["project-1"]} />
             <div class="details">
-                <span>Состав проекта:</span>
-                <ul>
-                    <li>2+ виртуальных машин в облаке</li>
-                    <li>Yandex Managed Service for PostgreSQL</li>
-                    <li>2 проекта (сайт, API)</li>
-                    <li>CI/CD для автоматического деплоя</li>
-                    <li>Балансировка нагрузки</li>
-                    <li>
-                        Стек: Nginx, PostgreSQL, Redis, PHP, Node.js, Docker,
-                        GitLab
-                    </li>
-                </ul>
-                <Button variant="outline" label="от 100 тыс. руб" />
+                <div set:html={details["project-1"]} />
+                <Button
+                    variant="outline"
+                    id="project-price"
+                    class="button"
+                    label={prices["project-1"]}
+                />
             </div>
         </div>
     </HorizontalLineTitle>
@@ -59,15 +106,34 @@ const tasks = {
             super();
             const projectsHTML = this.querySelectorAll(".projects .project");
             const taskHTML = this.querySelector(".projects .task");
+            const detailsHTML = this.querySelector(".projects .details div");
+            const priceButton = this.querySelector(".button");
+
             const tasks = JSON.parse(this.dataset?.tasks || "{}");
+            const details = JSON.parse(this.dataset?.details || "{}");
+            const prices = JSON.parse(this.dataset?.prices || "{}");
 
             projectsHTML.forEach((project) => {
                 project.addEventListener("click", (clicked) => {
+                    console.log("Project clicked:", clicked.target.id);
                     projectsHTML.forEach((p) => p.classList.remove("active"));
                     clicked.target.classList.add("active");
+
                     const id = clicked.target.id;
+
                     if (taskHTML && tasks[id]) {
                         taskHTML.innerHTML = tasks[id];
+                    }
+                    if (detailsHTML && details[id]) {
+                        detailsHTML.innerHTML = details[id];
+                    }
+
+                    if (priceButton && prices[id]) {
+                        priceButton.label = prices[id];
+                        priceButton.textContent = prices[id];
+                        console.log("Price updated to:", prices[id]);
+                    } else {
+                        console.error("Price button not found");
                     }
                 });
             });
