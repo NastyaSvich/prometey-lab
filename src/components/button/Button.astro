@@ -3,6 +3,7 @@ import 'src/components/button/Button.less';
 
 export type ButtonProps = {
     label: string;
+    id?: string;
     type?: 'button' | 'submit' | 'reset';
     variant?: 'blue' | 'white' | 'outline';
     size?: 'big' | 'medium';
@@ -15,12 +16,13 @@ const {
     type = 'button',
     variant = 'blue',
     className = "",
+    id = ""
 } = Astro.props as ButtonProps;
 
 const classNameStyle = `button ${className} ${variant} ${size}`;
 ---
 
-<button type={type} class={classNameStyle}>
+<button id={id} type={type} class={classNameStyle}>
     {label}
 </button>
 
