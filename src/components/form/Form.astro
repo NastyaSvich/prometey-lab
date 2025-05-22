@@ -23,7 +23,7 @@ import "src/components/form/Form.less";
 
             <p class="agreement">
                 Оставляя заявку, вы даете согласие на обработку персональных
-                данных в соответствии с нашей <a href="#">Политикой</a>
+                данных в соответствии с нашей <a href="/policy">Политикой</a>
             </p>
 
             <Button label="Оставить заявку" variant="white" type="submit" />
@@ -35,12 +35,13 @@ import "src/components/form/Form.less";
 
 <script>
     document
-        .getElementById("feedback-form")?.addEventListener("submit", function (e) {
+        .getElementById("feedback-form")
+        ?.addEventListener("submit", function (e) {
             e.preventDefault();
 
             const form = e.target as HTMLFormElement;
             const formData = new FormData(form);
-            const EMAIL = "sales@prometey-lab.ru";
+            const EMAIL = "sales@prometey-la12b.ru";
 
             fetch(`https://formsubmit.co/ajax/${EMAIL}`, {
                 method: "POST",

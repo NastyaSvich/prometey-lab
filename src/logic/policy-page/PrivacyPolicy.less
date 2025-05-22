@@ -1,0 +1,64 @@
+@import "@styles/globals.less";
+
+.privacy-policy {
+    width: 100%;
+
+    .subtitle {
+        .fontOpenSansSemiBold();
+    }
+
+    .privacy-container {
+        padding-bottom: 40px;
+        width: 100%;
+        margin: 0 auto;
+        max-width: 1250px;
+
+        .mediaPhone({
+            padding: 40px 20px;
+        });
+    }
+
+    .privacy-content {
+        margin-top: 20px;
+    }
+
+    .privacy-text {
+        p {
+            .fontOpenSansRegular();
+            font-size: 16px;
+            color: @secondary-black-text;
+            margin-bottom: 20px;
+
+            .mediaPhone({
+                font-size: 14px;
+            });
+        }
+
+        ul {
+            list-style: none;
+            padding-left: 0;
+            margin: 30px 0;
+
+            li {
+                .fontOpenSansRegular();
+                font-size: 16px;
+                color: @secondary-black-text;
+                margin-bottom: 15px;
+                position: relative;
+                padding-left: 25px;
+
+                &::before {
+                    content: "–";
+                    position: absolute;
+                    left: 0;
+                    color: @secondary-black-text;
+                }
+
+                .mediaPhone({
+                    font-size: 14px;
+                    padding-left: 20px;
+                });
+            }
+        }
+    }
+}

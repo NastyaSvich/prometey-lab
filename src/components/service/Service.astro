@@ -29,7 +29,12 @@ const services: CardServiceProps[] = [
 <div class={"service"}>
     {
         services.map((service) => (
-            <ServiceCard title={service.title} subtitle={service.subtitle} />
+            <a href="/cases" class="service-card-link">
+                <ServiceCard
+                    title={service.title}
+                    subtitle={service.subtitle}
+                />
+            </a>
         ))
     }
 </div>
