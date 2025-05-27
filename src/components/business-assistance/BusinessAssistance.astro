@@ -2,6 +2,7 @@
 import type { CardForCasesProps } from "src/components/card-for-cases/CardForCases.astro";
 import CardForCases from "src/components/card-for-cases/CardForCases.astro";
 import HorizontalLineTitle from "src/components/horizontal-line-title/HorizontalLineTitle.astro";
+import Modal from "src/components/card-for-cases/modal/Modal.astro";
 import "src/components/business-assistance/BusinessAssistance.less";
 import card1 from "src/assets/images/devops-case-1.svg";
 import card2 from "src/assets/images/devops-case-2.png";
@@ -19,6 +20,14 @@ const assistances: CardForCasesProps[] = [
             secondPart: "Ошибки ",
             secondHighlight: "не пройдут через систему автоматических тестов.",
         },
+        modalContent: `
+            <h3>Подробности реализации</h3>
+            <p>Мы внедрили CI/CD pipeline, который автоматически проверяет код и деплоит изменения.</p>
+            <ul>
+                <li>Сократили время деплоя на 70%</li>
+                <li>Уменьшили количество ошибок в production на 90%</li>
+            </ul>
+        `,
     },
     {
         image: card2,
@@ -32,6 +41,14 @@ const assistances: CardForCasesProps[] = [
             secondHighlight:
                 "не упадет от роста запросов — выдержит высокие нагрузки на Черную пятницу, IPO или промоакцию.",
         },
+        modalContent: `
+            <h3>Подробности реализации</h3>
+            <p>Мы внедрили CI/CD pipeline, который автоматически проверяет код и деплоит изменения.</p>
+            <ul>
+                <li>Сократили время деплоя на 70%</li>
+                <li>Уменьшили количество ошибок в production на 90%</li>
+            </ul>
+        `,
     },
     {
         image: card3,
@@ -48,6 +65,8 @@ const assistances: CardForCasesProps[] = [
     },
 ];
 
+let isModalOpen = false;
+let modalContent = "";
 /**
  * Компонент раздела "Как мы помогли бизнесу".
  */
@@ -65,7 +84,24 @@ const assistances: CardForCasesProps[] = [
                 title={assistance.title}
                 subtitle={assistance.subtitle}
                 descriptions={assistance.descriptions || {}}
+                modalContent={assistance.modalContent}
+                onClick={() => {
+                    modalContent = assistance.modalContent || "";
+                    isModalOpen = true;
+                }}
             />
         ))
     }
 </HorizontalLineTitle>
+
+{
+    isModalOpen && (
+        <Modal
+            isOpen={isModalOpen}
+            closeModal={() => {
+                isModalOpen = false;
+            }}
+            content={modalContent}
+        />
+    )
+}

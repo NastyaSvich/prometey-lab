@@ -1,0 +1,40 @@
+---
+import Button from "src/components/button/Button.astro";
+import "src/components/card-for-cases/modal/Modal.less";
+
+export type ModalProps = {
+    isOpen: boolean;
+    closeModal: () => void;
+    content: string;
+};
+
+const { isOpen, closeModal, content } = Astro.props;
+---
+
+<div class={`modal-overlay ${isOpen ? "open" : ""}`} id="modalOverlay">
+    <div class="modal-content">
+        <div class="modal-title">БЛАГОДАРИМ ВАС ЗА ОСТАВЛЕННУЮ ЗАЯВКУ!</div>
+        <div class="modal-subtitle">
+            Команда PROMETEY LAB свяжется с вами в ближайшее время
+        </div>
+        <div set:html={content} />
+        <Button
+            label="На главную"
+            id="closeModalBtn"
+            className="modal-button"
+            size="medium"
+            onClick={closeModal}
+        />
+    </div>
+</div>
+
+<script>
+    const modalOverlay = document.getElementById("modalOverlay");
+
+    modalOverlay?.addEventListener("click", (event) => {
+        if (event.target === modalOverlay) {
+            modalOverlay.classList.remove("open");
+            Astro.props.closeModal();
+        }
+    });
+</script>
