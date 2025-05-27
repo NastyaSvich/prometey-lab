@@ -4,6 +4,7 @@ import CardForCases from "src/components/card-for-cases/CardForCases.astro";
 import HorizontalLineTitle from "src/components/horizontal-line-title/HorizontalLineTitle.astro";
 import Modal from "src/components/card-for-cases/modal/Modal.astro";
 import "src/components/business-assistance/BusinessAssistance.less";
+
 import card1 from "src/assets/images/devops-case-1.svg";
 import card2 from "src/assets/images/devops-case-2.png";
 import card3 from "src/assets/images/devops-case-3.svg";
@@ -11,8 +12,8 @@ import card3 from "src/assets/images/devops-case-3.svg";
 const assistances: CardForCasesProps[] = [
     {
         image: card1,
-        title: "DEVOPS",
-        subtitle: "КЕЙС",
+        title: "DEVOPS 1",
+        subtitle: "КЕЙС 1",
         descriptions: {
             firstPart: "Корректные изменения ",
             firstHighlight:
@@ -22,17 +23,17 @@ const assistances: CardForCasesProps[] = [
         },
         modalContent: `
             <h3>Подробности реализации</h3>
-            <p>Мы внедрили CI/CD pipeline, который автоматически проверяет код и деплоит изменения.</p>
+            <p>Внедрён CI/CD pipeline, автоматически проверяющий и деплоящий код.</p>
             <ul>
-                <li>Сократили время деплоя на 70%</li>
-                <li>Уменьшили количество ошибок в production на 90%</li>
+                <li>Сокращено время деплоя на 70%</li>
+                <li>Ошибки в production уменьшены на 90%</li>
             </ul>
         `,
     },
     {
         image: card2,
-        title: "DEVOPS",
-        subtitle: "КЕЙС",
+        title: "DEVOPS 2",
+        subtitle: "КЕЙС 2",
         descriptions: {
             firstPart: "Системы ",
             firstHighlight:
@@ -42,18 +43,14 @@ const assistances: CardForCasesProps[] = [
                 "не упадет от роста запросов — выдержит высокие нагрузки на Черную пятницу, IPO или промоакцию.",
         },
         modalContent: `
-            <h3>Подробности реализации</h3>
-            <p>Мы внедрили CI/CD pipeline, который автоматически проверяет код и деплоит изменения.</p>
-            <ul>
-                <li>Сократили время деплоя на 70%</li>
-                <li>Уменьшили количество ошибок в production на 90%</li>
-            </ul>
+            <h3>Балансировка и надёжность</h3>
+            <p>Автоматизирована балансировка и отказоустойчивость.</p>
         `,
     },
     {
         image: card3,
-        title: "DEVOPS",
-        subtitle: "КЕЙС",
+        title: "DEVOPS 3",
+        subtitle: "КЕЙС 3",
         descriptions: {
             firstPart: "Системы ",
             firstHighlight:
@@ -62,14 +59,12 @@ const assistances: CardForCasesProps[] = [
             secondHighlight:
                 "по инцидентам через чат-боты в Telegram и Slack будет автоматическим.",
         },
+        modalContent: `
+            <h3>Мониторинг и уведомления</h3>
+            <p>Всё под контролем: инциденты приходят мгновенно.</p>
+        `,
     },
 ];
-
-let isModalOpen = false;
-let modalContent = "";
-/**
- * Компонент раздела "Как мы помогли бизнесу".
- */
 ---
 
 <HorizontalLineTitle
@@ -85,23 +80,9 @@ let modalContent = "";
                 subtitle={assistance.subtitle}
                 descriptions={assistance.descriptions || {}}
                 modalContent={assistance.modalContent}
-                onClick={() => {
-                    modalContent = assistance.modalContent || "";
-                    isModalOpen = true;
-                }}
             />
         ))
     }
 </HorizontalLineTitle>
 
-{
-    isModalOpen && (
-        <Modal
-            isOpen={isModalOpen}
-            closeModal={() => {
-                isModalOpen = false;
-            }}
-            content={modalContent}
-        />
-    )
-}
+<Modal />

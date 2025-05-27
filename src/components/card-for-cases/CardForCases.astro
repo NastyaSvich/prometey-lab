@@ -3,7 +3,6 @@ import "src/components/card-for-cases/CardForCases.less";
 import { Image } from "astro:assets";
 import VerticalLineTitle from "src/components/vertical-line-title/VerticalLineTitle.astro";
 import Button from "src/components/button/Button.astro";
-import Modal from "src/components/card-for-cases/modal/Modal.astro";
 
 export type CardForCasesProps = {
     /**
@@ -84,8 +83,6 @@ const {
     showButton = true,
 } = Astro.props;
 
-let isModalOpen = false;
-
 /**
  * Компонент карточки с фото и заголовками в синей вертикальной линии.
  *
@@ -156,50 +153,27 @@ let isModalOpen = false;
                     variant="blue"
                     size="medium"
                     className="devops-button"
-                    onClick={() => (isModalOpen = true)}
                 />
             )
         }
+        <div
+            class="hidden-modal-content"
+            style="display: none;"
+            set:html={modalContent}
+        />
     </div>
-
-    <Modal
-        isOpen={isModalOpen}
-        closeModal={() => (isModalOpen = false)}
-        content={modalContent}
-    />
 </div>
 
-<script>
-    document.addEventListener("DOMContentLoaded", () => {
-        const isHTMLElement = (
-            target: EventTarget | null
-        ): target is HTMLElement => {
-            return target instanceof HTMLElement;
-        };
+<script is:inline>
+    function showCaseModal(button) {
+        const content = decodeURIComponent(button.dataset.content);
+        const modal = document.getElementById("globalModal");
+        const contentDiv = document.getElementById("modalDynamicContent");
 
-        document.querySelectorAll(".devops-button").forEach((button) => {
-            button.addEventListener("click", (e) => {
-                if (!isHTMLElement(e.target)) return;
-
-                const card = e.target.closest(".devops-card");
-                if (!card) return;
-
-                const modal = card.querySelector(".modal-overlay");
-                if (!(modal instanceof HTMLElement)) return;
-
-                modal.classList.add("open");
-            });
-        });
-
-        document.querySelectorAll(".modal-close").forEach((button) => {
-            button.addEventListener("click", (e) => {
-                if (!isHTMLElement(e.target)) return;
-
-                const modal = e.target.closest(".modal-overlay");
-                if (!(modal instanceof HTMLElement)) return;
-
-                modal.classList.remove("open");
-            });
-        });
-    });
+        if (content && modal && contentDiv) {
+            contentDiv.innerHTML = content;
+            modal.classList.add("open");
+            document.body.style.overflow = "hidden";
+        }
+    }
 </script>
