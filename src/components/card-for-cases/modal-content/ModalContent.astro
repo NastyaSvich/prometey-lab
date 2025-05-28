@@ -29,7 +29,7 @@ const {
 ---
 
 <div class="modal-content-wrapper">
-    <Image src={image} alt="company" class="company-case-image" />
+    {image && <Image src={image} alt="company" class="company-case-image" />}
 
     <HorizontalLineTitle
         title={title}
@@ -51,11 +51,23 @@ const {
             <ul class="bulleted-list" set:html={results} />
         </div>
 
-        <div class="text-in-line"><h3>Команда:</h3><p>{team}</p></div>
+        {
+            team && (
+                <div class="text-in-line">
+                    <h3>Команда: </h3>
+                    <p>{team}</p>
+                </div>
+            )
+        }
 
-        <div class="text-in-line">
-            <h3>Продолжительность:</h3><p>{duration}</p>
-        </div>
+        {
+            duration && (
+                <div class="text-in-line">
+                    <h3>Продолжительность: </h3>
+                    <p>{duration}</p>
+                </div>
+            )
+        }
 
         {
             moneyEffect && (
