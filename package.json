@@ -3,7 +3,7 @@
   "type": "module",
   "version": "0.0.1",
   "scripts": {
-    "build": "astro build",
+    "build": "astro build && node createZipArchive.js",
     "dev": "astro dev --host",
     "preview": "astro preview --host"
   },
@@ -13,6 +13,7 @@
   "devDependencies": {
     "@types/node": "22.15.3",
     "@vitejs/plugin-legacy": "6.1.1",
+    "archiver": "7.0.1",
     "astro": "5.7.8",
     "astro-relative-links": "0.4.2",
     "autoprefixer": "10.4.21",
