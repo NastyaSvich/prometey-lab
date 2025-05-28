@@ -1,0 +1,98 @@
+@import "@styles/globals.less";
+
+.modal {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+
+    .modal-content-text {
+        padding: 0px 20px;
+        margin: auto;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        margin-bottom: 10px;
+        font-size: 15px;
+        .fontOpenSansRegular();
+
+        .mediaPhone({
+            padding: 0 16px;
+            font-size: 14px;
+          });
+
+        .text-in-line {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: baseline;
+            color: @primary-black-text;
+        }
+
+        h3 {
+            .fontOpenSansExtraBold();
+            color: @accent-blue;
+            font-size: 16px;
+
+            .mediaPhone({
+                font-size: 15px;
+              });
+
+            span {
+                color: @primary-black-text;
+            }
+        }
+
+        ul.numbered-list {
+            list-style-type: decimal;
+            padding-left: 20px;
+            color: @primary-black-text;
+
+            li {
+                color: @primary-black-text;
+                &::marker {
+                    color: @accent-blue;
+                    font-weight: bold;
+                }
+            }
+        }
+
+        ul.bulleted-list {
+            list-style-type: disc;
+            padding-left: 20px;
+            color: @primary-black-text;
+
+            li {
+                color: @primary-black-text;
+                &::marker {
+                    color: @accent-blue;
+                    font-weight: bold;
+                    font-size: 12px;
+                }
+            }
+        }
+    }
+}
+
+.modal-content-wrapper
+    .horizontal-line-title
+    .line-title-container
+    .horizontal-line {
+    margin-top: 15px;
+}
+
+.modal-content-wrapper .horizontal-line-title .line-title-container {
+    font-size: 24px;
+
+    .mediaPhone({
+        font-size: 16px;
+      });
+}
+
+.company-case-image {
+    display: block;
+    max-width: 100%;
+    height: auto;
+
+    .mediaPhone({
+        margin: 0 auto; 
+    });
+}

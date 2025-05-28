@@ -52,11 +52,6 @@ export type CardForCasesProps = {
     buttonLabel?: string;
 
     /**
-     * Модальное окно.
-     */
-    modalContent?: string;
-
-    /**
      * Отображение вертикальной линии.
      * По умолчанию видима.
      */
@@ -78,6 +73,7 @@ const {
     descriptions = {},
     buttonLabel = "Читать",
     modalContent = "",
+    imageForModal,
     className = "",
     showVerticalLine = true,
     showButton = true,
@@ -156,24 +152,8 @@ const {
                 />
             )
         }
-        <div
-            class="hidden-modal-content"
-            style="display: none;"
-            set:html={modalContent}
-        />
+        <div class="hidden-modal-content" style="display: none;">
+            <slot name="modalContent" />
+        </div>
     </div>
 </div>
-
-<script is:inline>
-    function showCaseModal(button) {
-        const content = decodeURIComponent(button.dataset.content);
-        const modal = document.getElementById("globalModal");
-        const contentDiv = document.getElementById("modalDynamicContent");
-
-        if (content && modal && contentDiv) {
-            contentDiv.innerHTML = content;
-            modal.classList.add("open");
-            document.body.style.overflow = "hidden";
-        }
-    }
-</script>

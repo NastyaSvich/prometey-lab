@@ -1,4 +1,4 @@
-@import '@styles/globals.less';
+@import "@styles/globals.less";
 
 .modal-overlay {
     position: fixed;
@@ -18,7 +18,8 @@
     }
 
     .modal-content {
-        background: url("@assets/images/prometey.png") no-repeat right center / contain;
+        background: url("@assets/images/prometey.png") no-repeat right center /
+            contain;
         background-color: @background-white;
         padding: 50px;
         border-radius: 22px;
@@ -31,28 +32,28 @@
         });
 
         .modal-title {
-          .fontOpenSansExtraBold();
-          font-size: 24px;
-          color: @primary-black-text;
+            .fontOpenSansExtraBold();
+            font-size: 24px;
+            color: @primary-black-text;
 
-          .mediaPhone({
+            .mediaPhone({
               font-size: 16px;
           });
         }
 
         .modal-subtitle {
-          .fontOpenSansRegular();
-          font-size: 16px;
-          color: @primary-black-text;
-          margin-top: 5px;
+            .fontOpenSansRegular();
+            font-size: 16px;
+            color: @primary-black-text;
+            margin-top: 5px;
 
-          .mediaPhone({
+            .mediaPhone({
             font-size: 12px;
           });
         }
 
         .modal-button {
-          margin-top: 30px;
+            margin-top: 30px;
         }
     }
 }

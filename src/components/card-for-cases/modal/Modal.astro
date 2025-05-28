@@ -3,17 +3,13 @@ import Button from "src/components/button/Button.astro";
 import "src/components/card-for-cases/modal/Modal.less";
 ---
 
-<div class="modal-overlay" id="globalModal">
-    <div class="modal-content">
-        <div class="modal-title">БЛАГОДАРИМ ВАС ЗА ОСТАВЛЕННУЮ ЗАЯВКУ!</div>
-        <div class="modal-subtitle">
-            Команда PROMETEY LAB свяжется с вами в ближайшее время
-        </div>
+<div class="modal-case-overlay" id="globalModal">
+    <div class="modal-case-content">
         <div id="modalDynamicContent"></div>
         <Button
-            label="На главную"
+            label="Назад"
             id="closeModalBtn"
-            className="modal-button"
+            className="modal-case-button"
             size="medium"
         />
     </div>

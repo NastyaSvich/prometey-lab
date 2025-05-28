@@ -1,0 +1,69 @@
+---
+import HorizontalLineTitle from "src/components/horizontal-line-title/HorizontalLineTitle.astro";
+import { Image } from "astro:assets";
+import "src/components/card-for-cases/modal-content/ModalContent.less";
+
+export interface ModalContentProps {
+    image: ImageMetadata;
+    title: string;
+    taskTitle: string;
+    task: string;
+    implementation: string;
+    results: string;
+    team: string;
+    duration: string;
+    moneyEffect: string;
+}
+
+const {
+    image,
+    title,
+    taskTitle,
+    task,
+    implementation,
+    results,
+    team,
+    duration,
+    moneyEffect,
+} = Astro.props as ModalContentProps;
+---
+
+<div class="modal-content-wrapper">
+    <Image src={image} alt="company" class="company-case-image" />
+
+    <HorizontalLineTitle
+        title={title}
+        className="modal"
+        contentClassName="modal-content-text"
+    >
+        <div class="task">
+            <h3>Задача - <span>{taskTitle}</span></h3>
+            <ul class="bulleted-list" set:html={task} />
+        </div>
+
+        <div class="implementation">
+            <h3>Что сделали:</h3>
+            <ul class="numbered-list" set:html={implementation} />
+        </div>
+
+        <div class="results">
+            <h3>Результаты:</h3>
+            <ul class="bulleted-list" set:html={results} />
+        </div>
+
+        <div class="text-in-line"><h3>Команда:</h3><p>{team}</p></div>
+
+        <div class="text-in-line">
+            <h3>Продолжительность:</h3><p>{duration}</p>
+        </div>
+
+        {
+            moneyEffect && (
+                <div class="text-in-line">
+                    <h3>Денежный эффект: </h3>
+                    <p>{moneyEffect}</p>
+                </div>
+            )
+        }
+    </HorizontalLineTitle>
+</div>

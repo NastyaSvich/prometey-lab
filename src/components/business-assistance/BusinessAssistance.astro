@@ -3,17 +3,33 @@ import type { CardForCasesProps } from "src/components/card-for-cases/CardForCas
 import CardForCases from "src/components/card-for-cases/CardForCases.astro";
 import HorizontalLineTitle from "src/components/horizontal-line-title/HorizontalLineTitle.astro";
 import Modal from "src/components/card-for-cases/modal/Modal.astro";
+import ModalContent from "src/components/card-for-cases/modal-content/ModalContent.astro";
 import "src/components/business-assistance/BusinessAssistance.less";
-
 import card1 from "src/assets/images/devops-case-1.svg";
 import card2 from "src/assets/images/devops-case-2.png";
 import card3 from "src/assets/images/devops-case-3.svg";
+import storeez from "src/assets/images/12storeez.svg";
+import monastyrev from "src/assets/images/monastyrev.svg";
 
-const assistances: CardForCasesProps[] = [
+type AssistanceWithModal = CardForCasesProps & {
+    modalData?: {
+        image: ImageMetadata;
+        title: string;
+        taskTitle: string;
+        task?: string;
+        implementation: string;
+        results: string;
+        team: string;
+        duration: string;
+        moneyEffect?: string;
+    };
+};
+
+const assistances: AssistanceWithModal[] = [
     {
         image: card1,
-        title: "DEVOPS 1",
-        subtitle: "КЕЙС 1",
+        title: "DEVOPS",
+        subtitle: "КЕЙС",
         descriptions: {
             firstPart: "Корректные изменения ",
             firstHighlight:
@@ -21,19 +37,37 @@ const assistances: CardForCasesProps[] = [
             secondPart: "Ошибки ",
             secondHighlight: "не пройдут через систему автоматических тестов.",
         },
-        modalContent: `
-            <h3>Подробности реализации</h3>
-            <p>Внедрён CI/CD pipeline, автоматически проверяющий и деплоящий код.</p>
-            <ul>
-                <li>Сокращено время деплоя на 70%</li>
-                <li>Ошибки в production уменьшены на 90%</li>
-            </ul>
-        `,
+        modalData: {
+            image: storeez,
+            title: "Повышение зрелости проекта",
+            taskTitle:
+                "с ростом инфраструктуры у заказчика возникли проблемы с управлением:",
+            task: `
+                <li>отсутствовал инцидент-менеджмент</li>
+                <li>прозрачность по статусу СУБД</li>
+                <li>один DBA в штате не справлялся с нагрузкой из-за широкого спектра СУБД</li>
+            `,
+            implementation: `
+                <li>Аудит и выявление проблемных зон</li>
+                <li>Настройка мониторинга и проактивных мер</li>
+                <li>Стабилизация DWH</li>
+                <li>Сокращение времени отклика сайта</li>
+                <li>Согласовали ролевую модель доступов</li>
+            `,
+            results: `
+                <li>Заказчик получил экспертизу по управлению всем парком СУБД, с внедрением корпоративных стандартов и процессов</li>
+                <li>Повышение прозрачности и стабильности работы инфраструктуры баз данных</li>
+            `,
+            team: "PostgreSQL DBA,MS SQL DBA, MariaDB DBA, NoSQL DBA, Tech PM",
+            duration: "10+ месяцев, в работе",
+            moneyEffect:
+                "Эквивалентная команда экспертов в штате стоила бы в 4-5 раз дороже и простаивала бы 2/3 времени",
+        },
     },
     {
         image: card2,
-        title: "DEVOPS 2",
-        subtitle: "КЕЙС 2",
+        title: "DEVOPS",
+        subtitle: "КЕЙС",
         descriptions: {
             firstPart: "Системы ",
             firstHighlight:
@@ -42,15 +76,34 @@ const assistances: CardForCasesProps[] = [
             secondHighlight:
                 "не упадет от роста запросов — выдержит высокие нагрузки на Черную пятницу, IPO или промоакцию.",
         },
-        modalContent: `
-            <h3>Балансировка и надёжность</h3>
-            <p>Автоматизирована балансировка и отказоустойчивость.</p>
-        `,
+        modalData: {
+            image: monastyrev,
+            title: "Комплексное сопровождение баз данных",
+            taskTitle:
+                "у заказчика возникли проблемы с производительностью 1с и dwh, вертикальное масштабирование не давало результатов",
+            implementation: `
+                <li>Комплексный анализ состояния СУБД, выявили ключевые точки роста и проблемные места</li>
+                <li>Настройка мониторинга и проактивных мер</li>
+                <li>Устранение проблем в работе СУБД после аудита</li>
+                <li>Обновление версий СУБД</li>
+                <li>Миграция с MySQL на PostgreSQL</li>
+                <li>Внедрение отчетов по инцидентам и регламентных работ</li>
+            `,
+            results: `
+                <li>Увеличение производительности СУБД за счет оптимизации и стандартов</li>
+                <li>За счет миграции снижено количество поддерживаемых СУБД</li>
+                <li>Повысилась производительность разработчиков</li>
+            `,
+            team: "MS SQL DBA, PostgreSQL DBA",
+            duration: "14 месяцев+, в работе",
+            moneyEffect:
+                "Эквивалентная команда экспертов в штате стоила бы в 3 раза дороже и простаивала бы 2/3 времени",
+        },
     },
     {
         image: card3,
-        title: "DEVOPS 3",
-        subtitle: "КЕЙС 3",
+        title: "DEVOPS",
+        subtitle: "КЕЙС",
         descriptions: {
             firstPart: "Системы ",
             firstHighlight:
@@ -59,10 +112,32 @@ const assistances: CardForCasesProps[] = [
             secondHighlight:
                 "по инцидентам через чат-боты в Telegram и Slack будет автоматическим.",
         },
-        modalContent: `
-            <h3>Мониторинг и уведомления</h3>
-            <p>Всё под контролем: инциденты приходят мгновенно.</p>
-        `,
+        modalData: {
+            image: monastyrev,
+            title: "Комплексное сопровождение баз данных",
+            taskTitle:
+                "у заказчика возникли проблемы с производительностью 1с и dwh, вертикальное масштабирование не давало результатов",
+            task: `
+                <li>Увеличение производительности СУБД за счет оптимизации и стандартов</li>
+                <li>За счет миграции снижено количество поддерживаемых СУБД</li>
+                <li>Повысилась производительность разработчиков</li>
+            `,
+            implementation: `
+                <li>Комплексный анализ состояния СУБД, выявили ключевые точки роста и проблемные места</li>
+                <li>Настройка мониторинга и проактивных мер</li>
+                <li>Устранение проблем в работе СУБД после аудита</li>
+                <li>Обновление версий СУБД</li>
+                <li>Миграция с MySQL на PostgreSQL</li>
+                <li>Внедрение отчетов по инцидентам и регламентных работ</li>
+            `,
+            results: `
+                <li>Увеличение производительности СУБД за счет оптимизации и стандартов</li>
+                <li>За счет миграции снижено количество поддерживаемых СУБД</li>
+                <li>Повысилась производительность разработчиков</li>
+            `,
+            team: "MS SQL DBA, PostgreSQL DBA",
+            duration: "14 месяцев+, в работе",
+        },
     },
 ];
 ---
@@ -79,8 +154,23 @@ const assistances: CardForCasesProps[] = [
                 title={assistance.title}
                 subtitle={assistance.subtitle}
                 descriptions={assistance.descriptions || {}}
-                modalContent={assistance.modalContent}
-            />
+            >
+                {assistance.modalData && (
+                    <div slot="modalContent">
+                        <ModalContent
+                            image={assistance.modalData.image}
+                            title={assistance.modalData.title}
+                            taskTitle={assistance.modalData.taskTitle}
+                            task={assistance.modalData.task}
+                            implementation={assistance.modalData.implementation}
+                            results={assistance.modalData.results}
+                            team={assistance.modalData.team}
+                            duration={assistance.modalData.duration}
+                            moneyEffect={assistance.modalData.moneyEffect}
+                        />
+                    </div>
+                )}
+            </CardForCases>
         ))
     }
 </HorizontalLineTitle>
