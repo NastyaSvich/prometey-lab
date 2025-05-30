@@ -3,7 +3,8 @@
   "type": "module",
   "version": "0.0.1",
   "scripts": {
-    "build": "astro build && node createZipArchive.js",
+    "build": "astro build",
+    "build:arch": "npm run build && node createZipArchive.js",
     "dev": "astro dev --host",
     "preview": "astro preview --host"
   },
