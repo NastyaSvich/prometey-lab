@@ -1,21 +1,12 @@
 ---
 import Button from "src/components/button/Button.astro";
-import logo from "src/assets/images/logo-black.png";
 import "src/layout/header/Header.less";
 import email from "@assets/images/email2.svg";
 import telegram from "@assets/images/telegram3.svg";
 import telephone from "@assets/images/telephone2.svg";
+import { Image } from "astro:assets";
+import LogoComponent from "src/layout/header/LogoComponent.astro";
 
-const LogoComponent = `
-  <div class="logo-content">
-    <a href="/" class="logo-link">
-        <img class="logo" alt="Logo Prometey" src="${logo.src}" />
-    </a>
-    <a href="/" class="logo-link">
-        <span class="text">PROMETEY LAB</span>
-    </a>
-  </div>
-`;
 ---
 
 <header class="header">
@@ -26,7 +17,7 @@ const LogoComponent = `
         </div>
 
         <div class="header-bottom">
-            <div set:html={LogoComponent} />
+           <LogoComponent />
 
             <div class="hamburger">
                 <span class="line"></span>
@@ -36,7 +27,7 @@ const LogoComponent = `
 
             <div class="menu">
                 <div class="menu-logo">
-                    <div set:html={LogoComponent} />
+                   <LogoComponent />
                 </div>
 
                 <nav class="navigation">
@@ -53,20 +44,20 @@ const LogoComponent = `
                     <ul>
                         <li>
                             <a href="https://t.me/CTO_Path_PrometeyLab"
-                                ><img
+                                ><Image
                                     class="logo right-shift"
                                     alt="icon telegram"
-                                    src={telegram.src}
+                                    src={telegram}
                                 />PrometeyLab</a
                             >
                         </li>
                         <li>
                             <a href="mailto:sales@prometey-lab.ru"
                                 ><span class="logo-container right-shift"
-                                    ><img
+                                    ><Image
                                         class="logo minimized"
                                         alt="icon email"
-                                        src={email.src}
+                                        src={email}
                                     /></span
                                 >sales@prometey-lab.ru</a
                             >
@@ -74,10 +65,10 @@ const LogoComponent = `
                         <li>
                             <a href="tel:+79229529944"
                                 ><span class="logo-container right-shift"
-                                    ><img
+                                    ><Image
                                         class="logo minimized"
                                         alt="icon tel"
-                                        src={telephone.src}
+                                        src={telephone}
                                     /></span
                                 >+ 7 (922) 952-99-44</a
                             >

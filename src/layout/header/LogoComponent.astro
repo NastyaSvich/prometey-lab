@@ -1,0 +1,15 @@
+---
+import { Image } from "astro:assets";
+import logo from "src/assets/images/logo-black.png";
+import "src/layout/header/LogoComponent.less";
+
+---
+
+  <div class="logo-content">
+    <a href="/" class="logo-link">
+        <Image class="logo" alt="Logo Prometey" src={logo} />
+    </a>
+    <a href="/" class="logo-link">
+        <span class="text">PROMETEY LAB</span>
+    </a>
+  </div>

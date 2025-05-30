@@ -1,4 +1,5 @@
 ---
+import { Image } from "astro:assets";
 import "src/layout/contact-us/ContactUs.less";
 import viber from "@assets/images/viber.svg";
 import telegram from "@assets/images/telegram3.svg";
@@ -14,13 +15,13 @@ import ceo from "@assets/images/ceo.png";
             class="contact-button"
             aria-label="Открыть контакты"
         >
-            <img src={messages.src} alt="Chat Icon" />
+            <Image src={messages} alt="Chat Icon" />
         </button>
     </div>
 
     <div id="contact-form" class="contact-form hidden">
         <div class="contact-header">
-            <img src={ceo.src} class="avatar" alt="CEO" />
+            <Image src={ceo} class="avatar" alt="CEO" />
             <div class="employee">
                 <span class="name">Андрей Дорин</span>
                 <div class="position">CEO компании</div>
@@ -37,7 +38,7 @@ import ceo from "@assets/images/ceo.png";
                 target="_blank"
                 rel="noopener"
             >
-                <img src={telegram.src} alt="Telegram" /> Telegram
+                <Image src={telegram} alt="Telegram" /> Telegram
             </a>
             <a
                 href="viber://chat?number=%2B375295128454"
@@ -45,7 +46,7 @@ import ceo from "@assets/images/ceo.png";
                 target="_blank"
                 rel="noopener"
             >
-                <img src={viber.src} alt="Viber" /> Viber
+                <Image src={viber} alt="Viber" /> Viber
             </a>
             <a
                 href="https://wa.me/375295128454"
@@ -53,7 +54,7 @@ import ceo from "@assets/images/ceo.png";
                 target="_blank"
                 rel="noopener"
             >
-                <img src={watsapp.src} alt="WhatsApp" /> WhatsApp
+                <Image src={watsapp} alt="WhatsApp" /> WhatsApp
             </a>
         </div>
     </div>
