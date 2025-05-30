@@ -1,4 +1,4 @@
-@import '@styles/globals.less';
+@import "@styles/globals.less";
 
 .our-projects {
     margin-bottom: 100px;
@@ -6,14 +6,17 @@
     .mediaPhone({
         margin-bottom: 50px;
     });
-    
+
     .projects-wrapper {
+        height: 600px;
+        overflow: hidden;
         .projects {
             border: 1px solid @accent-blue;
             border-radius: 10px;
             background-color: @background-light-gray;
+            width: 100%;
+            height: 100%;
             overflow: hidden;
-            margin: auto;
 
             .mediaPhone({
                     margin: 0 20px;
@@ -21,18 +24,33 @@
 
             .image-header {
                 .header-image {
-                    height: auto;
+                    height: 74px;
+                    width: auto;
+                    margin-left: 20px;
 
                     .mediaPhone({
-                            height: auto;
-                            width: 162px;
+                            height: 54px;
+                            width: auto;
                             display: block;
                             margin: 0 auto;
                         });
                 }
             }
 
+            .text-header {
+                .fontOpenSansBold();
+                font-size: 28px;
+                color: @primary-black-text;
+                margin: 18px;
+
+                .mediaPhone({
+                    font-size: 14px;
+                    margin: 10px 5px;
+                });
+            }
+
             .project-content {
+                height: 100%;
                 display: grid;
                 grid-template-columns: 1fr 1fr;
                 background-color: @background-blue;
@@ -42,10 +60,13 @@
                         display: flex;
                         flex-direction: column;
                         grid-template-columns: 1fr;
+                        height: auto;
+
                     });
 
                 .task-section,
                 .solution-section {
+                    height: 100%;
                     padding: 24px;
                     background-color: @background-light-gray;
                     border-top: 1px solid @accent-blue;

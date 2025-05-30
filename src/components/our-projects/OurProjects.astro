@@ -1,9 +1,9 @@
 ---
-import HorizontalLineTitle from 'src/components/horizontal-line-title/HorizontalLineTitle.astro';
-import Swiper from 'src/components/swiper/Swiper.astro';
-import SwiperSlideElement from 'src/components/swiper/SwiperSlideElement.astro';
-import 'src/components/our-projects/OurProjects.less';
-import {Image} from 'astro:assets';
+import HorizontalLineTitle from "src/components/horizontal-line-title/HorizontalLineTitle.astro";
+import Swiper from "src/components/swiper/Swiper.astro";
+import SwiperSlideElement from "src/components/swiper/SwiperSlideElement.astro";
+import "src/components/our-projects/OurProjects.less";
+import { Image } from "astro:assets";
 
 /**
  * Интерфейс задания проекта.
@@ -62,7 +62,12 @@ interface Project {
     /**
      * Изображение фирмы.
      */
-    image: ImageMetadata;
+    image?: ImageMetadata;
+
+    /**
+     * Текст заголовка (используется если нет изображения)
+     */
+    headerText?: string;
 
     /**
      * Задание проекта.
@@ -76,9 +81,9 @@ interface Project {
 }
 
 const {
-    title = 'НАШИ ПРОЕКТЫ',
+    title = "НАШИ ПРОЕКТЫ",
     projects = [] as Project[],
-    className = '',
+    className = "",
 } = Astro.props;
 ---
 
@@ -95,11 +100,19 @@ const {
                     <SwiperSlideElement>
                         <div class="projects">
                             <div class="image-header">
-                                <Image
-                                    src={project.image}
-                                    alt="firm"
-                                    class="header-image"
-                                />
+                                {project.image ? (
+                                    <div class="image-header">
+                                        <Image
+                                            src={project.image}
+                                            alt="firm"
+                                            class="header-image"
+                                        />
+                                    </div>
+                                ) : (
+                                    <h2 class="text-header">
+                                        {project.headerText}
+                                    </h2>
+                                )}
                             </div>
                             <div class="project-content">
                                 <div class="task-section">
@@ -122,7 +135,7 @@ const {
                                                     <li>
                                                         {item.label && (
                                                             <span>
-                                                                {item.label}:{' '}
+                                                                {item.label}:{" "}
                                                             </span>
                                                         )}
                                                         {item.text}
