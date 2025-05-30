@@ -1,4 +1,6 @@
-@import "@styles/globals.less";
+@import '@styles/fontsMixins.less';
+@import '@styles/colors.less';
+@import '@styles/breakpoints.less';
 
 .sticky-container {
     position: fixed;
@@ -299,7 +301,7 @@
         --pulse-start-size: 40px;
         --pulse-end-size: 60px;
     }
-    
+
     .sticky-container .contact-button::before,
     .sticky-container .contact-button::after {
         animation: pulse-ring 2s infinite ease-out;

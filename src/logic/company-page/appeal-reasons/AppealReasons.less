@@ -1,4 +1,6 @@
-@import "@styles/globals.less";
+@import '@styles/fontsMixins.less';
+@import '@styles/colors.less';
+@import '@styles/breakpoints.less';
 
 .appeal {
     margin-top: 100px;
@@ -52,23 +54,23 @@
 
     .mediaPhone({
         margin-top: 50px;
-        
+
         .appeal-content {
             .appeal-grid {
                 grid-template-columns: 1fr;
                 gap: 16px;
-                
+
                 .appeal-reasons {
                     li {
                         font-size: 14px;
                         margin-bottom: 8px;
                         padding-left: 32px;
-                        
+
                         &::before {
                             width: 20px;
                             height: 20px;
                         }
-                        
+
                         &::after {
                             left: 5px;
                             transform: translateY(-45%);
