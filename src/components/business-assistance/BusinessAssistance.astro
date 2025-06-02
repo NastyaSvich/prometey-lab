@@ -8,8 +8,6 @@ import "src/components/business-assistance/BusinessAssistance.less";
 import card1 from "src/assets/images/devops-case-1.svg";
 import card2 from "src/assets/images/devops-case-2.png";
 import card3 from "src/assets/images/devops-case-3.svg";
-import storeez from "src/assets/images/12storeez.svg";
-import monastyrev from "src/assets/images/monastyrev.svg";
 
 type AssistanceWithModal = CardForCasesProps & {
     modalData?: {
@@ -38,7 +36,7 @@ const assistances: AssistanceWithModal[] = [
             secondHighlight: "не пройдут через систему автоматических тестов.",
         },
         modalData: {
-            title: "NDA (digipal)",
+            title: "NDA",
             taskTitle:
                 "миграция стендов с docker-compose и одной VM на AWS инфраструктуру в связи с добавлением прод окружений:",
             task: `
@@ -76,7 +74,7 @@ const assistances: AssistanceWithModal[] = [
                 "не упадет от роста запросов — выдержит высокие нагрузки на Черную пятницу, IPO или промоакцию.",
         },
         modalData: {
-            title: "NDA (adviscent)",
+            title: "NDA",
             taskTitle:
                 "миграция dotnet приложения с Windows server в AWS EKS (kubernetes)",
             task: `
@@ -112,7 +110,7 @@ const assistances: AssistanceWithModal[] = [
                 "по инцидентам через чат-боты в Telegram и Slack будет автоматическим.",
         },
         modalData: {
-            title: "NDA (msproto)",
+            title: "NDA",
             taskTitle:
                 "настроить CI/CD для микросервисного банковского приложения с развёртыванием в kubernetes",
             task: `
