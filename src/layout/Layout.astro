@@ -3,10 +3,8 @@ import Header from "src/layout/header/Header.astro";
 import Footer from "src/layout/footer/Footer.astro";
 import ContactUs from "src/layout/contact-us/ContactUs.astro";
 
-import "src/layout/Layout.less";
-
 export type LayoutProps = {
-    className?: string;
+  className?: string;
 };
 
 const { className = "" } = Astro.props as LayoutProps;
@@ -18,22 +16,41 @@ const { className = "" } = Astro.props as LayoutProps;
 
 <!doctype html>
 <html lang="ru">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="color-scheme" content="light only" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link rel="icon" type="image/x-icon" href="/favicon.ico" />
-        <title>Prometey Lab</title>
-    </head>
-    <body>
-        <Header />
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="color-scheme" content="light only" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <title>Prometey Lab</title>
+  </head>
+  <body>
+    <Header />
 
-        <main class={className}>
-            <slot />
-        </main>
+    <main class={className}>
+      <slot />
+    </main>
 
-        <ContactUs />
+    <ContactUs />
 
-        <Footer />
-    </body>
+    <Footer />
+  </body>
 </html>
+<style scoped>
+  html,
+  body {
+    height: 100%;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    margin: auto;
+  }
+
+  main {
+    flex: 1;
+  }
+</style>
