@@ -60,10 +60,10 @@ import ceo from "@assets/images/ceo.png";
     </div>
 </div>
 
-<script is:inline>
+<script>
     document.addEventListener("DOMContentLoaded", () => {
-        const button = document.getElementById("contact-button");
-        const form = document.getElementById("contact-form");
+        const button: any = document.getElementById("contact-button");
+        const form: any = document.getElementById("contact-form");
 
         button.addEventListener("click", () => {
             form.classList.toggle("hidden");

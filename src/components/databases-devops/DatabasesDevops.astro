@@ -5,33 +5,33 @@ import Options from "src/components/options/Options.astro";
 import "src/components/databases-devops/DatabasesDevops.less";
 
 const {
-    title = "ПРИМЕРЫ ПРОЕКТОВ",
-    subtitle = "Стоимость проектов индивидуальна — все зависит от конечных задач, утвержденных с вами",
+  title = "ПРИМЕРЫ ПРОЕКТОВ",
+  subtitle = "Стоимость проектов индивидуальна — все зависит от конечных задач, утвержденных с вами",
 } = Astro.props;
 
 const titlesDB = {
-    "project-1": "Аудит СУБД",
-    "project-2": "Администрирование баз данных",
-    "project-3": "Миграция баз данных",
-    "project-4": "Сопровождение mission critical баз",
+  "project-1": "Аудит СУБД",
+  "project-2": "Администрирование баз данных",
+  "project-3": "Миграция баз данных",
+  "project-4": "Сопровождение mission critical баз",
 };
 
 const titlesDevops = {
-    "project-1": "Небольшой интернет-магазин",
-    "project-2": "B2C-маркетплейс в разработке",
-    "project-3": "Крупная логистическая компания",
-    "project-4": "FinTech с распределённой инфраструктурой",
+  "project-1": "Небольшой интернет-магазин",
+  "project-2": "B2C-маркетплейс в разработке",
+  "project-3": "Крупная логистическая компания",
+  "project-4": "FinTech с распределённой инфраструктурой",
 };
 
 const tasksDB = {
-    "project-1": `<span>Задача:</span> Выявление слабых мест, предотвращение сбоев`,
-    "project-2": `<span>Задача:</span> Полное сопровождение СУБД`,
-    "project-3": `<span>Задача:</span> Миграция баз данных Oracle → Open Source`,
-    "project-4": `<span>Задача:</span> Обеспечение высокой доступности и быстрого времени отклика (≤3 сек)`,
+  "project-1": `<span>Задача:</span> Выявление слабых мест, предотвращение сбоев`,
+  "project-2": `<span>Задача:</span> Полное сопровождение СУБД`,
+  "project-3": `<span>Задача:</span> Миграция баз данных Oracle → Open Source`,
+  "project-4": `<span>Задача:</span> Обеспечение высокой доступности и быстрого времени отклика (≤3 сек)`,
 };
 
 const detailsDB = {
-    "project-1": `
+  "project-1": `
         <span>Состав проекта:</span>
         <ul>
             <li>2 сервера СУБД</li>
@@ -40,7 +40,7 @@ const detailsDB = {
             <li>Сопровождение внедрения</li>
         </ul>
     `,
-    "project-2": `
+  "project-2": `
         <span>Состав проекта:</span>
         <ul>
             <li>20 серверов СУБД</li>
@@ -49,7 +49,7 @@ const detailsDB = {
             <li>SLA: 30 мин реакция / 4 часа устранение</li>
         </ul>
     `,
-    "project-3": `
+  "project-3": `
         <span>Состав проекта:</span>
         <ul>
             <li>ИТ-система с БД Oracle ( 200ГБ, 50 активных пользователей ) с резервным сервером</li>
@@ -57,7 +57,7 @@ const detailsDB = {
             <li>Мониторинг и постмиграционная поддержка в течение месяца</li>
         </ul>
     `,
-    "project-4": `
+  "project-4": `
         <span>Состав проекта:</span>
         <ul>
             <li><strong>Фронт:</strong> Нагрузка 2000 активных пользователей</li>
@@ -69,20 +69,20 @@ const detailsDB = {
 };
 
 const pricesDB = {
-    "project-1": "120 тыс. руб",
-    "project-2": "200 тыс. руб/мес",
-    "project-3": "300 тыс. руб",
-    "project-4": "480 тыс. руб/мес",
+  "project-1": "120 тыс. руб",
+  "project-2": "200 тыс. руб/мес",
+  "project-3": "300 тыс. руб",
+  "project-4": "480 тыс. руб/мес",
 };
 
 const tasksDevops = {
-    "project-1": `<span>Задача:</span> Разработать и внедрить новую архитектуру совместно с ИТ-специалистами заказчика`,
-    "project-2": `<span>Задача:</span> Повысить отказоустойчивость, развернуть Kubernetes и настроить CI/CD с динамическими окружениями`,
-    "project-3": `<span>Задача:</span> Внедрить решения для обработки Big Data с использование LLM и ML, организовать отказоустойчивую инфраструктуру на базе AWS и Kubernetes`,
-    "project-4": `<span>Задача:</span> Запустить сервис, развернуть инфраструктуру, настроить CI/CD-процессы, сократить Time-To-Market. Поддержка 24/7 с порогом SLA 99.5%`,
+  "project-1": `<span>Задача:</span> Разработать и внедрить новую архитектуру совместно с ИТ-специалистами заказчика`,
+  "project-2": `<span>Задача:</span> Повысить отказоустойчивость, развернуть Kubernetes и настроить CI/CD с динамическими окружениями`,
+  "project-3": `<span>Задача:</span> Внедрить решения для обработки Big Data с использование LLM и ML, организовать отказоустойчивую инфраструктуру на базе AWS и Kubernetes`,
+  "project-4": `<span>Задача:</span> Запустить сервис, развернуть инфраструктуру, настроить CI/CD-процессы, сократить Time-To-Market. Поддержка 24/7 с порогом SLA 99.5%`,
 };
 const detailsDevops = {
-    "project-1": `
+  "project-1": `
         <span>Состав проекта:</span>
         <ul>
             <li>2+ виртуальных машин в облаке</li>
@@ -93,7 +93,7 @@ const detailsDevops = {
             <li><strong>Стек:</strong> Nginx, PostgreSQL, Redis, PHP, Node.js, Docker, GitLab</li>
         </ul>
     `,
-    "project-2": `
+  "project-2": `
         <span>Состав проекта:</span>
         <ul>
             <li>2 кластера Kubernetes и PostgreSQL в облаке</li>
@@ -105,7 +105,7 @@ const detailsDevops = {
             <li><strong>Стек:</strong> Gitlab, Docker, Kubernetes, React, PHP, Redis, PostgreSQL, EFK, Prometheus, Grafana, Helm, S3, CloudFlare</li>
         </ul>
     `,
-    "project-3": `
+  "project-3": `
         <span>Состав проекта:</span>
         <ul>
             <li>Многозональная инфраструктура в AWS</li>
@@ -117,7 +117,7 @@ const detailsDevops = {
             <li><strong>Стек:</strong> AWS, Olama, Kubernetes, Kafka, Spark, GreenPlum, Oracle Database, ClickHouse, GitLab, Python, Loki, Prometheus, Grafana, Helm, S3, GoLang, PostgreSQL</li>
         </ul>
     `,
-    "project-4": `
+  "project-4": `
         <span>Состав проекта:</span>
         <ul>
             <li>Настройка инфраструктуры между двумя дата-центрами</li>
@@ -132,137 +132,124 @@ const detailsDevops = {
     `,
 };
 const pricesDevops = {
-    "project-1": "150 тыс. руб",
-    "project-2": "200 тыс. руб",
-    "project-3": "500 тыс. руб",
-    "project-4": "800 тыс. руб",
+  "project-1": "150 тыс. руб",
+  "project-2": "200 тыс. руб",
+  "project-3": "500 тыс. руб",
+  "project-4": "800 тыс. руб",
 };
 ---
 
 <project-examples
-    data-db-titles={JSON.stringify(titlesDB)}
-    data-devops-titles={JSON.stringify(titlesDevops)}
-    data-db-tasks={JSON.stringify(tasksDB)}
-    data-db-details={JSON.stringify(detailsDB)}
-    data-db-prices={JSON.stringify(pricesDB)}
-    data-devops-tasks={JSON.stringify(tasksDevops)}
-    data-devops-details={JSON.stringify(detailsDevops)}
-    data-devops-prices={JSON.stringify(pricesDevops)}
+  data-db-titles={JSON.stringify(titlesDB)}
+  data-devops-titles={JSON.stringify(titlesDevops)}
+  data-db-tasks={JSON.stringify(tasksDB)}
+  data-db-details={JSON.stringify(detailsDB)}
+  data-db-prices={JSON.stringify(pricesDB)}
+  data-devops-tasks={JSON.stringify(tasksDevops)}
+  data-devops-details={JSON.stringify(detailsDevops)}
+  data-devops-prices={JSON.stringify(pricesDevops)}
 >
-    <HorizontalLineTitle
-        title={title}
-        subtitle={subtitle}
-        className="project-examples"
-    >
-        <Options />
-        <div class="projects">
-            <div class="project project-1 active" id="project-1">
-                Аудит СУБД
-            </div>
-            <div class="project project-2" id="project-2">
-                Администрирование баз данных
-            </div>
-            <div class="project project-3" id="project-3">
-                Миграция баз данных
-            </div>
-            <div class="project project-4" id="project-4">
-                Сопровождение mission critical баз
-            </div>
-            <div class="task" set:html={tasksDB["project-1"]} />
-            <div class="details">
-                <div set:html={detailsDB["project-1"]} />
-                <Button
-                    variant="outline"
-                    id="project-price"
-                    class="button"
-                    label={pricesDB["project-1"]}
-                />
-            </div>
-        </div>
-    </HorizontalLineTitle>
+  <HorizontalLineTitle
+    title={title}
+    subtitle={subtitle}
+    className="project-examples"
+  >
+    <Options />
+    <div class="projects">
+      <div class="project project-1 active" id="project-1">Аудит СУБД</div>
+      <div class="project project-2" id="project-2">
+        Администрирование баз данных
+      </div>
+      <div class="project project-3" id="project-3">Миграция баз данных</div>
+      <div class="project project-4" id="project-4">
+        Сопровождение mission critical баз
+      </div>
+      <div class="task" set:html={tasksDB["project-1"]} />
+      <div class="details">
+        <div set:html={detailsDB["project-1"]} />
+        <Button
+          variant="outline"
+          id="project-price"
+          class="button"
+          label={pricesDB["project-1"]}
+        />
+      </div>
+    </div>
+  </HorizontalLineTitle>
 </project-examples>
 
-<script is:inline>
-    class ProjectExamples extends HTMLElement {
-        constructor() {
-            super();
+<script>
+  class ProjectExamples extends HTMLElement {
+    constructor() {
+      super();
 
-            const taskHTML = this.querySelector(".projects .task");
-            const detailsHTML = this.querySelector(".projects .details div");
-            const priceButton = this.querySelector(".button");
+      const taskHTML = this.querySelector(".projects .task");
+      const detailsHTML = this.querySelector(".projects .details div");
+      const priceButton = this.querySelector(".button");
 
-            let currentKey = "db";
-            let titles = JSON.parse(
-                this.dataset[`${currentKey}Titles`] || "{}"
+      let currentKey = "db";
+      let titles = JSON.parse(this.dataset[`${currentKey}Titles`] || "{}");
+      let tasks = JSON.parse(this.dataset[`${currentKey}Tasks`] || "{}");
+      let details = JSON.parse(this.dataset[`${currentKey}Details`] || "{}");
+      let prices = JSON.parse(this.dataset[`${currentKey}Prices`] || "{}");
+
+      const updateContent = (key: string) => {
+        tasks = JSON.parse(this.dataset[`${key}Tasks`] || "{}");
+        details = JSON.parse(this.dataset[`${key}Details`] || "{}");
+        prices = JSON.parse(this.dataset[`${key}Prices`] || "{}");
+        titles = JSON.parse(this.dataset[`${key}Titles`] || "{}");
+
+        const keyList = Object.keys(tasks);
+        const firstKey = keyList[0];
+
+        const projectsContainer = this.querySelector(".projects");
+        const existingProjects = this.querySelectorAll(".projects .project");
+        existingProjects.forEach((p) => p.remove());
+
+        keyList.forEach((projectId, index) => {
+          const div = document.createElement("div");
+          div.classList.add("project", projectId);
+          if (index === 0) div.classList.add("active");
+          div.id = projectId;
+          div.textContent = titles[projectId] || `Проект ${index + 1}`;
+          projectsContainer?.insertBefore(div, taskHTML);
+        });
+
+        this.querySelectorAll(".projects .project").forEach((project) => {
+          project.addEventListener("click", (clicked) => {
+            this.querySelectorAll(".projects .project").forEach((p) =>
+              p.classList.remove("active")
             );
-            let tasks = JSON.parse(this.dataset[`${currentKey}Tasks`] || "{}");
-            let details = JSON.parse(
-                this.dataset[`${currentKey}Details`] || "{}"
-            );
-            let prices = JSON.parse(
-                this.dataset[`${currentKey}Prices`] || "{}"
-            );
+            if (clicked.target instanceof HTMLElement) {
+              clicked.target.classList.add("active");
 
-            const updateContent = (key) => {
-                tasks = JSON.parse(this.dataset[`${key}Tasks`] || "{}");
-                details = JSON.parse(this.dataset[`${key}Details`] || "{}");
-                prices = JSON.parse(this.dataset[`${key}Prices`] || "{}");
-                titles = JSON.parse(this.dataset[`${key}Titles`] || "{}");
+              const id = clicked.target.id;
+              if (taskHTML && tasks[id]) taskHTML.innerHTML = tasks[id];
+              if (detailsHTML && details[id]) detailsHTML.innerHTML = details[id];
+              if (priceButton && prices[id]) priceButton.textContent = prices[id];
+            }
+          });
+        });
 
-                const keyList = Object.keys(tasks);
-                const firstKey = keyList[0];
+        if (taskHTML && tasks[firstKey]) taskHTML.innerHTML = tasks[firstKey];
+        if (detailsHTML && details[firstKey])
+          detailsHTML.innerHTML = details[firstKey];
+        if (priceButton && prices[firstKey])
+          priceButton.textContent = prices[firstKey];
+      };
 
-                const projectsContainer = this.querySelector(".projects");
-                const existingProjects =
-                    this.querySelectorAll(".projects .project");
-                existingProjects.forEach((p) => p.remove());
+      updateContent(currentKey);
 
-                keyList.forEach((projectId, index) => {
-                    const div = document.createElement("div");
-                    div.classList.add("project", projectId);
-                    if (index === 0) div.classList.add("active");
-                    div.id = projectId;
-                    div.textContent =
-                        titles[projectId] || `Проект ${index + 1}`;
-                    projectsContainer.insertBefore(div, taskHTML);
-                });
+      document.addEventListener("optionChanged", (e: any) => {
+        if (e.detail && e.detail.key) {
 
-                this.querySelectorAll(".projects .project").forEach(
-                    (project) => {
-                        project.addEventListener("click", (clicked) => {
-                            this.querySelectorAll(".projects .project").forEach(
-                                (p) => p.classList.remove("active")
-                            );
-                            clicked.target.classList.add("active");
-
-                            const id = clicked.target.id;
-                            if (taskHTML && tasks[id])
-                                taskHTML.innerHTML = tasks[id];
-                            if (detailsHTML && details[id])
-                                detailsHTML.innerHTML = details[id];
-                            if (priceButton && prices[id])
-                                priceButton.textContent = prices[id];
-                        });
-                    }
-                );
-
-                if (taskHTML && tasks[firstKey])
-                    taskHTML.innerHTML = tasks[firstKey];
-                if (detailsHTML && details[firstKey])
-                    detailsHTML.innerHTML = details[firstKey];
-                if (priceButton && prices[firstKey])
-                    priceButton.textContent = prices[firstKey];
-            };
-
+            const key = e.detail.key;
+            currentKey = key;
             updateContent(currentKey);
-
-            document.addEventListener("optionChanged", (e) => {
-                const key = e.detail.key;
-                currentKey = key;
-                updateContent(currentKey);
-            });
         }
+      });
     }
+  }
 
-    customElements.define("project-examples", ProjectExamples);
+  customElements.define("project-examples", ProjectExamples);
 </script>
