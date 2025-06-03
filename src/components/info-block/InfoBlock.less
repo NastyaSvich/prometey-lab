@@ -1,6 +1,6 @@
-@import '@styles/fontsMixins.less';
-@import '@styles/colors.less';
-@import '@styles/breakpoints.less';
+@import "@styles/fontsMixins.less";
+@import "@styles/colors.less";
+@import "@styles/breakpoints.less";
 
 .info-block {
     background: url("@assets/images/main-info-background.webp") center/cover
@@ -25,6 +25,14 @@
             margin-top: 20px;
         });
     }
+    .text-under-button {
+        .fontOpenSansRegular();
+        font-size: 16px;
+        color: @secondary-black-text;
+        display: flex;
+        flex-direction: column;
+        margin-top: 15px;
+    }
 
     .text-content {
         .fontOpenSansRegular();
@@ -40,6 +48,21 @@
                 .mediaPhone({
                     display: none;
                 });
+            }
+        }
+
+        ul {
+            list-style-type: disc;
+            padding-left: 20px;
+            color: @primary-black-text;
+
+            li {
+                color: @primary-black-text;
+                &::marker {
+                    color: @accent-blue;
+                    font-weight: bold;
+                    font-size: 12px;
+                }
             }
         }
     }

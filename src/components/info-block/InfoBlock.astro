@@ -21,6 +21,11 @@ export type InfoBlockProps = {
     buttonLabel?: string;
 
     /**
+     * Надпись под кнокой.
+     */
+    offer?: string;
+
+    /**
      * Изображение у блока.
      */
     image?: ImageMetadata;
@@ -46,6 +51,7 @@ const {
     title,
     descriptions = [],
     buttonLabel,
+    offer,
     image,
     alt = "Image",
     className = "",
@@ -78,6 +84,9 @@ const {
                         </a>
                     )
                 }
+                <div class="text-under-button">
+                    {(<div class="text-line" set:html={offer} />)}
+                </div>
             </div>
         </div>
 
