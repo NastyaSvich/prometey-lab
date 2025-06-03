@@ -1,36 +1,35 @@
 ---
-import 'src/components/card-blue-title/CardBlueTitle.less';
-import CardDefault from 'src/components/card-default/CardDefault.astro';
+import CardDefault from "src/components/card-default/CardDefault.astro";
 
 export type CardBlueTitleProps = {
-    /**
-     * Заголовок карточки.
-     */
-    title: string;
+  /**
+   * Заголовок карточки.
+   */
+  title: string;
 
-    /**
-     * Описание карточки.
-     */
-    description: string;
+  /**
+   * Описание карточки.
+   */
+  description: string;
 
-    /**
-     * Фон карточки: может быть цвет, изображение, градиент и т.п.
-     * По умолчанию: "transparent"
-     * Задается форматом: "#ffffff", "url('/images/bg.jpg') center/cover no-repeat".
-     */
-    background?: string;
+  /**
+   * Фон карточки: может быть цвет, изображение, градиент и т.п.
+   * По умолчанию: "transparent"
+   * Задается форматом: "#ffffff", "url('/images/bg.jpg') center/cover no-repeat".
+   */
+  background?: string;
 
-    /**
-     * Дополнительный css-класс.
-     */
-    className?: string;
+  /**
+   * Дополнительный css-класс.
+   */
+  className?: string;
 };
 
 const {
-    title,
-    description,
-    background = 'transparent',
-    className = '',
+  title,
+  description,
+  background = "transparent",
+  className = "",
 } = Astro.props as CardBlueTitleProps;
 
 /**
@@ -43,10 +42,33 @@ const {
  */
 ---
 
-<CardDefault
-    className={`card-blue-title ${className}`}
-    background={background}
->
-    <div slot="title" class="title">{title}</div>
-    <div slot="description" class="description">{description}</div>
+<CardDefault className={`card-blue-title ${className}`} background={background}>
+  <div slot="title" class="title">{title}</div>
+  <div slot="description" class="description">{description}</div>
 </CardDefault>
+
+<style scoped lang="less">
+  @import "@styles/fontsMixins.less";
+  @import "@styles/colors.less";
+  @import "@styles/breakpoints.less";
+
+  .title {
+    .fontOpenSansBold();
+    font-size: 22px;
+    color: @accent-blue;
+
+    .mediaPhone({
+            font-size: 18px;
+        });
+  }
+
+  .description {
+    .fontOpenSansRegular();
+    font-size: 18px;
+    color: @secondary-black-text;
+
+    .mediaPhone({
+        font-size: 14px;
+    });
+  }
+</style>
