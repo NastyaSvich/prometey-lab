@@ -1,12 +1,24 @@
-@import '@styles/fontsMixins.less';
-@import '@styles/colors.less';
-@import '@styles/breakpoints.less';
+@import "@styles/fontsMixins.less";
+@import "@styles/colors.less";
+@import "@styles/breakpoints.less";
 
 .card-without-title {
     border: 1px solid @outline;
+    background-size: auto 50%;
+
+    .description-title {
+        .fontOpenSansSemiBold();
+        font-size: 18px;
+        color: @secondary-black-text;
+        margin-bottom: 10px;
+
+        .mediaPhone({
+        font-size: 15px;
+    });
+    }
 
     .description {
-        .fontOpenSansSemiBold();
+        .fontOpenSansRegular();
         font-size: 18px;
         color: @secondary-black-text;
 

@@ -16,20 +16,28 @@ const createBackground = async (image: ImageMetadata) => {
 
 const reasons: CardWithoutTitleProps[] = [
     {
-        description: "Приложение или сайт не выдерживают нагрузки",
-        background: await createBackground(card5),
-    },
-    {
-        description: "Необходимо ускорить процессы разработки и внедрения ПО",
-        background: await createBackground(card2),
-    },
-    {
-        description: "Инфраструктуре не хватает мощностей",
+        description_title: "Бесперебойная работа 24/7",
+        description:
+            "Круглосуточный <strong>мониторинг баз данных</strong> и проактивное реагирование на инциденты позволяют предотвратить простои и критические сбои. Ваша IT-инфраструктура работает стабильно — даже в пиковые часы",
         background: await createBackground(card1),
     },
     {
-        description: "Бизнесу пора масштабироваться",
-        background: await createBackground(card3),
+        description_title: "Безопасность и сохранность данных",
+        description:
+            "Резервное копирование, защита от угроз, контроль доступа и аудит — всё это входит в <strong>комплексную поддержку баз данных</strong>. Мы обеспечим защиту информации и соответствие корпоративным политикам",
+        background: await createBackground(card2),
+    },
+    {
+        description_title: "Оптимизация производительности",
+        description:
+            "Профессиональная <strong>настройка и администрирование СУБД</strong> (PostgreSQL, Oracle, MS SQL и др.) повышает скорость обработки запросов, снижает нагрузку и экономит ресурсы серверов",
+        background: await createBackground(card1),
+    },
+    {
+        description_title: "Экономия времени и ресурсов",
+        description:
+            "Вместо того чтобы держать дорогого штатного DBA, вы получаете <strong>профессиональную поддержку баз данных</strong> по подписке. Делегируйте сложные задачи нашей команде, а свою — сфокусируйте на развитии продукта.",
+        background: await createBackground(card2),
     },
 ];
 
@@ -44,8 +52,9 @@ const reasons: CardWithoutTitleProps[] = [
     contentClassName="reasons-content"
 >
     {
-        reasons.map(({ description, background }) => (
+        reasons.map(({ description_title, description, background }) => (
             <CardWithoutTitle
+                description_title={description_title}
                 description={description}
                 background={background}
             />

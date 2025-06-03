@@ -4,6 +4,11 @@ import CardDefault from "src/components/card-default/CardDefault.astro";
 
 export type CardWithoutTitleProps = {
     /**
+     * Заголовок описания
+     */
+    description_title: string;
+
+    /**
      * Описание карточки.
      */
     description: string;
@@ -22,6 +27,7 @@ export type CardWithoutTitleProps = {
 };
 
 const {
+    description_title,
     description,
     background = "transparent",
     className = "",
@@ -41,5 +47,12 @@ const {
     className={`card-without-title ${className}`}
     background={background}
 >
-    <div slot="description" class="description">{description}</div>
+    <div slot="description" class="card-content">
+        {
+            description_title && (
+                <h3 class="description-title" set:html={description_title} />
+            )
+        }
+        <div class="description" set:html={description} />
+    </div>
 </CardDefault>
