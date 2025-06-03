@@ -1,0 +1,25 @@
+---
+import InfoBlock from "src/components/info-block/InfoBlock.astro";
+import HorizontalLineTitle from "src/components/horizontal-line-title/HorizontalLineTitle.astro";
+import "src/logic/database-page/fast-operative/FastOperative.less";
+
+/**
+ * Компонент раздела "Удалённо. Оперативно. Выгодно.".
+ */
+---
+
+<div class="fast-operative">
+    <HorizontalLineTitle
+        title="УДАЛЕННО. ОПЕРАТИВНО. ВЫГОДНО."
+        subtitle="Мы работаем удалённо по SLA, с полной отчетностью и безопасным доступом. Стоимость обслуживания — от 0,5 штатного DBA в месяц."
+    >
+        <InfoBlock
+            title="ОРГАНИЗУЕМ ТЕХНИЧЕСКУЮ ПОДДЕРЖКУ 24/7 — БЫСТРО, ПРОЗРАЧНО, НАДЁЖНО"
+            descriptions={[
+                "<strong>Оставьте заявку</strong> — и мы подберём оптимальный формат сопровождения ваших ИТ-систем и баз данных. <br> От постоянного мониторинга до комплексного администрирования — всё под вашим контролем.",
+            ]}
+            buttonLabel="Оставить заявку"
+            alt="Database Case"
+        />
+    </HorizontalLineTitle>
+</div>

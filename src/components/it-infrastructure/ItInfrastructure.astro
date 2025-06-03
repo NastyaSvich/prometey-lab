@@ -1,0 +1,44 @@
+---
+import HorizontalLineTitle from "src/components/horizontal-line-title/HorizontalLineTitle.astro";
+import { Image } from "astro:assets";
+import Structure from "src/assets/images/devops-case-3.svg";
+import "src/components/it-infrastructure/ItInfrastructure.less";
+
+/**
+ * Компонент раздела "Полная картина вашей IT-инфраструктуры.".
+ */
+---
+
+<div class="it-infrastructure">
+    <HorizontalLineTitle
+        title="ПОЛНАЯ КАРТИНА ВАШЕЙ IT-ИНФРАСТРУКТУРЫ"
+        subtitle="Проактивный мониторинг IT-инфраструктуры"
+    >
+        <div class="content-wrapper">
+            <div class="image-container">
+                <Image
+                    src={Structure}
+                    alt="IT инфраструктура"
+                    class="infrastructure-image"
+                />
+            </div>
+            <div class="text-content">
+                <div class="report-features">
+                    <p>
+                        Каждый месяц вы получаете структурированный отчёт, в
+                        котором отображены:
+                    </p>
+                    <ul class="feature-list">
+                        <li>выполненные задачи и решённые инциденты,</li>
+                        <li>текущее состояние серверов и облаков,</li>
+                        <li>ключевые показатели из системы мониторинга.</li>
+                    </ul>
+                    <p>
+                        Это не просто цифры — это основа для стратегического
+                        планирования IT.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </HorizontalLineTitle>
+</div>

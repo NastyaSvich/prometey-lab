@@ -10,6 +10,7 @@ import DevopsConsist from "src/logic/cases-page/devops-consist/DevopsConsist.ast
 import "src/pages/_index.less";
 import SupportStructure from "src/logic/cases-page/support-structure/SupportStructure.astro";
 import Safety from "src/logic/cases-page/safety/Safety.astro";
+import TechnicalSupport from "src/components/technical-support/TechnicalSupport.astro";
 
 /**
  * Страница кейсов.
@@ -26,6 +27,7 @@ import Safety from "src/logic/cases-page/safety/Safety.astro";
     <SupportStructure />
 
     <div class="middle-content">
+        <TechnicalSupport />
         <Safety />
         <CasesPrice />
     </div>

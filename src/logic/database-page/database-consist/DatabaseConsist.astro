@@ -1,0 +1,87 @@
+---
+import type { CardForCasesProps } from "src/components/card-for-cases/CardForCases.astro";
+import CardForCases from "src/components/card-for-cases/CardForCases.astro";
+import HorizontalLineTitle from "src/components/horizontal-line-title/HorizontalLineTitle.astro";
+import "src/logic/database-page/database-consist/DatabaseConsist.less";
+import card1 from "src/assets/images/devops-case-1.svg";
+import card2 from "src/assets/images/devops-case-2.png";
+import card3 from "src/assets/images/devops-case-3.svg";
+
+const consists: CardForCasesProps[] = [
+    {
+        image: card1,
+        title: "Непрерывная доступность 24/7",
+        descriptions: {
+            firstPart:
+                "Ваши базы данных всегда онлайн. Круглосуточный <strong>мониторинг баз данных</strong>, автоматические алерты и мгновенная реакция команды обеспечивают работу без простоев и сбоев.",
+        },
+    },
+    {
+        image: card2,
+        title: "Автоматизированное восстановление",
+        descriptions: {
+            firstPart:
+                "Мы используем проработанные сценарии восстановления: регулярное <strong>резервное копирование</strong>, быстрое обнаружение сбоев, мгновенное восстановление данных — с минимальным downtime.",
+        },
+    },
+    {
+        image: card3,
+        title: "Масштабируемость под нагрузку",
+        descriptions: {
+            firstPart:
+                "Во время пиковых нагрузок (запуски, акции, сезонные продажи) базы данных остаются стабильными. Мы заранее настраиваем <strong>кластеризацию</strong>, горизонтальное масштабирование и балансировку нагрузки.",
+        },
+    },
+    {
+        image: card1,
+        title: "Проактивный мониторинг и аналитика",
+        descriptions: {
+            firstPart:
+                "Система мониторинга включает: визуальные <strong>дашборды</strong>, оповещения (алерты), предиктивную аналитику.",
+            secondPart:
+                "Мы устраняем причины инцидентов <strong>до их возникновения</strong>.",
+        },
+    },
+    {
+        image: card2,
+        title: "Безопасность и соответствие стандартам",
+        descriptions: {
+            firstPart:
+                "Мы обеспечиваем: шифрование данных, аудит действий, контроль доступа, регулярные обновления.",
+            secondPart:
+                "Все решения соответствуют корпоративным стандартам безопасности и требованиям ИБ.",
+        },
+    },
+    {
+        image: card3,
+        title: "Оптимизация производительности СУБД",
+        descriptions: {
+            firstPart:
+                "Настраиваем индексы, запросы, параметры сервера и хранилища — <strong>снижаем нагрузку и ускоряем обработку данных</strong> без апгрейда железа.",
+        },
+    },
+];
+
+/**
+ * Компонент раздела "Из чего состоит сервис технической поддержки баз данных".
+ */
+---
+
+<HorizontalLineTitle
+    title="ИЗ ЧЕГО СОСТОИТ СЕРВИС ТЕХНИЧЕСКОЙ ПОДДЕРЖКИ БАЗ ДАННЫХ"
+    subtitle="Наша служба техподдержки СУБД — это не просто «дежурный админ». Это полный комплекс работ, направленных на стабильность, безопасность и высокую производительность ваших информационных систем."
+    className="consists"
+    contentClassName="consists-content"
+>
+    {
+        consists.map((consists) => (
+            <CardForCases
+                image={consists.image}
+                title={consists.title}
+                descriptions={consists.descriptions || {}}
+                showVerticalLine={false}
+                showButton={false}
+            />
+        ))
+    }
+</HorizontalLineTitle>

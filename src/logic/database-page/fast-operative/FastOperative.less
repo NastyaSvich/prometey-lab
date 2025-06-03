@@ -1,0 +1,63 @@
+@import "@styles/fontsMixins.less";
+@import "@styles/colors.less";
+@import "@styles/breakpoints.less";
+
+.fast-operative {
+    width: 100%;
+    margin-top: 60px;
+
+    .info-block {
+        background-color: @outline;
+
+        .info-content {
+            padding-top: 50px;
+
+            .mediaPhone({
+                padding-top: 10px;
+            });
+
+            .title {
+                font-size: 38px;
+                color: @primary-white-text;
+
+                .mediaPhone({
+                    font-size: 24px;
+                });
+            }
+
+            .text-content .text-line {
+                color: @primary-white-text;
+            }
+
+            .button {
+                background-color: @primary-white-text;
+                color: @accent-blue;
+
+                &:hover {
+                    background-color: @background-blue;
+                }
+
+                .mediaPhone({
+                    height: 42px;
+                    font-size: 18px;
+                });
+            }
+        }
+    }
+}
+
+@media (max-width: 1005px) and (min-width: 941px) {
+    .main-info .image-content {
+        width: 100%;
+        max-width: 430px;
+        height: auto;
+        margin: 0 auto;
+        margin-top: 10%;
+
+        .main-image {
+            width: 100%;
+            height: auto;
+            object-fit: contain;
+        }
+    }
+}

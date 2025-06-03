@@ -1,0 +1,22 @@
+@import "@styles/fontsMixins.less";
+@import "@styles/colors.less";
+@import "@styles/breakpoints.less";
+
+.technical-support {
+    width: 100%;
+    margin-top: 60px;
+
+    .content {
+        margin-top: 20px;
+    }
+
+    p {
+        .fontOpenSansRegular();
+        font-size: 18px;
+        color: @secondary-black-text;
+
+        .mediaPhone({         
+            font-size: 14px;
+        });
+    }
+}

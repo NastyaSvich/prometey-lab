@@ -1,0 +1,69 @@
+@import "@styles/fontsMixins.less";
+@import "@styles/colors.less";
+@import "@styles/breakpoints.less";
+
+.it-infrastructure {
+    width: 100%;
+    margin-top: 80px;
+
+    .content {
+        margin-top: 20px;
+    }
+
+    .content-wrapper {
+        display: flex;
+        gap: 40px;
+        align-items: center;
+
+        .mediaPhone({
+            flex-direction: column;
+            gap: 20px;
+        });
+    }
+
+    .image-container {
+        flex: 1;
+
+        .infrastructure-image {
+            width: 100%;
+            max-width: 500px;
+            height: auto;
+        }
+    }
+
+    .text-content {
+        flex: 1;
+
+        .main-text,
+        .report-features {
+            .fontOpenSansRegular();
+            font-size: 18px;
+            color: @secondary-black-text;
+            margin-bottom: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        ul.feature-list {
+            list-style-type: disc;
+            padding-left: 20px;
+            color: @primary-black-text;
+
+            li {
+                color: @primary-black-text;
+                &::marker {
+                    color: @accent-blue;
+                    font-weight: bold;
+                    font-size: 12px;
+                }
+            }
+        }
+    }
+
+    .mediaPhone({
+        p, li {
+            font-size: 14px;
+        }
+    });
+}

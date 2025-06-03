@@ -84,9 +84,13 @@ const {
                         </a>
                     )
                 }
-                <div class="text-under-button">
-                    {(<div class="text-line" set:html={offer} />)}
-                </div>
+                {
+                    offer && (
+                        <div class="text-under-button">
+                            <div class="text-line" set:html={offer} />
+                        </div>
+                    )
+                }
             </div>
         </div>
 

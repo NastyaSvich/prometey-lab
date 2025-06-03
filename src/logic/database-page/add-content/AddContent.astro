@@ -2,7 +2,7 @@
 import type { CardForCasesProps } from "src/components/card-for-cases/CardForCases.astro";
 import CardForCases from "src/components/card-for-cases/CardForCases.astro";
 import HorizontalLineTitle from "src/components/horizontal-line-title/HorizontalLineTitle.astro";
-import "src/logic/cases-page/support-structure/SupportStructure.less";
+import "src/logic/database-page/add-content/AddContent.less";
 import Expertise from "@assets/images/expertise.svg";
 import Message from "@assets/images/message.svg";
 import ShieldLock from "@assets/images/shield-lock.svg";
@@ -14,49 +14,56 @@ const supports: CardForCasesProps[] = [
     {
         image: ShieldLock,
         descriptions: {
-            firstPart: "Техническая поддержка 24/7 приложений и серверов",
+            firstPart:
+                "<strong>Техническая поддержка СУБД и систем 24/7</strong>",
         },
     },
     {
         image: MoneyBag,
         descriptions: {
-            firstPart: "Готовый к production Kubernetes",
+            firstPart:
+                "<strong>Консультации по архитектуре</strong> и оптимизации с разработчиками и DBA",
         },
     },
     {
         image: Monitoring,
         descriptions: {
-            firstPart: "Мониторинг из “коробки” с возможностью кастомизации",
+            firstPart:
+                "<strong>Готовая система мониторинга</strong> с возможностью кастомизации под ваши метрики",
         },
     },
     {
         image: PersonalCabinet,
         descriptions: {
-            firstPart: "Личный кабинет",
+            firstPart:
+                "<strong>Трекер задач и база знаний</strong> для прозрачности всех операций",
         },
     },
     {
         image: Message,
         descriptions: {
-            firstPart: "Консультации разработчиков по архитектурным решениям",
+            firstPart:
+                "<strong>Open Source-решения</strong>, независимые от лицензий",
         },
     },
     {
         image: Expertise,
         descriptions: {
-            firstPart: "Open Source решения ваших задач",
+            firstPart:
+                "<strong>Выделенная команда</strong>: тех.менеджер + минимум 2 DBA на каждое направление",
         },
     },
 ];
 
 /**
- * Компонент раздела "Как устроена техподдержка и обслуживание приложений".
+ * Компонент раздела "Дополнительно вы получаете:".
  */
 ---
 
 <div class="supports">
     <HorizontalLineTitle
-        title="КАК УСТРОЕНА ТЕХПОДДЕРЖКА И ОБСЛУЖИВАНИЕ ПРИЛОЖЕНИЙ"
+        title="ДОПОЛНИТЕЛЬНО ВЫ ПОЛУЧАЕТЕ:"
+        subtitle="Комплексная поддержка из одного окна:"
         className="supports-container"
         contentClassName="supports-content"
     >
