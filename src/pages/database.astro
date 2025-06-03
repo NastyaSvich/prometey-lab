@@ -1,0 +1,39 @@
+---
+import Layout from "src/layout/Layout.astro";
+import Form from "src/components/form/Form.astro";
+import MainInfo from "src/logic/cases-page/main-info/MainInfo.astro";
+import ReasonsForService from "src/logic/cases-page/reasons-for-service/ReasonsForService.astro";
+import TrustReasons from "src/components/trust-reasons/TrustReasons.astro";
+import CasesPrice from "src/logic/cases-page/cases-price/CasesPrice.astro";
+import BusinessAssistance from "src/components/business-assistance/BusinessAssistance.astro";
+import DevopsConsist from "src/logic/cases-page/devops-consist/DevopsConsist.astro";
+import "src/pages/_index.less";
+import SupportStructure from "src/logic/cases-page/support-structure/SupportStructure.astro";
+import Safety from "src/logic/cases-page/safety/Safety.astro";
+import DatabaseCases from "src/logic/database-page/database-cases/DatabaseCases.astro";
+
+/**
+ * Страница кейсов бд.
+ */
+---
+
+<Layout className="main-page">
+    <div class="middle-content">
+        <MainInfo />
+        <ReasonsForService />
+        <DevopsConsist />
+    </div>
+
+    <SupportStructure />
+
+    <div class="middle-content">
+        <Safety />
+        <CasesPrice />
+    </div>
+
+    <TrustReasons />
+
+    <DatabaseCases />
+
+    <Form />
+</Layout>

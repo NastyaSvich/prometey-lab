@@ -5,6 +5,7 @@ import "src/components/card-for-cases/modal-content/ModalContent.less";
 
 export interface ModalContentProps {
     image: ImageMetadata;
+    textBlock: string;
     title: string;
     taskTitle: string;
     task: string;
@@ -17,6 +18,7 @@ export interface ModalContentProps {
 
 const {
     image,
+    textBlock,
     title,
     taskTitle,
     task,
@@ -29,7 +31,14 @@ const {
 ---
 
 <div class="modal-content-wrapper">
-    {image && <Image src={image} alt="company" class="company-case-image" />}
+    <div class="top-content-block">
+        {
+            image && (
+                <Image src={image} alt="company" class="company-case-image" />
+            )
+        }
+        {textBlock && <div class="text-content-block" set:html={textBlock} />}
+    </div>
 
     <HorizontalLineTitle
         title={title}

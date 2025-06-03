@@ -1,0 +1,39 @@
+@import "@styles/breakpoints.less";
+
+@max-width: 1250px;
+
+.database-cases {
+    width: 100%;
+    padding: 48px 40px;
+    width: 100%;
+    margin: 0 auto;
+    max-width: @max-width;
+    .mediaPhone({
+        padding: 40px 20px;
+    });
+    .database-cases-content .devops-card {
+        .mediaPhone({
+          width: 220px;
+        });
+    }
+}
+
+.modal-content-wrapper
+    .horizontal-line-title
+    .line-title-container
+    .horizontal-line {
+    margin-top: 18px;
+}
+
+.modal-content-wrapper .horizontal-line-title .line-title-container {
+    font-size: 25px;
+}
+
+.modal-content-wrapper .horizontal-line-title .modal-content-text {
+    gap: 10px;
+    margin-bottom: 0px;
+}
+
+.modal-content-wrapper .horizontal-line-title .modal-content-text h3 {
+    font-size: 16px;
+}

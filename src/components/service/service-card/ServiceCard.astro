@@ -18,9 +18,14 @@ export type CardServiceProps = {
      * Описание карточки.
      */
     description?: string;
+
+    /**
+     * Ссылка для перехода
+     */
+    link: string;
 };
 
-const { title, subtitle, description } = Astro.props as CardServiceProps;
+const { title, subtitle, description, link } = Astro.props as CardServiceProps;
 
 /**
  * Компонент карточки услуг.

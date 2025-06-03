@@ -12,16 +12,19 @@ const services: CardServiceProps[] = [
         title: "БАЗЫ ДАННЫХ",
         subtitle:
             "Администрирование баз данных от Oracle до PostgreSQL под ключ на любых платформах. Enterprise и Open Source",
+        link: "/database",
     },
     {
         title: "DEVOPS УСЛУГИ",
         subtitle:
             "Внедрение CI/CD, настройка мониторинга и автоматизация для стабильной IT-инфраструктуры 24/7",
+        link: "/cases",
     },
     {
         title: "SRE",
         subtitle:
             "Повысим надежность и доступность ваших систем, сопровождение 24/7",
+        link: "/cases",
     },
 ];
 ---
@@ -29,10 +32,11 @@ const services: CardServiceProps[] = [
 <div class={"service"}>
     {
         services.map((service) => (
-            <a href="/cases" class="service-card-link">
+            <a href={service.link} class="service-card-link">
                 <ServiceCard
                     title={service.title}
                     subtitle={service.subtitle}
+                    link={service.link}
                 />
             </a>
         ))

@@ -6,6 +6,7 @@
     width: 100%;
     display: flex;
     flex-direction: column;
+    position: relative;
 
     .modal-content-text {
         padding: 5px 20px;
@@ -27,6 +28,7 @@
             flex-wrap: wrap;
             align-items: baseline;
             color: @primary-black-text;
+            gap: 5px;
         }
 
         h3 {
@@ -95,10 +97,18 @@
 
 .company-case-image {
     display: block;
-    max-width: 100%;
+    max-width: 150px;
     height: auto;
 
     .mediaPhone({
         margin: 0 auto;
+        height: 60px;
+        width: auto;
     });
+}
+
+.text-content-block {
+    .fontOpenSansRegular();
+    color: @primary-black-text;
+    font-size: 25px;
 }
