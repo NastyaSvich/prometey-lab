@@ -36,9 +36,7 @@ export type CardForCasesProps = {
      */
     descriptions?: {
         firstPart?: string;
-        firstHighlight?: string;
         secondPart?: string;
-        secondHighlight?: string;
     };
 
     /**
@@ -72,8 +70,6 @@ const {
     subtitle,
     descriptions = {},
     buttonLabel = "Читать",
-    modalContent = "",
-    imageForModal,
     className = "",
     showVerticalLine = true,
     showButton = true,
@@ -121,26 +117,29 @@ const {
 
     <div slot="description" class="devops-content">
         {
-            descriptions.firstPart || descriptions.firstHighlight ? (
+            (
                 <p class="case-text">
                     {descriptions.firstPart && (
-                        <span>{descriptions.firstPart}</span>
+                        <span
+                            class="case-text"
+                            set:html={descriptions.firstPart}
+                        />
                     )}
-                    {descriptions.firstHighlight}
                 </p>
-            ) : null
+            )
         }
 
         {
-            descriptions.secondPart || descriptions.secondHighlight ? (
+            (
                 <p class="case-text">
                     {descriptions.secondPart && (
-                        <span>{descriptions.secondPart}</span>
+                        <span
+                            class="case-text"
+                            set:html={descriptions.secondPart}
+                        />
                     )}
-                    {descriptions.secondHighlight &&
-                        ` ${descriptions.secondHighlight}`}
                 </p>
-            ) : null
+            )
         }
         {
             showButton && (

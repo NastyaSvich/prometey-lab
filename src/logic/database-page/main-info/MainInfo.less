@@ -1,0 +1,29 @@
+@import '@styles/breakpoints.less';
+
+.info-content {
+    padding-top: 50px;
+
+    .title {
+        font-size: 38px;
+
+        .mediaPhone({
+            font-size: 24px;
+        });
+    }
+}
+
+@media (max-width: 1005px) and (min-width: 941px) {
+    .main-info .image-content {
+        width: 100%;
+        max-width: 430px;
+        height: auto;
+        margin: 0 auto;
+        margin-top: 10%;
+
+        .main-image {
+            width: 100%;
+            height: auto;
+            object-fit: contain;
+        }
+    }
+}
