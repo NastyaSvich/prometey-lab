@@ -1,0 +1,50 @@
+---
+import StatisticCard from "src/components/statistic/statistic-card/StatisticCard.astro";
+import "src/components/statistic/CompanyStatistic.less";
+
+/**
+ * Компонент статистики компании.
+ */
+---
+
+<div class="statistic">
+    <StatisticCard description="Активных баз данных под управлением" />
+    <StatisticCard
+        description="Поддерживаемых систем — от серверов до облаков"
+    />
+    <StatisticCard description="Заявок и инцидентов обрабатываем ежемесячно" />
+</div>
+
+<script>
+    function animateCounter(
+        el: HTMLElement,
+        to: number,
+        duration: number,
+        showPlus: boolean
+    ): void {
+        let startTime: number | null = null;
+
+        const step = (timestamp: number) => {
+            if (startTime === null) startTime = timestamp;
+            const progress = timestamp - startTime;
+            const value = Math.min(Math.floor((progress / duration) * to), to);
+            el.textContent = showPlus ? `${value} +` : `${value}`;
+            if (value < to) {
+                requestAnimationFrame(step);
+            }
+        };
+
+        requestAnimationFrame(step);
+    }
+
+    const elements = Array.from(
+        document.querySelectorAll<HTMLElement>(".statistic-card .title")
+    );
+    const values: number[] = [200, 500, 1000];
+    elements.forEach((el, i) => {
+        if (i < values.length) {
+            const showPlus = true;
+            animateCounter(el, values[i], 3000, showPlus);
+        }
+    });
+</script>

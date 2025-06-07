@@ -1,6 +1,6 @@
-@import '@styles/fontsMixins.less';
-@import '@styles/colors.less';
-@import '@styles/breakpoints.less';
+@import "@styles/fontsMixins.less";
+@import "@styles/colors.less";
+@import "@styles/breakpoints.less";
 
 .our-projects {
     margin-bottom: 100px;
@@ -10,7 +10,7 @@
     });
 
     .projects-wrapper {
-        height: 600px;
+        height: 100%;
         overflow: hidden;
         .projects {
             border: 1px solid @accent-blue;
@@ -54,7 +54,7 @@
             .project-content {
                 height: 100%;
                 display: grid;
-                grid-template-columns: 1fr 1fr;
+                grid-template-columns: 0.8fr 1.1fr 1.5fr;
                 background-color: @background-blue;
                 overflow: hidden;
 
@@ -67,9 +67,10 @@
                     });
 
                 .task-section,
-                .solution-section {
+                .solution-section,
+                .result-section {
                     height: 100%;
-                    padding: 24px;
+                    padding: 20px 12px;
                     background-color: @background-light-gray;
                     border-top: 1px solid @accent-blue;
 
@@ -78,7 +79,8 @@
                         });
                 }
 
-                .task-section {
+                .task-section,
+                .solution-section {
                     border-right: 1px solid @accent-blue;
 
                     .mediaPhone({
@@ -93,17 +95,10 @@
                         });
                 }
 
-                h3 {
-                    .fontOpenSansBold();
-                    font-size: 22px;
-                    margin-bottom: 15px;
-                    color: @primary-black-text;
-                }
-
                 h4 {
                     .fontOpenSansBold();
                     font-size: 18px;
-                    margin-bottom: 12px;
+                    margin-bottom: 8px;
                     color: @primary-black-text;
 
                     .mediaPhone({
@@ -114,9 +109,9 @@
 
                 p {
                     .fontOpenSansRegular();
-                    font-size: 16px;
+                    font-size: 15px;
                     color: @secondary-black-text;
-                    margin-bottom: 15px;
+                    margin-bottom: 8px;
 
                     .mediaPhone({
                             font-size: 12px;
@@ -124,9 +119,23 @@
                         });
                 }
 
+                ul.numbered-list {
+                    list-style-type: decimal;
+                    padding-left: 20px;
+                    color: @primary-black-text;
+
+                    li {
+                        color: @primary-black-text;
+                        &::marker {
+                            color: @accent-blue;
+                            font-weight: bold;
+                        }
+                    }
+                }
+
                 ul {
-                    padding-left: 24px;
-                    margin: 15px 0;
+                    padding-left: 18px;
+                    margin-bottom: 14px;
 
                     .mediaPhone({
                             padding-left: 18px;
@@ -135,9 +144,9 @@
 
                     li {
                         .fontOpenSansRegular();
-                        font-size: 16px;
+                        font-size: 15px;
                         color: @secondary-black-text;
-                        margin-bottom: 8px;
+                        margin-bottom: 5px;
 
                         .mediaPhone({
                                 font-size: 12px;
@@ -146,10 +155,6 @@
 
                         &::marker {
                             color: @outline;
-                        }
-
-                        span {
-                            .fontOpenSansBold();
                         }
                     }
                 }

@@ -1,20 +1,24 @@
 @import "@styles/breakpoints.less";
 
 .statistic {
-    margin-top: 100px;
+    margin-top: 40px;
     width: 100%;
     display: grid;
     justify-content: center;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     justify-items: center;
     flex-wrap: wrap;
-    gap: 50px;
+    gap: 100px;
 
     .mediaPhone({
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(1, 1fr);
         gap: 30px;
         margin-top: 50px;
     });
+
+    .statistic-card {
+        max-width: 305px;
+    }
 
     .block {
         display: flex;

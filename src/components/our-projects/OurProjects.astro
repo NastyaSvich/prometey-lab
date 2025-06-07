@@ -18,12 +18,37 @@ interface ProjectTask {
      * Описание задания проекта.
      */
     descriptions: string[];
+
+    /**
+     * Перечень в задаче проекта.
+     */
+    items?: ProjectItem[];
 }
 
 /**
  * Интерфейс решения проекта.
  */
 interface ProjectSolution {
+    /**
+     * Заголовок решения проекта.
+     */
+    header: string;
+
+    /**
+     * Описание решения проекта.
+     */
+    description?: string;
+
+    /**
+     * Перечень в решении проекта.
+     */
+    items: ProjectItem[];
+}
+
+/**
+ * Интерфейс результатов проекта.
+ */
+interface ProjectResult {
     /**
      * Заголовок решения проекта.
      */
@@ -78,6 +103,11 @@ interface Project {
      * Решение проекта.
      */
     solution: ProjectSolution;
+
+    /**
+     * Результат проекта.
+     */
+    result: ProjectResult[];
 }
 
 const {
@@ -123,26 +153,84 @@ const {
                                                 <p>{desc}</p>
                                             )
                                         )}
+                                        {project.task.items &&
+                                            project.task.items.length > 0 && (
+                                                <ul>
+                                                    {project.task.items.map(
+                                                        (item: ProjectItem) => (
+                                                            <li>
+                                                                {item.label && (
+                                                                    <span>
+                                                                        {
+                                                                            item.label
+                                                                        }
+                                                                        :{" "}
+                                                                    </span>
+                                                                )}
+                                                                <span
+                                                                    set:html={
+                                                                        item.text
+                                                                    }
+                                                                />
+                                                            </li>
+                                                        )
+                                                    )}
+                                                </ul>
+                                            )}
                                     </div>
                                 </div>
                                 <div class="solution-section">
                                     <div class="solution">
                                         <h4>{project.solution.header}</h4>
                                         <p>{project.solution.description}</p>
-                                        <ul>
+                                        <ul class="numbered-list">
                                             {project.solution.items.map(
                                                 (item: ProjectItem) => (
                                                     <li>
                                                         {item.label && (
                                                             <span>
-                                                                {item.label}:{" "}
+                                                                {item.label}
                                                             </span>
                                                         )}
-                                                        {item.text}
+                                                        <span
+                                                            set:html={item.text}
+                                                        />
                                                     </li>
                                                 )
                                             )}
                                         </ul>
+                                    </div>
+                                </div>
+                                <div class="result-section">
+                                    <div class="result">
+                                        {project.result.map((section) => (
+                                            <div class="result-block">
+                                                <h4>{section.header}</h4>
+                                                {section.description && (
+                                                    <p>{section.description}</p>
+                                                )}
+                                                <ul>
+                                                    {section.items.map(
+                                                        (item) => (
+                                                            <li>
+                                                                {item.label && (
+                                                                    <span>
+                                                                        {
+                                                                            item.label
+                                                                        }
+                                                                    </span>
+                                                                )}
+                                                                <span
+                                                                    set:html={
+                                                                        item.text
+                                                                    }
+                                                                />
+                                                            </li>
+                                                        )
+                                                    )}
+                                                </ul>
+                                            </div>
+                                        ))}
                                     </div>
                                 </div>
                             </div>
