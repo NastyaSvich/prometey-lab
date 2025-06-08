@@ -2,14 +2,14 @@
 import HorizontalLineTitle from "src/components/horizontal-line-title/HorizontalLineTitle.astro";
 import { Image } from "astro:assets";
 import Button from "src/components/button/Button.astro";
-import vinlab from "src/assets/images/vinlab.svg";
+import newBook from "src/assets/images/newBook.png";
 import storeez from "src/assets/images/12storeez.svg";
 import monastyrev from "src/assets/images/monastyrev.svg";
 import teamIdea from "src/assets/images/TeamIdea.svg";
-import sberBank from "src/assets/images/SberBank.svg";
-import ozon from "src/assets/images/ozon.svg";
-import yandex from "src/assets/images/yandex.svg";
-import gosUslugi from "src/assets/images/GosUslugi.svg";
+import zencha from "src/assets/images/zencha.png";
+import planetaZdorovya from "src/assets/images/planetaZdorovya.png";
+import tendertex from "src/assets/images/tendertex.png";
+import free2ex from "src/assets/images/free2ex.png";
 
 import "src/logic/company-page/clients/Clients.less";
 
@@ -21,6 +21,11 @@ const clients: ClientsProps[] = [
     { icon: storeez },
     { icon: monastyrev },
     { icon: teamIdea },
+    { icon: newBook },
+    { icon: zencha },
+    { icon: planetaZdorovya },
+    { icon: tendertex },
+    { icon: free2ex },
 ];
 
 /**
@@ -37,7 +42,9 @@ const clients: ClientsProps[] = [
         <div class="clients-images">
             {
                 clients.map(({ icon }) => (
-                    <Image src={icon} alt="icon" class="client-image" />
+                    <div class="client-image-wrapper">
+                        <Image src={icon} alt="icon" class="client-image" />
+                    </div>
                 ))
             }
         </div>

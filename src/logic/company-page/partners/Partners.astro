@@ -2,14 +2,10 @@
 import HorizontalLineTitle from "src/components/horizontal-line-title/HorizontalLineTitle.astro";
 import { Image } from "astro:assets";
 import Button from "src/components/button/Button.astro";
-import vinlab from "src/assets/images/vinlab.svg";
-import storeez from "src/assets/images/12storeez.svg";
-import monastyrev from "src/assets/images/monastyrev.svg";
+import gitlab from "src/assets/images/gitlab.png";
+import astra from "src/assets/images/astra.png";
 import teamIdea from "src/assets/images/TeamIdea.svg";
-import yandex from "src/assets/images/yandex.svg";
-import ozon from "src/assets/images/ozon.svg";
-import sberBank from "src/assets/images/SberBank.svg";
-import gosUslugi from "src/assets/images/GosUslugi.svg";
+import postgres from "src/assets/images/postgres.png";
 
 import "src/logic/company-page/partners/Partners.less";
 
@@ -18,14 +14,10 @@ export type PartnersProps = {
 };
 
 const partners: PartnersProps[] = [
-    { icon: vinlab },
-    { icon: storeez },
-    { icon: monastyrev },
+    { icon: gitlab },
+    { icon: astra },
     { icon: teamIdea },
-    { icon: sberBank },
-    { icon: ozon },
-    { icon: yandex },
-    { icon: gosUslugi },
+    { icon: postgres },
 ];
 
 /**
@@ -36,7 +28,7 @@ const partners: PartnersProps[] = [
 <div class="partners">
     <HorizontalLineTitle
         title="НАШИ ПАРТНЕРЫ"
-       className="partners-container"
+        className="partners-container"
         contentClassName="partners-content"
     >
         <div class="partners-images">
