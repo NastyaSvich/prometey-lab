@@ -5,11 +5,18 @@ import storeez from "src/assets/images/12storeez.svg";
 import monastyrev from "src/assets/images/monastyrev.svg";
 import rosneft from "src/assets/images/rosneft.png";
 import transcontainer from "src/assets/images/transcontainer.png";
+import task from "src/assets/images/task.svg";
+import solution from "src/assets/images/solution.svg";
+import result from "src/assets/images/result.svg";
+import duration from "src/assets/images/duration.svg";
+import moneyEffect from "src/assets/images/moneyEffect.svg";
 
 const projects = [
     {
         image: storeez,
+        goal: "Повышение зрелости проекта",
         task: {
+            taskImage: task,
             header: "Задача",
             descriptions: [
                 "С ростом инфраструктуры у заказчика возникли проблемы с управлением:",
@@ -23,6 +30,7 @@ const projects = [
             ],
         },
         solution: {
+            solutionImage: solution,
             header: "Что сделали",
             items: [
                 { text: "Аудит и выявление проблемных зон" },
@@ -34,6 +42,7 @@ const projects = [
         },
         result: [
             {
+                resultImage: result,
                 header: "Результаты",
                 items: [
                     {
@@ -45,6 +54,7 @@ const projects = [
                 ],
             },
             {
+                resultImage: duration,
                 header: "Продолжительность",
                 items: [
                     {
@@ -53,6 +63,7 @@ const projects = [
                 ],
             },
             {
+                resultImage: moneyEffect,
                 header: "Денежный эффект",
                 items: [
                     {
@@ -64,13 +75,16 @@ const projects = [
     },
     {
         image: monastyrev,
+        goal: "Комплексное сопровождение баз данных",
         task: {
+            taskImage: task,
             header: "Задача",
             descriptions: [
                 "У заказчика возникли проблемы с производительностью 1с и dwh, вертикальное масштабирование не давало результатов.",
             ],
         },
         solution: {
+            solutionImage: solution,
             header: "Что сделали",
             items: [
                 {
@@ -87,6 +101,7 @@ const projects = [
         },
         result: [
             {
+                resultImage: result,
                 header: "Результаты",
                 items: [
                     {
@@ -101,6 +116,7 @@ const projects = [
                 ],
             },
             {
+                resultImage: duration,
                 header: "Продолжительность",
                 items: [
                     {
@@ -109,6 +125,7 @@ const projects = [
                 ],
             },
             {
+                resultImage: moneyEffect,
                 header: "Денежный эффект",
                 items: [
                     {
@@ -120,13 +137,16 @@ const projects = [
     },
     {
         image: free2ex,
+        goal: "Выявление узких мест для масштабирования бизнеса",
         task: {
+            taskImage: task,
             header: "Задача",
             descriptions: [
                 "Комплексный аудит MSSQL с целью предотвращения возможных инцидентов.",
             ],
         },
         solution: {
+            solutionImage: solution,
             header: "Что сделали",
             items: [
                 {
@@ -143,6 +163,7 @@ const projects = [
         },
         result: [
             {
+                resultImage: result,
                 header: "Результаты",
                 items: [
                     {
@@ -157,6 +178,7 @@ const projects = [
                 ],
             },
             {
+                resultImage: duration,
                 header: "Продолжительность",
                 items: [
                     {
@@ -168,13 +190,16 @@ const projects = [
     },
     {
         image: rosneft,
+        goal: "Устранение узкого места в виде СУБД",
         task: {
+            taskImage: task,
             header: "Задача",
             descriptions: [
                 "При масштабировании ИТ-системы СУБД не справлялась с нагрузкой.",
             ],
         },
         solution: {
+            solutionImage: solution,
             header: "Что сделали",
             items: [
                 { text: "Провели детальный аудит MS SQL" },
@@ -192,6 +217,7 @@ const projects = [
         },
         result: [
             {
+                resultImage: result,
                 header: "Результаты",
                 items: [
                     {
@@ -206,6 +232,7 @@ const projects = [
                 ],
             },
             {
+                resultImage: duration,
                 header: "Продолжительность",
                 items: [
                     {
@@ -217,7 +244,9 @@ const projects = [
     },
     {
         image: transcontainer,
+        goal: "Повышение управляемости баз данных и ИТ-систем",
         task: {
+            taskImage: task,
             header: "Задача",
             descriptions: ["Оптимизация ИТ-систем на ПО Oracle."],
             items: [
@@ -229,6 +258,7 @@ const projects = [
             ],
         },
         solution: {
+            solutionImage: solution,
             header: "Что сделали",
             items: [
                 {
@@ -242,6 +272,7 @@ const projects = [
         },
         result: [
             {
+                resultImage: result,
                 header: "Результаты",
                 items: [
                     {
@@ -256,6 +287,7 @@ const projects = [
                 ],
             },
             {
+                resultImage: duration,
                 header: "Продолжительность",
                 items: [
                     {
@@ -267,11 +299,14 @@ const projects = [
     },
     {
         headerText: "NDA, логистическая компания",
+        goal: "Оптимизация и импортозамещение СУБД",
         task: {
+            taskImage: task,
             header: "Задача",
             descriptions: ["Оптимизация ландшафта СУБД, импортозамещение."],
         },
         solution: {
+            solutionImage: solution,
             header: "Что сделали",
             items: [
                 { text: "Миграция 16 DB2 в одну СУБД в центральном ЦОД" },
@@ -293,6 +328,7 @@ const projects = [
         },
         result: [
             {
+                resultImage: result,
                 header: "Результаты",
                 items: [
                     {
@@ -304,6 +340,7 @@ const projects = [
                 ],
             },
             {
+                resultImage: duration,
                 header: "Продолжительность",
                 items: [
                     {

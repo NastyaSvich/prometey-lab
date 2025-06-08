@@ -25,10 +25,34 @@
                 });
 
             .image-header {
+                display: grid;
+                grid-template-columns: 0.8fr 1.5fr;
+                justify-content: space-between;
+                align-items: center;
+                height: 88px;
+
+                .mediaPhone({
+                    height: auto;
+                    grid-template-columns: 1fr;
+                });
+
+                .project-goal {
+                    color: @accent-blue;
+                    padding: 12px 20px;
+                    .fontOpenSansBold();
+                    font-size: 22px;
+                    margin-left: auto;
+
+                    .mediaPhone({
+                       display: none;
+                    });
+                }
+
                 .header-image {
                     height: 74px;
                     width: auto;
                     margin-left: 20px;
+                    margin-top: 10px;
 
                     .mediaPhone({
                             height: 54px;
@@ -41,7 +65,7 @@
 
             .text-header {
                 .fontOpenSansBold();
-                font-size: 28px;
+                font-size: 22px;
                 color: @primary-black-text;
                 margin: 18px;
 
@@ -75,7 +99,7 @@
                     border-top: 1px solid @accent-blue;
 
                     .mediaPhone({
-                            padding: 16px;
+                            padding: 10px;
                         });
                 }
 
@@ -84,14 +108,7 @@
                     border-right: 1px solid @accent-blue;
 
                     .mediaPhone({
-                            order: 2;
                             border-right: none;
-                        });
-                }
-
-                .solution-section {
-                    .mediaPhone({
-                            order: 3;
                         });
                 }
 
@@ -100,6 +117,9 @@
                     font-size: 18px;
                     margin-bottom: 8px;
                     color: @primary-black-text;
+                    display: flex;
+                    align-items: center;
+                    gap: 8px;
 
                     .mediaPhone({
                             font-size: 14px;
@@ -119,10 +139,25 @@
                         });
                 }
 
+                .section-icon {
+                    width: 32px;
+                    height: 32px;
+                    object-fit: contain;
+
+                    .mediaPhone({
+                        width: 24px;
+                        height: 24px;
+                    });
+                }
+
                 ul.numbered-list {
                     list-style-type: decimal;
                     padding-left: 20px;
                     color: @primary-black-text;
+
+                    .mediaPhone({
+                        padding-left: 13px;
+                    });
 
                     li {
                         color: @primary-black-text;
@@ -138,7 +173,7 @@
                     margin-bottom: 14px;
 
                     .mediaPhone({
-                            padding-left: 18px;
+                            padding-left: 15px;
                             margin: 0;
                         });
 
@@ -161,4 +196,17 @@
             }
         }
     }
+    .mediaPhone({
+        .task-section {
+            order: 1;
+        }
+
+        .solution-section {
+            order: 2;
+        }
+
+        .result-section {
+            order: 3;
+        }
+    });
 }

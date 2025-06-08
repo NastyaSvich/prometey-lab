@@ -10,6 +10,11 @@ import { Image } from "astro:assets";
  */
 interface ProjectTask {
     /**
+     * Иконка задачи.
+     */
+    taskImage?: ImageMetadata;
+
+    /**
      * Заголовок задания проекта.
      */
     header: string;
@@ -30,6 +35,11 @@ interface ProjectTask {
  */
 interface ProjectSolution {
     /**
+     * Иконка решения.
+     */
+    solutionImage?: ImageMetadata;
+
+    /**
      * Заголовок решения проекта.
      */
     header: string;
@@ -49,6 +59,11 @@ interface ProjectSolution {
  * Интерфейс результатов проекта.
  */
 interface ProjectResult {
+    /**
+     * Иконка результата.
+     */
+    resultImage?: ImageMetadata;
+
     /**
      * Заголовок решения проекта.
      */
@@ -95,6 +110,11 @@ interface Project {
     headerText?: string;
 
     /**
+     * Цель проекта.
+     */
+    goal?: string;
+
+    /**
      * Задание проекта.
      */
     task: ProjectTask;
@@ -130,24 +150,38 @@ const {
                     <SwiperSlideElement>
                         <div class="projects">
                             <div class="image-header">
-                                {project.image ? (
-                                    <div class="image-header">
+                                <div class="image-or-title">
+                                    {project.image ? (
                                         <Image
                                             src={project.image}
                                             alt="firm"
                                             class="header-image"
                                         />
+                                    ) : (
+                                        <h2 class="text-header">
+                                            {project.headerText}
+                                        </h2>
+                                    )}
+                                </div>
+                                {project.goal && (
+                                    <div class="project-goal">
+                                        <p>{project.goal}</p>
                                     </div>
-                                ) : (
-                                    <h2 class="text-header">
-                                        {project.headerText}
-                                    </h2>
                                 )}
                             </div>
                             <div class="project-content">
                                 <div class="task-section">
                                     <div class="task">
-                                        <h4>{project.task.header}</h4>
+                                        <h4>
+                                            {project.task.taskImage && (
+                                                <Image
+                                                    src={project.task.taskImage}
+                                                    alt="task icon"
+                                                    class="section-icon"
+                                                />
+                                            )}
+                                            {project.task.header}
+                                        </h4>
                                         {project.task.descriptions.map(
                                             (desc: string) => (
                                                 <p>{desc}</p>
@@ -181,7 +215,19 @@ const {
                                 </div>
                                 <div class="solution-section">
                                     <div class="solution">
-                                        <h4>{project.solution.header}</h4>
+                                        <h4>
+                                            {project.solution.solutionImage && (
+                                                <Image
+                                                    src={
+                                                        project.solution
+                                                            .solutionImage
+                                                    }
+                                                    alt="solution icon"
+                                                    class="section-icon"
+                                                />
+                                            )}
+                                            {project.solution.header}
+                                        </h4>
                                         <p>{project.solution.description}</p>
                                         <ul class="numbered-list">
                                             {project.solution.items.map(
@@ -205,7 +251,18 @@ const {
                                     <div class="result">
                                         {project.result.map((section) => (
                                             <div class="result-block">
-                                                <h4>{section.header}</h4>
+                                                <h4>
+                                                    {section.resultImage && (
+                                                        <Image
+                                                            src={
+                                                                section.resultImage
+                                                            }
+                                                            alt="result icon"
+                                                            class="section-icon"
+                                                        />
+                                                    )}
+                                                    {section.header}
+                                                </h4>
                                                 {section.description && (
                                                     <p>{section.description}</p>
                                                 )}
