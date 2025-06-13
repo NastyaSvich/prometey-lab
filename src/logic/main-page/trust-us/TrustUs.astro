@@ -45,7 +45,9 @@ const clients: TrustUsProps[] = [
             {
                 clients.map(({ icon }) => (
                     <SwiperSlideElement>
-                        <Image src={icon} alt="icon" class="client-image" />
+                        <div class="trust-image-wrapper">
+                            <Image src={icon} alt="icon" class="client-image" />
+                        </div>
                     </SwiperSlideElement>
                 ))
             }
