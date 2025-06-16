@@ -7,9 +7,7 @@ import ModalContent from "src/components/card-for-cases/modal-content/ModalConte
 import Swiper from "src/components/swiper/Swiper.astro";
 import SwiperSlideElement from "src/components/swiper/SwiperSlideElement.astro";
 import "src/logic/database-page/database-cases/DatabaseCases.less";
-import card1 from "src/assets/images/devops-case-1.svg";
 import card2 from "src/assets/images/devops-case-2.png";
-import card3 from "src/assets/images/devops-case-3.svg";
 import storeez from "src/assets/images/12storeez.svg";
 import monastyrev from "src/assets/images/monastyrev.svg";
 import transcontainer from "src/assets/images/transcontainer.png";
@@ -33,14 +31,13 @@ type AssistanceWithModal = CardForCasesProps & {
 
 const assistances: AssistanceWithModal[] = [
     {
-        image: card1,
-        title: "DATABASE",
-        subtitle: "КЕЙС",
+        image: storeez,
+        title: "Повышение зрелости проекта",
         descriptions: {
             firstPart:
-                "<strong>Корректные изменения</strong> в коде будут в пару кликов отражены в продукте без простоя.",
+                "<strong>Задача: </strong> с ростом инфраструктуры у заказчика возникли проблемы с управлением.",
             secondPart:
-                "<strong>Ошибки</strong> не пройдут через систему автоматических тестов.",
+                "<strong>Результаты: </strong> <br>- заказчик получил экспертизу по управлению всем парком СУБД, с внедрением корпоративных стандартов и процессов <br>- повышение прозрачности и стабильности работы инфраструктуры баз данных",
         },
         modalData: {
             image: storeez,
@@ -70,14 +67,13 @@ const assistances: AssistanceWithModal[] = [
         },
     },
     {
-        image: card2,
-        title: "DATABASE",
-        subtitle: "КЕЙС",
+        image: monastyrev,
+        title: "Комплексное сопровождение баз данных",
         descriptions: {
             firstPart:
-                "<strong>Системы</strong> сами балансировать нагрузку, находить неработающие элементы и обслуживать приложения.",
+                "<strong>Задача: </strong> у заказчика возникли проблемы с производительностью 1с и dwh, вертикальное масштабирование не давало результатов.",
             secondPart:
-                "<strong>Сервер</strong> не упадет от роста запросов — выдержит высокие нагрузки на Черную пятницу, IPO или промоакцию.",
+                "<strong>Результаты: </strong> <br>- увеличение производительности СУБД <br>- снижено количество поддерживаемых СУБД <br>- повысилась производительность разработчиков",
         },
         modalData: {
             image: monastyrev,
@@ -104,14 +100,13 @@ const assistances: AssistanceWithModal[] = [
         },
     },
     {
-        image: card3,
-        title: "DATABASE",
-        subtitle: "КЕЙС",
+        image: free2ex,
+        title: "Выявление узких мест для масштабирования бизнеса",
         descriptions: {
             firstPart:
-                "<strong>Системы</strong> мониторинга с оповещениями по любым каналам и в любое время.",
+                "<strong>Задача: </strong> комплексный аудит MSSQL с целью предотвращения возможных инцидентов.",
             secondPart:
-                "<strong>Прием заявок</strong> по инцидентам через чат-боты в Telegram и Slack будет автоматическим.",
+                "<strong>Результаты: </strong> <br>- исключили влияние СУБД на возникновение инцидентов <br>- сформировали 23 рекомендации для повышения наблюдаемости, надежности и производительности системы <br>- стабильная и эффективная работа СУБД",
         },
         modalData: {
             image: free2ex,
@@ -134,14 +129,13 @@ const assistances: AssistanceWithModal[] = [
         },
     },
     {
-        image: card1,
-        title: "DATABASE",
-        subtitle: "КЕЙС",
+        image: rosneft,
+        title: "Устранение узкого места в виде СУБД",
         descriptions: {
             firstPart:
-                "<strong>Корректные изменения</strong> в коде будут в пару кликов отражены в продукте без простоя.",
+                "<strong>Задача: </strong> при масштабировании ИТ-системы СУБД не справлялась с нагрузкой.",
             secondPart:
-                "<strong>Ошибки</strong> не пройдут через систему автоматических тестов.",
+                "<strong>Результаты: </strong> <br>- СУБД перестала быть узким горлышком в работе ИТ-системы <br>- заказчику передан мониторинг, описание ИТ-ландшафта вокруг СУБД, стандарт по MSSQL и инструкции <br>- специалисты заказчика самостоятельно продолжили техподдержку СУБД",
         },
         modalData: {
             image: rosneft,
@@ -158,21 +152,20 @@ const assistances: AssistanceWithModal[] = [
             results: `
                 <li>СУБД перестала быть узким горлышком в работе ИТ-системы</li>
                 <li>Заказчику передан мониторинг, описание ИТ-ландшафта вокруг СУБД, стандарт по MSSQL и инструкции</li>
-                <li>Специалисты Заказчика самостоятельно продолжили техподдержку СУБД</li>               
+                <li>Специалисты заказчика самостоятельно продолжили техподдержку СУБД</li>               
             `,
             team: "MS SQL DBA, Tech PM",
             duration: "2 месяца",
         },
     },
     {
-        image: card2,
-        title: "DATABASE",
-        subtitle: "КЕЙС",
+        image: transcontainer,
+        title: "Повышение управляемости баз данных и ИТ-систем",
         descriptions: {
             firstPart:
-                "<strong>Системы</strong> сами балансировать нагрузку, находить неработающие элементы и обслуживать приложения.",
+                "<strong>Задача: </strong> оптимизация ИТ-систем на ПО Oracle.",
             secondPart:
-                "<strong>Сервер</strong> не упадет от роста запросов — выдержит высокие нагрузки на Черную пятницу, IPO или промоакцию.",
+                "<strong>Результаты: </strong> <br>- ПО Oracle на целевом ИТ-ландшафте <br>- документация и мониторинг <br>- обеспечена отказоустойчивость и катастрофоустойчивость ИТ-систем",
         },
         modalData: {
             image: transcontainer,
@@ -200,14 +193,13 @@ const assistances: AssistanceWithModal[] = [
         },
     },
     {
-        image: card3,
-        title: "DATABASE",
-        subtitle: "КЕЙС",
+        image: card2,
+        title: "Повышение зрелости проекта",
         descriptions: {
             firstPart:
-                "<strong>Системы</strong> мониторинга с оповещениями по любым каналам и в любое время.",
+                "<strong>Задача: </strong> с ростом инфраструктуры у заказчика возникли проблемы с управлением.",
             secondPart:
-                "<strong>Прием заявок</strong> по инцидентам через чат-боты в Telegram и Slack будет автоматическим.",
+                "<strong>Результаты: </strong> <br>- заказчик получил экспертизу по управлению всем парком СУБД, с внедрением корпоративных стандартов и процессов <br>- повышение прозрачности и стабильности работы инфраструктуры баз данных",
         },
         modalData: {
             textBlock: "NDA, логистическая компания",
