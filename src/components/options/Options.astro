@@ -7,46 +7,56 @@ export enum Option {
   db = "db",
 }
 interface Props {
+  id: string;
   defaultOption?: Option;
 }
 
-const {
-  defaultOption = Option.db,
-} = Astro.props;
+const { id, defaultOption = Option.db } = Astro.props;
 ---
 
-<div class="options">
-     <Tab label="Администрирование СУБД" data-key={Option.db}  isActive={defaultOption === Option.db}  />
-    <Tab label="DevOPS и SRE" data-key={Option.devops} isActive={defaultOption === Option.devops} />
-</div>
+<astro-options class="options" id={id} data-id={id}>
+  <Tab
+    label="Администрирование СУБД"
+    data-key={Option.db}
+    isActive={defaultOption === Option.db}
+  />
+  <Tab
+    label="DevOPS и SRE"
+    data-key={Option.devops}
+    isActive={defaultOption === Option.devops}
+  />
+</astro-options>
 
 <script>
-  (() => {
-    const optionBlocks = document.querySelectorAll(".options");
+  class AstroOptions extends HTMLElement {
+    constructor() {
+      super();
+      const option = document.querySelector(`#${this.dataset.id}`);
+      const tabs = option?.querySelectorAll(".tab");
 
-    optionBlocks.forEach((option) => {
-      const tabs = option.querySelectorAll(".tab");
+        tabs?.forEach((tab) => {
+          tab.addEventListener("click", (clicked) => {
+            tabs.forEach((el) => el.classList.remove("active"));
 
-      tabs.forEach((tab) => {
-        tab.addEventListener("click", (clicked) => {
-          tabs.forEach((el) => el.classList.remove("active"));
+            if (clicked.target instanceof HTMLElement) {
+              const tabEl = clicked.target.closest(".tab");
+              if (tabEl) {
+                tabEl.classList.add("active");
 
-          if (clicked.target instanceof HTMLElement) {
-            const tabEl = clicked.target.closest(".tab");
-            if (tabEl) {
-              tabEl.classList.add("active");
-
-              const selected = tabEl.getAttribute("data-key");
-
-              document.dispatchEvent(
-                new CustomEvent("optionChanged", {
-                  detail: { key: selected },
-                })
-              );
+                const selected = tabEl.getAttribute("data-key");
+                console.log(this.dataset.id, 'option')
+                document.dispatchEvent(
+                  new CustomEvent(`optionChanged-${this.dataset.id}`, {
+                    detail: { key: selected },
+                  })
+                );
+              }
             }
-          }
+          });
         });
-      });
-    });
-  })();
+    }
+  }
+  if (!customElements.get("astro-options")) {
+    customElements.define("astro-options", AstroOptions);
+  }
 </script>

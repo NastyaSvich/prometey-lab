@@ -146,6 +146,8 @@ const pricesDevops = {
   "project-3": "500 тыс. руб",
   "project-4": "800 тыс. руб",
 };
+
+const optionId = 'db-devops';
 ---
 
 <db-devops-table
@@ -158,13 +160,14 @@ const pricesDevops = {
   data-devops-details={JSON.stringify(detailsDevops)}
   data-devops-prices={JSON.stringify(pricesDevops)}
   data-option={defaultOption}
+  data-id={optionId}
 >
   <HorizontalLineTitle
     title={title}
     subtitle={subtitle}
     className="db-devops-table"
   >
-    {showOptions && <Options defaultOption={defaultOption} />}
+    {showOptions && <Options id={optionId} defaultOption={defaultOption} />}
     <div class="projects">
       <div class="project project-1 active" id="project-1">Аудит СУБД</div>
       <div class="project project-2" id="project-2">
@@ -199,7 +202,6 @@ const pricesDevops = {
       const priceButton = this.querySelector(".button");
 
       let currentKey = this.dataset.option;
-      console.log(currentKey, 'cur key')
       let titles = JSON.parse(this.dataset[`${currentKey}Titles`] || "{}");
       let tasks = JSON.parse(this.dataset[`${currentKey}Tasks`] || "{}");
       let details = JSON.parse(this.dataset[`${currentKey}Details`] || "{}");
@@ -254,7 +256,7 @@ const pricesDevops = {
 
       updateContent(currentKey);
 
-      document.addEventListener("optionChanged", (e: any) => {
+      document.addEventListener(`optionChanged-${this.dataset.id}`, (e: any) => {
         if (e.detail && e.detail.key) {
 
             const key = e.detail.key;

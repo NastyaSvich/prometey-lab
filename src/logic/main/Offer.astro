@@ -113,16 +113,19 @@ const cards = {
         ],
     },
 };
+
+const optionId = 'offer';
 ---
 
-<div
+<astro-offer
     class="offer-container"
     data-titles={JSON.stringify(titles)}
     data-contents={JSON.stringify(contents)}
     data-cards={JSON.stringify(cards)}
+    data-id={optionId}
 >
     <HorizontalLineTitle title="ИНЖЕНЕРЫ ПОМОГУТ НА ЛЮБОМ ЭТАПЕ">
-        <Options />
+        <Options id={optionId} />
 
         <div class="offer-table" id="offer-table">
             <div class="planning"><span class="inner-border"></span></div>
@@ -151,12 +154,15 @@ const cards = {
             </div>
         </div>
     </HorizontalLineTitle>
-</div>
+</astro-offer>
 
 <script>
 import { Option } from "src/components/options/Options.astro";
 
-    const updateContent = (category) => {
+  class AstroOffer extends HTMLElement {
+    constructor() {
+        super();
+        const updateContent = (category) => {
         const table = document.getElementById("offer-table");
         const spans = table?.querySelectorAll(".inner-border");
         if (!spans || spans.length < 12) return;
@@ -210,7 +216,7 @@ import { Option } from "src/components/options/Options.astro";
         updateContent(Option.db);
         container.classList.add("category-db");
 
-        document.addEventListener("optionChanged", (e) => {
+        document.addEventListener(`optionChanged-${this.dataset.id}`, (e) => {
             const category = e.detail?.key;
             if (category === Option.devops || category === Option.db) {
                 updateContent(category);
@@ -219,4 +225,8 @@ import { Option } from "src/components/options/Options.astro";
             }
         });
     });
+
+    }
+  }
+    customElements.define("astro-offer", AstroOffer);
 </script>
