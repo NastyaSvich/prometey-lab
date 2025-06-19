@@ -7,9 +7,11 @@
     background-color: @background-blue;
     grid-template-columns: repeat(6, 1fr);
     border-radius: 10px;
+    min-width: 280px;
 
     .mediaDefault({
         min-width: 860px;
+        min-height: 407px;
         max-width: 1170px;
     });
 
@@ -18,6 +20,7 @@
         grid-template-rows: repeat(6, 1fr);
         grid-auto-flow: column;
         padding: 8px 12px;
+        min-height: 632px;
     });
 
     > div {
@@ -29,7 +32,8 @@
         .inner-border {
             width: 100%;
             height: 100%;
-            display: inline-block;
+            display: flex;
+            align-items: center;
         }
     }
 
@@ -114,6 +118,7 @@ h2.service {
     gap: 60px;
     justify-content: space-between;
     margin-top: 4px;
+    min-height: 769px;
     .mediaPhone({
         flex-direction: column;
         gap: 20px;
