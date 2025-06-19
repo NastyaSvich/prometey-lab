@@ -1,0 +1,66 @@
+---
+import HorizontalLineTitle from "src/components/horizontal-line-title/HorizontalLineTitle.astro";
+import { Image } from "astro:assets";
+import Button from "src/components/button/Button.astro";
+import newBook from "src/assets/images/newBook.png";
+import storeez from "src/assets/images/12storeez.svg";
+import monastyrev from "src/assets/images/monastyrev.svg";
+import teamIdea from "src/assets/images/TeamIdea.svg";
+import zencha from "src/assets/images/zencha.png";
+import planetaZdorovya from "src/assets/images/planetaZdorovya.png";
+import tendertex from "src/assets/images/tendertex.png";
+import free2ex from "src/assets/images/free2ex.png";
+
+import "src/logic/company/clients/Clients.less";
+
+export type ClientsProps = {
+    icon: ImageMetadata;
+};
+
+const clients: ClientsProps[] = [
+    { icon: storeez },
+    { icon: monastyrev },
+    { icon: teamIdea },
+    { icon: newBook },
+    { icon: zencha },
+    { icon: planetaZdorovya },
+    { icon: tendertex },
+    { icon: free2ex },
+];
+
+/**
+ * Компонент раздела "Наши клиенты".
+ */
+---
+
+<div class="clients">
+    <HorizontalLineTitle
+        title="НАШИ КЛИЕНТЫ"
+        className="clients-container"
+        contentClassName="clients-content"
+    >
+        <div class="clients-images">
+            {
+                clients.map(({ icon }) => (
+                    <div class="client-image-wrapper">
+                        <Image src={icon} alt="icon" class="client-image" />
+                    </div>
+                ))
+            }
+        </div>
+
+        <div class="clients-description">
+            <div class="button-wrapper">
+                <a href="#feedback-form">
+                    <Button
+                        label="Оставить заявку на консультацию"
+                        variant="outline"
+                        size="big"
+                        className="client-button"
+                    />
+                    <span class="mobile-button-text">Консультация</span>
+                </a>
+            </div>
+        </div>
+    </HorizontalLineTitle>
+</div>

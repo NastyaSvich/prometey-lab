@@ -1,0 +1,21 @@
+---
+import InfoBlock from "src/components/info-block/InfoBlock.astro";
+import Structure from "src/assets/images/devops-case-3.svg";
+import "src/logic/service/MainInfo.less";
+
+/**
+ * Компонент раздела "Devops и техподдержка приложений и систем".
+ */
+---
+
+<InfoBlock
+    title="DEVOPS И ТЕХПОДДЕРЖКА ПРИЛОЖЕНИЙ И СИСТЕМ"
+    descriptions={[
+        "Ускоряем создание цифровых продуктов и проектируем приложения, которые используют более 5 миллионов пользователей ежедневно.",
+        "Создаем высокопроизводительные системы, повышаем стабильность ПО",
+        "Отслеживаем бизнес-метрики и улучшаем системы мониторинга, а также обеспечиваем круглосуточную техническую поддержку.",
+    ]}
+    buttonLabel="Заказать"
+    image={Structure}
+    alt="DevOps Case"
+/>

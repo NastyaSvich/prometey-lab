@@ -1,0 +1,74 @@
+---
+import type { CardForCasesProps } from "src/components/card-for-cases/CardForCases.astro";
+import CardForCases from "src/components/card-for-cases/CardForCases.astro";
+import HorizontalLineTitle from "src/components/horizontal-line-title/HorizontalLineTitle.astro";
+import "src/logic/service/SupportStructure.less";
+import Expertise from "@assets/images/expertise.svg";
+import Message from "@assets/images/message.svg";
+import ShieldLock from "@assets/images/shield-lock.svg";
+import MoneyBag from "@assets/images/money-bag.svg";
+import Monitoring from "src/assets/images/monitoring.svg";
+import PersonalCabinet from "src/assets/images/personal-cabinet.svg";
+
+const supports: CardForCasesProps[] = [
+    {
+        image: ShieldLock,
+        descriptions: {
+            firstPart: "Техническая поддержка 24/7 приложений и серверов",
+        },
+    },
+    {
+        image: MoneyBag,
+        descriptions: {
+            firstPart: "Готовый к production Kubernetes",
+        },
+    },
+    {
+        image: Monitoring,
+        descriptions: {
+            firstPart: "Мониторинг из “коробки” с возможностью кастомизации",
+        },
+    },
+    {
+        image: PersonalCabinet,
+        descriptions: {
+            firstPart: "Личный кабинет",
+        },
+    },
+    {
+        image: Message,
+        descriptions: {
+            firstPart: "Консультации разработчиков по архитектурным решениям",
+        },
+    },
+    {
+        image: Expertise,
+        descriptions: {
+            firstPart: "Open Source решения ваших задач",
+        },
+    },
+];
+
+/**
+ * Компонент раздела "Как устроена техподдержка и обслуживание приложений".
+ */
+---
+
+<div class="supports">
+    <HorizontalLineTitle
+        title="КАК УСТРОЕНА ТЕХПОДДЕРЖКА И ОБСЛУЖИВАНИЕ ПРИЛОЖЕНИЙ"
+        className="supports-container"
+        contentClassName="supports-content"
+    >
+        {
+            supports.map((supports) => (
+                <CardForCases
+                    image={supports.image}
+                    descriptions={supports.descriptions || {}}
+                    showVerticalLine={false}
+                    showButton={false}
+                />
+            ))
+        }
+    </HorizontalLineTitle>
+</div>

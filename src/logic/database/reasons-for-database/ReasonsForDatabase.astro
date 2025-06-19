@@ -1,0 +1,61 @@
+---
+import { Image, getImage } from "astro:assets";
+import type { CardWithoutTitleProps } from "src/components/card-without-title/CardWithoutTitle.astro";
+import CardWithoutTitle from "src/components/card-without-title/CardWithoutTitle.astro";
+import HorizontalLineTitle from "src/components/horizontal-line-title/HorizontalLineTitle.astro";
+import card1 from "src/assets/images/card-background-1.png";
+import card2 from "src/assets/images/card-background-2.png";
+import "src/logic/database/reasons-for-database/ReasonsForDatabase.less";
+
+const createBackground = async (image: ImageMetadata) => {
+    const img = await getImage({ src: image });
+    return `url(${img.src}) center/cover no-repeat`;
+};
+
+const reasons: CardWithoutTitleProps[] = [
+    {
+        description_title: "Бесперебойная работа 24/7",
+        description:
+            "Круглосуточный <strong>мониторинг баз данных</strong> и проактивное реагирование на инциденты позволяют предотвратить простои и критические сбои. Ваша IT-инфраструктура работает стабильно — даже в пиковые часы",
+        background: await createBackground(card1),
+    },
+    {
+        description_title: "Безопасность и сохранность данных",
+        description:
+            "Резервное копирование, защита от угроз, контроль доступа и аудит — всё это входит в <strong>комплексную поддержку баз данных</strong>. Мы обеспечим защиту информации и соответствие корпоративным политикам",
+        background: await createBackground(card2),
+    },
+    {
+        description_title: "Оптимизация производительности",
+        description:
+            "Профессиональная <strong>настройка и администрирование СУБД</strong> (PostgreSQL, Oracle, MS SQL и др.) повышает скорость обработки запросов, снижает нагрузку и экономит ресурсы серверов",
+        background: await createBackground(card1),
+    },
+    {
+        description_title: "Экономия времени и ресурсов",
+        description:
+            "Вместо того чтобы держать дорогого штатного DBA, вы получаете <strong>профессиональную поддержку баз данных</strong> по подписке. Делегируйте сложные задачи нашей команде, а свою — сфокусируйте на развитии продукта.",
+        background: await createBackground(card2),
+    },
+];
+
+/**
+ * Компонент раздела "Зачем бизнесу техподдержка баз данных".
+ */
+---
+
+<HorizontalLineTitle
+    title="ЗАЧЕМ БИЗНЕСУ ТЕХПОДДЕРЖКА БАЗ ДАННЫХ"
+    className="reasons"
+    contentClassName="reasons-content"
+>
+    {
+        reasons.map(({ description_title, description, background }) => (
+            <CardWithoutTitle
+                description_title={description_title}
+                description={description}
+                background={background}
+            />
+        ))
+    }
+</HorizontalLineTitle>

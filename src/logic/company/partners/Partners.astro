@@ -1,0 +1,57 @@
+---
+import HorizontalLineTitle from "src/components/horizontal-line-title/HorizontalLineTitle.astro";
+import { Image } from "astro:assets";
+import Button from "src/components/button/Button.astro";
+import gitlab from "src/assets/images/gitlab.png";
+import astra from "src/assets/images/astra.png";
+import teamIdea from "src/assets/images/TeamIdea.svg";
+import postgres from "src/assets/images/postgres.png";
+
+import "src/logic/company/partners/Partners.less";
+
+export type PartnersProps = {
+    icon: ImageMetadata;
+};
+
+const partners: PartnersProps[] = [
+    { icon: gitlab },
+    { icon: astra },
+    { icon: teamIdea },
+    { icon: postgres },
+];
+
+/**
+ * Компонент раздела "Наши партнеры".
+ */
+---
+
+<div class="partners">
+    <HorizontalLineTitle
+        title="НАШИ ПАРТНЕРЫ"
+        className="partners-container"
+        contentClassName="partners-content"
+    >
+        <div class="partners-images">
+            {
+                partners.map(({ icon }) => (
+                    <Image src={icon} alt="icon" class="partner-image" />
+                ))
+            }
+        </div>
+
+        <div class="partners-description">
+            <p class="recommendation-text">
+                Мы <span>открыты</span> к новым партнерствам и взаимодействию на
+                принципах <span>win-win</span>
+            </p>
+            <a href="#feedback-form">
+                <Button
+                    label="Стать партнером"
+                    variant="outline"
+                    size="big"
+                    className="partner-button"
+                />
+            </a>
+        </div>
+    </HorizontalLineTitle>
+</div>

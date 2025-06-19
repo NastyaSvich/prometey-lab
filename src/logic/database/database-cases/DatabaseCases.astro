@@ -1,0 +1,283 @@
+---
+import type { CardForCasesProps } from "src/components/card-for-cases/CardForCases.astro";
+import CardForCases from "src/components/card-for-cases/CardForCases.astro";
+import HorizontalLineTitle from "src/components/horizontal-line-title/HorizontalLineTitle.astro";
+import Modal from "src/components/card-for-cases/modal/Modal.astro";
+import ModalContent from "src/components/card-for-cases/modal-content/ModalContent.astro";
+import Swiper from "src/components/swiper/Swiper.astro";
+import SwiperSlideElement from "src/components/swiper/SwiperSlideElement.astro";
+import "src/logic/database/database-cases/DatabaseCases.less";
+import card2 from "src/assets/images/devops-case-2.png";
+import storeez from "src/assets/images/12storeez.svg";
+import monastyrev from "src/assets/images/monastyrev.svg";
+import transcontainer from "src/assets/images/transcontainer.png";
+import free2ex from "src/assets/images/free2ex.png";
+import rosneft from "src/assets/images/rosneft.png";
+
+type AssistanceWithModal = CardForCasesProps & {
+    modalData?: {
+        image?: ImageMetadata;
+        textBlock?: string;
+        title: string;
+        taskTitle: string;
+        task?: string;
+        implementation: string;
+        results: string;
+        team?: string;
+        duration?: string;
+        moneyEffect?: string;
+    };
+};
+
+const assistances: AssistanceWithModal[] = [
+    {
+        image: storeez,
+        title: "Повышение зрелости проекта",
+        descriptions: {
+            firstPart:
+                "<strong>Задача: </strong> с ростом инфраструктуры у заказчика возникли проблемы с управлением.",
+            secondPart:
+                "<strong>Результаты: </strong> <br>- заказчик получил экспертизу по управлению всем парком СУБД, с внедрением корпоративных стандартов и процессов <br>- повышение прозрачности и стабильности работы инфраструктуры баз данных",
+        },
+        modalData: {
+            image: storeez,
+            title: "Повышение зрелости проекта",
+            taskTitle:
+                "с ростом инфраструктуры у заказчика возникли проблемы с управлением:",
+            task: `
+                <li>отсутствовал инцидент-менеджмент</li>
+                <li>прозрачность по статусу СУБД</li>
+                <li>один DBA в штате не справлялся с нагрузкой из-за широкого спектра СУБД</li>
+            `,
+            implementation: `
+                <li>Аудит и выявление проблемных зон</li>
+                <li>Настройка мониторинга и проактивных мер</li>
+                <li>Стабилизация DWH</li>
+                <li>Сокращение времени отклика сайта</li>
+                <li>Согласовали ролевую модель доступов</li>
+            `,
+            results: `
+                <li>Заказчик получил экспертизу по управлению всем парком СУБД, с внедрением корпоративных стандартов и процессов</li>
+                <li>Повышение прозрачности и стабильности работы инфраструктуры баз данных</li>
+            `,
+            team: "PostgreSQL DBA,MS SQL DBA, MariaDB DBA, NoSQL DBA, Tech PM",
+            duration: "10+ месяцев, в работе",
+            moneyEffect:
+                "Эквивалентная команда экспертов в штате стоила бы в 4-5 раз дороже и простаивала бы 2/3 времени",
+        },
+    },
+    {
+        image: monastyrev,
+        title: "Комплексное сопровождение баз данных",
+        descriptions: {
+            firstPart:
+                "<strong>Задача: </strong> у заказчика возникли проблемы с производительностью 1с и dwh, вертикальное масштабирование не давало результатов.",
+            secondPart:
+                "<strong>Результаты: </strong> <br>- увеличение производительности СУБД <br>- снижено количество поддерживаемых СУБД <br>- повысилась производительность разработчиков",
+        },
+        modalData: {
+            image: monastyrev,
+            title: "Комплексное сопровождение баз данных",
+            taskTitle:
+                "у заказчика возникли проблемы с производительностью 1с и dwh, вертикальное масштабирование не давало результатов",
+            implementation: `
+                <li>Комплексный анализ состояния СУБД, выявили ключевые точки роста и проблемные места</li>
+                <li>Настройка мониторинга и проактивных мер</li>
+                <li>Устранение проблем в работе СУБД после аудита</li>
+                <li>Обновление версий СУБД</li>
+                <li>Миграция с MySQL на PostgreSQL</li>
+                <li>Внедрение отчетов по инцидентам и регламентных работ</li>
+            `,
+            results: `
+                <li>Увеличение производительности СУБД за счет оптимизации и стандартов</li>
+                <li>За счет миграции снижено количество поддерживаемых СУБД</li>
+                <li>Повысилась производительность разработчиков</li>
+            `,
+            team: "MS SQL DBA, PostgreSQL DBA",
+            duration: "14 месяцев+, в работе",
+            moneyEffect:
+                "Эквивалентная команда экспертов в штате стоила бы в 3 раза дороже и простаивала бы 2/3 времени",
+        },
+    },
+    {
+        image: free2ex,
+        title: "Выявление узких мест для масштабирования бизнеса",
+        descriptions: {
+            firstPart:
+                "<strong>Задача: </strong> комплексный аудит MSSQL с целью предотвращения возможных инцидентов.",
+            secondPart:
+                "<strong>Результаты: </strong> <br>- исключили влияние СУБД на возникновение инцидентов <br>- сформировали 23 рекомендации для повышения наблюдаемости, надежности и производительности системы <br>- стабильная и эффективная работа СУБД",
+        },
+        modalData: {
+            image: free2ex,
+            title: "Выявление узких мест для масштабирования бизнеса",
+            taskTitle:
+                "комплексный аудит MSSQL с целью предотвращения возможных инцидентов",
+            implementation: `
+                <li>Провели детальный аудит MS SQL</li>
+                <li> В рекомендациях отразили, что нужно сделать для повышения наблюдаемости системы (observability) и минимизации влияния от нештатных ситуаций</li>
+                <li>Составили план устранения недостатков</li>
+                <li>Консультировали DBA в штате по реализации рекомендаций</li>
+            `,
+            results: `
+                <li>Исключили влияние СУБД, включая hardware, на возникновение инцидентов</li>
+                <li>Сформировали 23 рекомендации для повышения наблюдаемости, надежности и производительности системы</li>
+                <li>Реализованные меры помогут обеспечить стабильную и эффективную работу СУБД в долгосрочной перспективе</li>
+            `,
+            team: "MS SQL DBA, Tech PM",
+            duration: "1 месяц",
+        },
+    },
+    {
+        image: rosneft,
+        title: "Устранение узкого места в виде СУБД",
+        descriptions: {
+            firstPart:
+                "<strong>Задача: </strong> при масштабировании ИТ-системы СУБД не справлялась с нагрузкой.",
+            secondPart:
+                "<strong>Результаты: </strong> <br>- СУБД перестала быть узким горлышком в работе ИТ-системы <br>- заказчику передан мониторинг, описание ИТ-ландшафта вокруг СУБД, стандарт по MSSQL и инструкции <br>- специалисты заказчика самостоятельно продолжили техподдержку СУБД",
+        },
+        modalData: {
+            image: rosneft,
+            title: "Устранение узкого места в виде СУБД",
+            taskTitle:
+                "при масштабировании ИТ-системы СУБД не справлялась с нагрузкой",
+            implementation: `
+                <li>Провели детальный аудит MS SQL</li>
+                <li>В рекомендациях отразили, что нужно сделать для повышения производительности и отказоустойчивости системы</li>
+                <li>Составили план устранения недостатков, согласовали дорожную карту</li>
+                <li>Настроили проактивный мониторинг: Бизнес-процессы->ИТ-система->СУБД</li>
+                <li>Реализовали план рекомендаций</li>
+            `,
+            results: `
+                <li>СУБД перестала быть узким горлышком в работе ИТ-системы</li>
+                <li>Заказчику передан мониторинг, описание ИТ-ландшафта вокруг СУБД, стандарт по MSSQL и инструкции</li>
+                <li>Специалисты заказчика самостоятельно продолжили техподдержку СУБД</li>
+            `,
+            team: "MS SQL DBA, Tech PM",
+            duration: "2 месяца",
+        },
+    },
+    {
+        image: transcontainer,
+        title: "Повышение управляемости баз данных и ИТ-систем",
+        descriptions: {
+            firstPart:
+                "<strong>Задача: </strong> оптимизация ИТ-систем на ПО Oracle.",
+            secondPart:
+                "<strong>Результаты: </strong> <br>- ПО Oracle на целевом ИТ-ландшафте <br>- документация и мониторинг <br>- обеспечена отказоустойчивость и катастрофоустойчивость ИТ-систем",
+        },
+        modalData: {
+            image: transcontainer,
+            title: "Повышение управляемости баз данных и ИТ-систем",
+            taskTitle: "оптимизация ИТ-систем на ПО Oracle через:",
+            task: `
+                <li>миграция ПО Oracle с оборудования Power IBM на x86</li>
+                <li>повышение отказоустойчивости и производительности</li>
+                <li>настройка мониторинга и полное описание ИТ-ландшафта</li>
+            `,
+            implementation: `
+                <li>Миграция ПО Oracle: Siebel, DWH, BI, SOA, OTM через datapump</li>
+                <li>Настройка мониторинга Zabbix, GridControl</li>
+                <li>Описали изменения и целевую инфраструктуру</li>
+                <li>Обучение пользователей</li>
+                <li>Выход на 24/7 техподдержку ИТ-систем</li>
+            `,
+            results: `
+                <li>ПО Oracle на целевом ИТ-ландшафте</li>
+                <li>Документация и мониторинг</li>
+                <li>Обеспечена отказоустойчивость и катастрофоустойчивость ИТ-систем</li>
+            `,
+            team: "2 Oracle DBA, 2 Oracle app, Tech PM",
+            duration: "2 месяца миграции и далее 2 года техподдержки 24/7",
+        },
+    },
+    {
+        image: card2,
+        title: "Повышение зрелости проекта",
+        descriptions: {
+            firstPart:
+                "<strong>Задача: </strong> с ростом инфраструктуры у заказчика возникли проблемы с управлением.",
+            secondPart:
+                "<strong>Результаты: </strong> <br>- заказчик получил экспертизу по управлению всем парком СУБД, с внедрением корпоративных стандартов и процессов <br>- повышение прозрачности и стабильности работы инфраструктуры баз данных",
+        },
+        modalData: {
+            textBlock: "NDA, логистическая компания",
+            title: "Повышение зрелости проекта",
+            taskTitle:
+                "с ростом инфраструктуры у заказчика возникли проблемы с управлением:",
+            task: `
+                <li>отсутствовал инцидент-менеджмент</li>
+                <li>прозрачность по статусу СУБД</li>
+                <li>один DBA в штате не справлялся с нагрузкой из-за широкого спектра СУБД</li>
+            `,
+            implementation: `
+                <li>Аудит и выявление проблемных зон</li>
+                <li>Настройка мониторинга и проактивных мер</li>
+                <li>Стабилизация DWH</li>
+                <li>Сокращение времени отклика сайта</li>
+                <li>Согласовали ролевую модель доступов</li>
+            `,
+            results: `
+                <li>Заказчик получил экспертизу по управлению всем парком СУБД, с внедрением корпоративных стандартов и процессов</li>
+                <li>Повышение прозрачности и стабильности работы инфраструктуры баз данных</li>
+            `,
+            team: "PostgreSQL DBA,MS SQL DBA, MariaDB DBA, NoSQL DBA, Tech PM",
+            duration: "10+ месяцев, в работе",
+            moneyEffect:
+                "Эквивалентная команда экспертов в штате стоила бы в 4-5 раз дороже и простаивала бы 2/3 времени",
+        },
+    },
+];
+---
+
+<HorizontalLineTitle
+    title="КАК МЫ ПОМОГЛИ БИЗНЕСУ"
+    className="database-cases"
+    contentClassName="database-cases-content"
+>
+    <Swiper
+        desktopSlidesPerView={3}
+        tabletSlidesPerView={2}
+        mobileSlidesPerView={1}
+        spaceBetween={30}
+        centeredSlides={true}
+        loop={true}
+    >
+        {
+            assistances.map((assistance) => (
+                <SwiperSlideElement>
+                    <CardForCases
+                        image={assistance.image}
+                        title={assistance.title}
+                        subtitle={assistance.subtitle}
+                        descriptions={assistance.descriptions || {}}
+                    >
+                        {assistance.modalData && (
+                            <div slot="modalContent">
+                                <ModalContent
+                                    image={assistance.modalData.image}
+                                    textBlock={assistance.modalData.textBlock}
+                                    title={assistance.modalData.title}
+                                    taskTitle={assistance.modalData.taskTitle}
+                                    task={assistance.modalData.task}
+                                    implementation={
+                                        assistance.modalData.implementation
+                                    }
+                                    results={assistance.modalData.results}
+                                    team={assistance.modalData.team}
+                                    duration={assistance.modalData.duration}
+                                    moneyEffect={
+                                        assistance.modalData.moneyEffect
+                                    }
+                                />
+                            </div>
+                        )}
+                    </CardForCases>
+                </SwiperSlideElement>
+            ))
+        }
+    </Swiper>
+</HorizontalLineTitle>
+
+<Modal />

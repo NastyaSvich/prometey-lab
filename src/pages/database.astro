@@ -1,16 +1,16 @@
 ---
 import Layout from "src/layout/Layout.astro";
 import Form from "src/components/form/Form.astro";
-import MainInfo from "src/logic/database-page/main-info/MainInfo.astro";
+import MainInfo from "src/logic/database/main-info/MainInfo.astro";
 import TrustReasons from "src/components/trust-reasons/TrustReasons.astro";
-import CasesPrice from "src/logic/cases-page/cases-price/CasesPrice.astro";
-import DatabaseConsist from "src/logic/database-page/database-consist/DatabaseConsist.astro";
+import DevopsServicePrice from "src/logic/service/DevopsServicePrice.astro";
+import DatabaseConsist from "src/logic/database/database-consist/DatabaseConsist.astro";
 import "src/pages/_index.less";
-import AddContent from "src/logic/database-page/add-content/AddContent.astro";
-import FastOperative from "src/logic/database-page/fast-operative/FastOperative.astro";
+import AddContent from "src/logic/database/add-content/AddContent.astro";
+import FastOperative from "src/logic/database/fast-operative/FastOperative.astro";
 import ItInfrastructure from "src/components/it-infrastructure/ItInfrastructure.astro";
-import DatabaseCases from "src/logic/database-page/database-cases/DatabaseCases.astro";
-import ReasonsForDatabase from "src/logic/database-page/reasons-for-database/ReasonsForDatabase.astro";
+import DatabaseCases from "src/logic/database/database-cases/DatabaseCases.astro";
+import ReasonsForDatabase from "src/logic/database/reasons-for-database/ReasonsForDatabase.astro";
 import TechnicalSupport from "src/components/technical-support/TechnicalSupport.astro";
 
 /**
@@ -33,7 +33,7 @@ import TechnicalSupport from "src/components/technical-support/TechnicalSupport.
     <div class="middle-content">
         <TechnicalSupport />
         <ItInfrastructure />
-        <CasesPrice />
+        <DevopsServicePrice />
     </div>
 
     <TrustReasons />

@@ -1,0 +1,220 @@
+---
+import "src/logic/main/offer/Offer.less";
+import HorizontalLineTitle from "src/components/horizontal-line-title/HorizontalLineTitle.astro";
+import Options from "src/components/options/Options.astro";
+import ListItem from "src/logic/main/offer/ListItem.astro";
+import StructuresAndApps from "src/assets/images/structures-and-apps.jpg";
+import { Image } from "astro:assets";
+import Expertise from "@assets/images/expertise.svg";
+import Message from "@assets/images/message.svg";
+import MoneyBag from "@assets/images/money-bag.svg";
+import ShieldLock from "@assets/images/shield-lock.svg";
+
+const titles = {
+    db: [
+        "Проектирование архитектуры баз данных под ваш проект",
+        "Оптимизация баз данных и автоматизация",
+        "Эксплуатация и сопровождение СУБД по SLA круглосуточно",
+        "Масштабирование и отказоустойчивость баз данных",
+        "Аварийное восстановление баз данных и ИТ-систем",
+        "Консалтинг по администрированию и оптимизации баз данных",
+    ],
+    devops: [
+        "Планирование",
+        "Разработка ПО",
+        "Сборка",
+        "Тестирование",
+        "Доставка",
+        "Поддержка",
+    ],
+};
+
+const contents = {
+    db: [
+        "Анализ требований, выбор подходящей СУБД (PostgreSQL, NoSQL, MySQL), планирование масштабируемой и отказоустойчивой структуры",
+        "Оптимизация SQL-запросов, автоматизация миграций СУБД и типовых задач",
+        "Настройка мониторинга, резервного копирования, планирование ресурсов СУБД, управление производительностью, реагирование на инциденты в рамках SLA от 15 минут",
+        "Настройка кластеров, реализация репликации и резервирования, обеспечение отказоустойчивости и катастрофоустойчивости при росте нагрузки и сбоях",
+        "Быстрое восстановление данных и сервисов после сбоев с минимальным простоем и потерями",
+        "Аудит текущей инфраструктуры, подбор решений под нагрузку, рекомендации по улучшению архитектуры и внедрению DevOps-практик",
+    ],
+    devops: [
+        "Минимизируем расходы и планируем сроки создания продукта",
+        "Полностью автоматизируем процессы разработки",
+        "Определяем проблемы на ранних стадиях",
+        "Запускаем авто-тесты и выявляем «баги» раньше пользователей",
+        "Многократные релизы с изменениями",
+        "Сводим время простоя сервиса к минимуму",
+    ],
+};
+
+const cards = {
+    db: {
+        headers: {
+            expertise: "Экспертиза",
+            communication: "Экономия без потери качества",
+            money: "Коммуникации и процессы",
+            security: "Надежность и безопасность",
+        },
+        expertise: [
+            "Проактивный мониторинг на основе собственных разработок: предотвращаем инциденты до их появления",
+            "Комплексный подход от диагностики до устранения проблем на уровне СУБД и ИТ-инфраструктуры",
+            "Профессиональное администрирование баз данных PostgreSQL, Oracle, MySQL, MS SQL",
+            "Миграции баз данных без остановки сервиса",
+        ],
+        money: [
+            "Круглосуточный сервис по цене 0,5 DBA в штате",
+            "Обеспечение контроля затрат на инфраструктуру под ключ",
+            "Вы сами выбираете облачные платформы и ПО",
+            "Отсутствие потерь при смене сотрудников — знания хранятся в базе и процессах",
+        ],
+        communication: [
+            "Отлаженные процессы: от запроса до решения",
+            "Выделенные команды: на каждое направление минимум 2 DBA.",
+            "Постоянный чат с техподдержкой баз данных и полная видимость в трекере",
+            "Документация, отчёты и база знаний доступны клиенту",
+        ],
+        security: [
+            "Поддержка 24/7 с SLA от 15 минут на реакцию",
+            "Независимость от вендоров (vendor-agnostic)",
+            "Использование решений на базе Open Source",
+            "Все процессы задокументированы, доступны инструкции по всем задачам",
+        ],
+    },
+    devops: {
+        headers: {
+            expertise: "Экспертиза и технологическая база",
+            communication: "Коммуникация и контроль",
+            money: "Экономия и гибкость",
+            security: "Минимизация рисков",
+        },
+        expertise: [
+            "Инфраструктура и CI/CD",
+            "Миграция в облака и Kubernetes",
+            "Комплексный подход к устранению неполадок",
+            "SRE, DevOps практика и инструменты разработки, поддержка",
+        ],
+        communication: [
+            "Дополняем текущую команду клиента DevOps и SRE-инженерами",
+            "Используем удобные для клиента каналы коммуникаций",
+            "Отлаженный workflow и прозрачная отчетность",
+        ],
+        money: [
+            "Оптимизация затрат на инфраструктуру",
+            "Предлагаем гибкость выбора без привязки к вендору",
+            "Дублирование критичных ролей",
+            "Быстрый запуск и масштабирование команды",
+        ],
+        security: [
+            "Круглосуточная поддержка и SLA от 15 минут",
+            "Открытые технологии и независимость",
+            "Клиентский портал с историей взаимодействий",
+            "Обучаем ваших сотрудников",
+        ],
+    },
+};
+---
+
+<div
+    class="offer-container"
+    data-titles={JSON.stringify(titles)}
+    data-contents={JSON.stringify(contents)}
+    data-cards={JSON.stringify(cards)}
+>
+    <HorizontalLineTitle title="ИНЖЕНЕРЫ ПОМОГУТ НА ЛЮБОМ ЭТАПЕ">
+        <Options />
+
+        <div class="offer-table" id="offer-table">
+            <div class="planning"><span class="inner-border"></span></div>
+            <div class="development"><span class="inner-border"></span></div>
+            <div class="build"><span class="inner-border"></span></div>
+            <div class="testing"><span class="inner-border"></span></div>
+            <div class="delivery"><span class="inner-border"></span></div>
+            <div class="support"><span class="inner-border"></span></div>
+
+            <div class="content"><span class="inner-border"></span></div>
+            <div class="content"><span class="inner-border"></span></div>
+            <div class="content"><span class="inner-border"></span></div>
+            <div class="content"><span class="inner-border"></span></div>
+            <div class="content"><span class="inner-border"></span></div>
+            <div class="content"><span class="inner-border"></span></div>
+        </div>
+
+        <h2 class="service">ТЕХПОДДЕРЖКА БАЗ ДАННЫХ</h2>
+        <div class="promotion">
+            <Image src={StructuresAndApps} alt="image" class="main-image" />
+            <div class="cards">
+                <ListItem icon={Expertise} list={[]} />
+                <ListItem icon={Message} list={[]} />
+                <ListItem icon={MoneyBag} list={[]} />
+                <ListItem icon={ShieldLock} list={[]} />
+            </div>
+        </div>
+    </HorizontalLineTitle>
+</div>
+
+<script>
+    const updateContent = (category) => {
+        const table = document.getElementById("offer-table");
+        const spans = table?.querySelectorAll(".inner-border");
+        if (!spans || spans.length < 12) return;
+
+        const container = document.querySelector(".offer-container");
+        if (!container) return;
+
+        const titles = JSON.parse(container.dataset.titles || "{}");
+        const contents = JSON.parse(container.dataset.contents || "{}");
+        const cards = JSON.parse(container.dataset.cards || "{}");
+
+        if (!titles[category] || !contents[category] || !cards[category])
+            return;
+
+        titles[category].forEach((text, i) => {
+            spans[i].textContent = text;
+        });
+        contents[category].forEach((text, i) => {
+            spans[i + 6].textContent = text;
+        });
+
+        const cardContainer = document.querySelector(".promotion .cards");
+        if (!cardContainer) return;
+
+        const cardOrder = ["expertise", "communication", "money", "security"];
+
+        const cardBlocks = cardContainer.querySelectorAll(".list-item");
+        cardOrder.forEach((key, i) => {
+            const card = cardBlocks[i];
+            if (!card) return;
+
+            const header = card.querySelector("h3");
+            if (header && cards[category].headers[key]) {
+                header.textContent = cards[category].headers[key];
+            }
+
+            const ul = card.querySelector("ul");
+            if (ul) {
+                ul.innerHTML = "";
+                cards[category][key].forEach((liText) => {
+                    const li = document.createElement("li");
+                    li.textContent = liText;
+                    ul.appendChild(li);
+                });
+            }
+        });
+    };
+
+    document.addEventListener("DOMContentLoaded", () => {
+        const container = document.querySelector(".offer-container");
+        updateContent("db");
+        container.classList.add("category-db");
+
+        document.addEventListener("optionChanged", (e) => {
+            const category = e.detail?.key;
+            if (category === "devops" || category === "db") {
+                updateContent(category);
+                container.classList.remove("category-devops", "category-db");
+                container.classList.add(`category-${category}`);
+            }
+        });
+    });
+</script>

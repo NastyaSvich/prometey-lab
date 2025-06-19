@@ -1,0 +1,17 @@
+---
+import Service from 'src/components/service/Service.astro';
+import 'src/logic/service/ServicesInfo.less';
+import HorizontalLineTitle from 'src/components/horizontal-line-title/HorizontalLineTitle.astro';
+
+/**
+ * Компонент раздела "Услуги".
+ */
+---
+
+<HorizontalLineTitle
+    title="УСЛУГИ"
+    className="services"
+    contentClassName="services-content"
+>
+    <Service />
+</HorizontalLineTitle>
