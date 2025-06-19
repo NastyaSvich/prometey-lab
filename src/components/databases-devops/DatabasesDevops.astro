@@ -1,12 +1,21 @@
 ---
 import Button from "src/components/button/Button.astro";
 import HorizontalLineTitle from "src/components/horizontal-line-title/HorizontalLineTitle.astro";
-import Options from "src/components/options/Options.astro";
+import Options, { Option } from "src/components/options/Options.astro";
 import "src/components/databases-devops/DatabasesDevops.less";
+
+interface Props {
+  title?: string;
+  subtitle?: string;
+  showOptions?: boolean;
+  defaultOption?: Option;
+}
 
 const {
   title = "ПРИМЕРЫ ПРОЕКТОВ",
   subtitle = "Стоимость проектов индивидуальна — все зависит от конечных задач, утвержденных с вами",
+  showOptions = true,
+  defaultOption = Option.db,
 } = Astro.props;
 
 const titlesDB = {
@@ -139,7 +148,7 @@ const pricesDevops = {
 };
 ---
 
-<project-examples
+<db-devops-table
   data-db-titles={JSON.stringify(titlesDB)}
   data-devops-titles={JSON.stringify(titlesDevops)}
   data-db-tasks={JSON.stringify(tasksDB)}
@@ -148,13 +157,14 @@ const pricesDevops = {
   data-devops-tasks={JSON.stringify(tasksDevops)}
   data-devops-details={JSON.stringify(detailsDevops)}
   data-devops-prices={JSON.stringify(pricesDevops)}
+  data-option={defaultOption}
 >
   <HorizontalLineTitle
     title={title}
     subtitle={subtitle}
-    className="project-examples"
+    className="db-devops-table"
   >
-    <Options />
+    {showOptions && <Options defaultOption={defaultOption} />}
     <div class="projects">
       <div class="project project-1 active" id="project-1">Аудит СУБД</div>
       <div class="project project-2" id="project-2">
@@ -176,9 +186,10 @@ const pricesDevops = {
       </div>
     </div>
   </HorizontalLineTitle>
-</project-examples>
+</db-devops-table>
 
 <script>
+
   class ProjectExamples extends HTMLElement {
     constructor() {
       super();
@@ -187,7 +198,8 @@ const pricesDevops = {
       const detailsHTML = this.querySelector(".projects .details div");
       const priceButton = this.querySelector(".button");
 
-      let currentKey = "db";
+      let currentKey = this.dataset.option;
+      console.log(currentKey, 'cur key')
       let titles = JSON.parse(this.dataset[`${currentKey}Titles`] || "{}");
       let tasks = JSON.parse(this.dataset[`${currentKey}Tasks`] || "{}");
       let details = JSON.parse(this.dataset[`${currentKey}Details`] || "{}");
@@ -225,8 +237,10 @@ const pricesDevops = {
 
               const id = clicked.target.id;
               if (taskHTML && tasks[id]) taskHTML.innerHTML = tasks[id];
-              if (detailsHTML && details[id]) detailsHTML.innerHTML = details[id];
-              if (priceButton && prices[id]) priceButton.textContent = prices[id];
+              if (detailsHTML && details[id])
+                detailsHTML.innerHTML = details[id];
+              if (priceButton && prices[id])
+                priceButton.textContent = prices[id];
             }
           });
         });
@@ -251,5 +265,5 @@ const pricesDevops = {
     }
   }
 
-  customElements.define("project-examples", ProjectExamples);
+  customElements.define("db-devops-table", ProjectExamples);
 </script>

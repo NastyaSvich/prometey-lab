@@ -154,6 +154,8 @@ const cards = {
 </div>
 
 <script>
+import { Option } from "src/components/options/Options.astro";
+
     const updateContent = (category) => {
         const table = document.getElementById("offer-table");
         const spans = table?.querySelectorAll(".inner-border");
@@ -205,12 +207,12 @@ const cards = {
 
     document.addEventListener("DOMContentLoaded", () => {
         const container = document.querySelector(".offer-container");
-        updateContent("db");
+        updateContent(Option.db);
         container.classList.add("category-db");
 
         document.addEventListener("optionChanged", (e) => {
             const category = e.detail?.key;
-            if (category === "devops" || category === "db") {
+            if (category === Option.devops || category === Option.db) {
                 updateContent(category);
                 container.classList.remove("category-devops", "category-db");
                 container.classList.add(`category-${category}`);

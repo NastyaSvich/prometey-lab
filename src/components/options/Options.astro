@@ -1,11 +1,23 @@
 ---
 import Tab from "src/components/tab/Tab.astro";
 import "src/components/options/Options.less";
+
+export enum Option {
+  devops = "devops",
+  db = "db",
+}
+interface Props {
+  defaultOption?: Option;
+}
+
+const {
+  defaultOption = Option.db,
+} = Astro.props;
 ---
 
 <div class="options">
-  <Tab label="Администрирование СУБД" data-key="db" isActive={true} />
-  <Tab label="DevOPS и SRE" data-key="devops" />
+     <Tab label="Администрирование СУБД" data-key={Option.db}  isActive={defaultOption === Option.db}  />
+    <Tab label="DevOPS и SRE" data-key={Option.devops} isActive={defaultOption === Option.devops} />
 </div>
 
 <script>

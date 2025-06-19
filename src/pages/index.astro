@@ -1,11 +1,12 @@
 ---
+import DatabasesDevops from "src/components/databases-devops/DatabasesDevops.astro";
 import Form from "src/components/form/Form.astro";
 import Statistic from "src/components/statistic/Statistic.astro";
 import TrustReasons from "src/components/trust-reasons/TrustReasons.astro";
 import Layout from "src/layout/Layout.astro";
 import MainInfo from "src/logic/main/MainInfo.astro";
 import Offer from "src/logic/main/Offer.astro";
-import ProjectExamples from "src/logic/main/ProjectExamples.astro";
+
 import Strengths from "src/logic/main/Strengths.astro";
 import TrustUs from "src/logic/main/TrustUs.astro";
 import WorkReasons from "src/logic/main/WorkReasons.astro";
@@ -17,20 +18,20 @@ import "src/pages/_index.less";
 ---
 
 <Layout className="main-page">
-  <div class="middle-content">
-    <MainInfo />
-    <Statistic />
-    <Strengths />
-    <Offer />
-    <WorkReasons />
-  </div>
+    <div class="middle-content">
+        <MainInfo />
+        <Statistic />
+        <Strengths />
+        <Offer />
+        <WorkReasons />
+    </div>
 
-  <TrustReasons />
+    <TrustReasons />
 
-  <div class="middle-content">
-    <ProjectExamples />
-  </div>
+    <div class="middle-content">
+        <DatabasesDevops />
+    </div>
 
-  <TrustUs />
-  <Form />
+    <TrustUs />
+    <Form />
 </Layout>

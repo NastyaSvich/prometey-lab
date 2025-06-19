@@ -4,13 +4,14 @@ import Form from "src/components/form/Form.astro";
 import MainInfo from "src/logic/service/MainInfo.astro";
 import ReasonsForService from "src/logic/service/ReasonsForService.astro";
 import TrustReasons from "src/components/trust-reasons/TrustReasons.astro";
-import DevopsServicePrice from "src/logic/service/DevopsServicePrice.astro";
+import DatabasesDevops from "src/components/databases-devops/DatabasesDevops.astro";
 import BusinessAssistance from "src/components/business-assistance/BusinessAssistance.astro";
 import DevopsConsist from "src/logic/service/DevopsConsist.astro";
 import "src/pages/_index.less";
 import SupportStructure from "src/logic/service/SupportStructure.astro";
 import Safety from "src/logic/service/Safety.astro";
 import TechnicalSupport from "src/components/technical-support/TechnicalSupport.astro";
+import { Option } from "src/components/options/Options.astro";
 
 /**
  * Страница кейсов.
@@ -29,7 +30,12 @@ import TechnicalSupport from "src/components/technical-support/TechnicalSupport.
     <div class="middle-content">
         <TechnicalSupport />
         <Safety />
-        <DevopsServicePrice />
+        <DatabasesDevops
+            title="ЦЕНЫ НА DEVOPS-УСЛУГИ"
+            subtitle="Стоимость проектов индивидуальна — все зависит от конечных задач, утвержденных с вами"
+            showOptions={false}
+            defaultOption={Option.devops}
+        />
     </div>
 
     <TrustReasons />

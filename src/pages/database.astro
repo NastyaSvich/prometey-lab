@@ -3,7 +3,7 @@ import Layout from "src/layout/Layout.astro";
 import Form from "src/components/form/Form.astro";
 import MainInfo from "src/logic/database/MainInfo.astro";
 import TrustReasons from "src/components/trust-reasons/TrustReasons.astro";
-import DevopsServicePrice from "src/logic/service/DevopsServicePrice.astro";
+import DatabasesDevops from "src/components/databases-devops/DatabasesDevops.astro";
 import DatabaseConsist from "src/logic/database/DatabaseConsist.astro";
 import "src/pages/_index.less";
 import AddContent from "src/logic/database/AddContent.astro";
@@ -12,6 +12,7 @@ import ItInfrastructure from "src/components/it-infrastructure/ItInfrastructure.
 import DatabaseCases from "src/logic/database/DatabaseCases.astro";
 import ReasonsForDatabase from "src/logic/database/ReasonsForDatabase.astro";
 import TechnicalSupport from "src/components/technical-support/TechnicalSupport.astro";
+import { Option } from "src/components/options/Options.astro";
 
 /**
  * Страница кейсов бд.
@@ -33,7 +34,12 @@ import TechnicalSupport from "src/components/technical-support/TechnicalSupport.
     <div class="middle-content">
         <TechnicalSupport />
         <ItInfrastructure />
-        <DevopsServicePrice />
+        <DatabasesDevops
+            title="ЦЕНЫ НА УСЛУГИ ПО БАЗАМ ДАННЫХ"
+            subtitle="Стоимость проектов индивидуальна — все зависит от конечных задач, утвержденных с вами"
+            showOptions={false}
+            defaultOption={Option.db}
+        />
     </div>
 
     <TrustReasons />
