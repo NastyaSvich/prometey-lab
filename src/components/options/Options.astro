@@ -44,7 +44,6 @@ const { id, defaultOption = Option.db } = Astro.props;
                 tabEl.classList.add("active");
 
                 const selected = tabEl.getAttribute("data-key");
-                console.log(this.dataset.id, 'option')
                 document.dispatchEvent(
                   new CustomEvent(`optionChanged-${this.dataset.id}`, {
                     detail: { key: selected },
