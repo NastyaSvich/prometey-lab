@@ -9,16 +9,18 @@ db-devops-table {
 .projects {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr) auto auto;
+
     border: 1px solid @accent-blue;
     border-radius: 10px;
     background-color: @background-blue;
     overflow: hidden;
-    min-height: 537px;
+    min-height: 591px;
 
     .mediaPhone({
         grid-template-columns: 1fr;
-        grid-template-rows: repeat(3, 1fr) auto auto;
+        grid-template-rows: repeat(5, auto) 1fr;
+        min-height: 737px;
     });
 
 .project-1,
