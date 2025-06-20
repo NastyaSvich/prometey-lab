@@ -26,13 +26,12 @@ type AssistanceWithModal = CardForCasesProps & {
 const assistances: AssistanceWithModal[] = [
     {
         image: card1,
-        title: "DEVOPS",
-        subtitle: "КЕЙС",
+        title: "NDA",
         descriptions: {
             firstPart:
-                "<strong>Корректные изменения</strong> в коде будут в пару кликов отражены в продукте без простоя.",
+                "<strong>Задача: </strong> миграция стендов с docker-compose и одной VM на AWS инфраструктуру в связи с добавлением прод окружений.",
             secondPart:
-                "<strong>Ошибки</strong> не пройдут через систему автоматических тестов.",
+                "<strong>Результаты: </strong> <br>- приложение обновляется незаметно для пользователя <br>- процесс максимально автоматизирован <br>- собираются метрики с приложения и отрабатывают алерты в случае обнаружения проблем <br>- вся инфраструктура хранится как код и легко масштабируется",
         },
         modalData: {
             title: "NDA",
@@ -62,18 +61,17 @@ const assistances: AssistanceWithModal[] = [
     },
     {
         image: card2,
-        title: "DEVOPS",
-        subtitle: "КЕЙС",
+        title: "NDA",
         descriptions: {
             firstPart:
-                "<strong>Системы</strong> сами балансировать нагрузку, находить неработающие элементы и обслуживать приложения.",
+                "<strong>Задача: </strong> миграция dotnet приложения с Windows server в AWS EKS (kubernetes).",
             secondPart:
-                "<strong>Сервер</strong> не упадет от роста запросов — выдержит высокие нагрузки на Черную пятницу, IPO или промоакцию.",
+                "<strong>Результаты: </strong> <br>- повышена стабильность сборки приложений за счёт внедрения CI/CD <br>- вся инфраструктура хранится как код и легко масштабируется <br>- собираются метрики/логи с приложения и отрабатывают алерты в случае обнаружения проблем",
         },
         modalData: {
             title: "NDA",
             taskTitle:
-                "миграция dotnet приложения с Windows server в AWS EKS (kubernetes)",
+                "миграция dotnet приложения с Windows server в AWS EKS (kubernetes):",
             task: `
                 <li>перевести приложение с windows на linux</li>
                 <li>настроить CI/CD</li>
@@ -96,18 +94,17 @@ const assistances: AssistanceWithModal[] = [
     },
     {
         image: card3,
-        title: "DEVOPS",
-        subtitle: "КЕЙС",
+        title: "NDA",
         descriptions: {
             firstPart:
-                "<strong>Системы</strong> мониторинга с оповещениями по любым каналам и в любое время.",
+                "<strong>Задача: </strong> настроить CI/CD для микросервисного банковского приложения с развёртыванием в kubernetes.",
             secondPart:
-                "<strong>Прием заявок</strong> по инцидентам через чат-боты в Telegram и Slack будет автоматическим.",
+                "<strong>Результаты: </strong> <br>- обеспечен CI/CD для всех компонентов инфраструктуры <br>- сбор логов и метрик со всех компонентов системы с отправкой алертов в случае обнаружения проблем",
         },
         modalData: {
             title: "NDA",
             taskTitle:
-                "настроить CI/CD для микросервисного банковского приложения с развёртыванием в kubernetes",
+                "настроить CI/CD для микросервисного банковского приложения с развёртыванием в kubernetes:",
             task: `
                 <li>настроить CI/CD</li>
                 <li>обеспечить observability приложений</li>
