@@ -5,7 +5,6 @@ import MainInfo from "src/logic/company/MainInfo.astro";
 import ReasonsForService from "src/logic/company/ReasonsForService.astro";
 import OurProjects from "src/logic/company/OurProjects.astro";
 import "src/pages/_index.less";
-import SupportStructure from "src/logic/service/SupportStructure.astro";
 import AppealReasons from "src/logic/company/AppealReasons.astro";
 import ManagersInfo from "src/logic/company/ManagersInfo.astro";
 import Partners from "src/logic/company/Partners.astro";
@@ -17,6 +16,11 @@ import CLients from "src/logic/company/CLients.astro";
 ---
 
 <Layout className="main-page">
+    <Fragment slot="head">
+        <title>О компании Прометей — надёжный партнёр в IT</title>
+        <meta name="description" content="Узнайте, как мы администрируем базы данных и внедряем DevOps. Решения под ключ — доверьтесь экспертам." />
+    </Fragment>
+
     <div class="middle-content">
         <MainInfo />
         <ReasonsForService />

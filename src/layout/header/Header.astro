@@ -79,7 +79,7 @@ import LogoComponent from "src/layout/header/LogoComponent.astro";
     </div>
 </header>
 
-<script type="module">
+<script is:inline type="module">
     const hamburger = document.querySelector(".hamburger");
     const menu = document.querySelector(".menu");
     const body = document.body;
@@ -94,4 +94,23 @@ import LogoComponent from "src/layout/header/LogoComponent.astro";
                 : "";
         });
     }
+    function updateTitle() {
+        if (window.location.hash === '#contacts') {
+        document.title = 'Контакты Прометея';
+        }
+    }
+    function updateMetaDescription() {
+        const meta = document.querySelector('meta[name="description"]');
+        if (!meta) return;
+        if (window.location.hash === '#contacts') {
+            meta.setAttribute('content', 'Свяжитесь с нами, чтобы обсудить DevOps-проекты или сопровождение баз данных. Ответим быстро и по делу.');
+        }
+    }
+    function updateHeadOnHashChange() {
+        updateMetaDescription();
+        updateTitle();
+    }
+
+    updateHeadOnHashChange();
+    window.addEventListener('hashchange', updateHeadOnHashChange); // Listen for future changes
 </script>
