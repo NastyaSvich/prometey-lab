@@ -60,6 +60,11 @@ export type CardForCasesProps = {
      * По умолчанию видима.
      */
     showButton?: boolean;
+
+    /**
+     * Alt текст для картинок.
+     */
+    alt: string;
 };
 
 const {
@@ -73,6 +78,7 @@ const {
     className = "",
     showVerticalLine = true,
     showButton = true,
+    alt
 } = Astro.props;
 
 /**
@@ -87,7 +93,7 @@ const {
     <Image
         slot="image"
         src={image}
-        alt={title || "icon"}
+        alt={alt || "icon"}
         class="devops-image"
     />
 
@@ -102,7 +108,7 @@ const {
                             <a href={iconLink} class="icon-link">
                                 <Image
                                     src={icon}
-                                    alt="Action icon"
+                                    alt="Заказать администрирование баз данных PostgreSQL"
                                     class="action-icon"
                                 />
                             </a>

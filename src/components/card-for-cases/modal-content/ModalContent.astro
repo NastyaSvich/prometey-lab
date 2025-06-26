@@ -34,7 +34,10 @@ const {
     <div class="top-content-block">
         {
             image && (
-                <Image src={image} alt="company" class="company-case-image" />
+                <Image
+                    src={image}
+                    alt="Администрирование баз данных PostgreSQL"
+                    class="company-case-image" />
             )
         }
         {textBlock && <div class="text-content-block" set:html={textBlock} />}
