@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://prometey-lab.ru/sitemap.xml
+Sitemap: https://prometey-lab.ru/sitemap-index.xml
