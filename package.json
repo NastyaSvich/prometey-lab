@@ -9,6 +9,7 @@
     "preview": "astro preview --host"
   },
   "dependencies": {
+    "@astrojs/sitemap": "3.4.1",
     "swiper": "11.2.6"
   },
   "devDependencies": {
