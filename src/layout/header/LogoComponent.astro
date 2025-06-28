@@ -1,42 +1,55 @@
 ---
 import { Image } from "astro:assets";
 import logo from "src/assets/images/logo-black.png";
-
 ---
 
-  <div class="logo-content">
-    <a href="/" class="logo-link">
-        <Image src={logo} class="logo" alt="Администрирование баз данных PostgreSQL" />
-    </a>
-    <a href="/" class="logo-link">
-        <span class="text">PROMETEY LAB</span>
-    </a>
-  </div>
+<div class="logo-content">
+  <a href="/" class="logo-link">
+    <Image
+      src={logo}
+      width={36}
+      height={60}
+      densities={[1, 2]}
+      class="logo"
+      alt="Администрирование баз данных PostgreSQL"
+    />
+  </a>
+  <a href="/" class="logo-link">
+    <span class="text">PROMETEY LAB</span>
+  </a>
+</div>
 
 <style scoped lang="less">
-@import '@styles/fontsMixins.less';
-@import '@styles/colors.less';
-@import '@styles/breakpoints.less';
+  @import "@styles/fontsMixins.less";
+  @import "@styles/colors.less";
+  @import "@styles/breakpoints.less";
 
-.logo-content {
+  .logo-content {
     display: flex;
     align-items: center;
     gap: 7px;
 
+    .logo {
+      width: 36px !important;
+      height: 60px !important;
+      flex-shrink: 0;
+    }
+
     .text {
-        .fontOpenSansBold();
-        font-size: 30px;
-        color: @primary-black-text;
+      .fontOpenSansBold();
+      font-size: 30px;
+      color: @primary-black-text;
     }
 
     .mediaPhone({
-        .logo {
-            // width: 24px;
-        }
+    .logo {
+      width: 24px !important;
+      height: 40px !important;
+    }
 
-        .text {
-            font-size: 20px;
-        }
-    });
-}
+    .text {
+      font-size: 20px;
+    }
+  });
+  }
 </style>
