@@ -21,6 +21,7 @@ const { className = "" } = Astro.props as LayoutProps;
     <meta name="color-scheme" content="light only" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="canonical" href=`${import.meta.env.PUBLIC_APP_URL}${Astro.url.pathname}`>
     <slot name="head" />
   </head>
   <body>
