@@ -22,6 +22,11 @@ const { className = "" } = Astro.props as LayoutProps;
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/x-icon" href="/favicon.ico" />
     <link rel="canonical" href=`${import.meta.env.PUBLIC_APP_URL}${Astro.url.pathname}`>
+    <meta property="og:title" content="Администрирование баз данных и DevOps — Прометей">
+    <meta property="og:description" content="Комплексные услуги по сопровождению и администрированию баз данных: PostgreSQL, Oracle, MySQL, MS SQL.">
+    <meta property="og:image" content=`${import.meta.env.PUBLIC_APP_URL}/images/image.jpg`>
+    <meta property="og:url" content=`${import.meta.env.PUBLIC_APP_URL}`>
+    <meta name="twitter:card" content="summary_large_image">
     <slot name="head" />
   </head>
   <body>
