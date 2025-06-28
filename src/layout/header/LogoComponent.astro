@@ -1,15 +1,47 @@
 ---
 import { Image } from "astro:assets";
 import logo from "src/assets/images/logo-black.png";
-import "src/layout/header/LogoComponent.less";
 
 ---
 
   <div class="logo-content">
     <a href="/" class="logo-link">
-        <Image class="logo" alt="Администрирование баз данных PostgreSQL" src={logo} />
+        <Image width={34} class="logo" alt="Администрирование баз данных PostgreSQL" src={logo} />
     </a>
     <a href="/" class="logo-link">
         <span class="text">PROMETEY LAB</span>
     </a>
   </div>
+
+<style scoped lang="less">
+@import '@styles/fontsMixins.less';
+@import '@styles/colors.less';
+@import '@styles/breakpoints.less';
+
+.logo-content {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+
+    .logo {
+        width: 34px;
+        height: auto;
+    }
+
+    .text {
+        .fontOpenSansBold();
+        font-size: 30px;
+        color: @primary-black-text;
+    }
+
+    .mediaPhone({
+        .logo {
+            width: 24px;
+        }
+
+        .text {
+            font-size: 20px;
+        }
+    });
+}
+</style>
