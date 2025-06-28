@@ -18,24 +18,41 @@ import "src/pages/_index.less";
 ---
 
 <Layout className="main-page">
-    <Fragment slot="head">
-        <title>Прометей — Администрирование БД/DevOps</title>
-        <meta name="description" content="Узнайте, как мы администрируем базы данных и внедряем DevOps. Решения под ключ — доверьтесь экспертам." />
-    </Fragment>
-    <div class="middle-content">
-        <MainInfo />
-        <Statistic />
-        <Strengths />
-        <Offer />
-        <WorkReasons />
-    </div>
+  <Fragment slot="head">
+    <title>Прометей — Администрирование БД/DevOps</title>
+    <meta
+      name="description"
+      content="Узнайте, как мы администрируем базы данных и внедряем DevOps. Решения под ключ — доверьтесь экспертам."
+    />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "Прометей",
+        "url": "https://prometey-lab.ru",
+        "logo": "https://prometey-lab.ru/logo.png",
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "telephone": "+7-922-952-99-44",
+          "contactType": "Customer Support"
+        }
+      }
+    </script>
+  </Fragment>
+  <div class="middle-content">
+    <MainInfo />
+    <Statistic />
+    <Strengths />
+    <Offer />
+    <WorkReasons />
+  </div>
 
-    <TrustReasons />
+  <TrustReasons />
 
-    <div class="middle-content">
-        <DatabasesDevops />
-    </div>
+  <div class="middle-content">
+    <DatabasesDevops />
+  </div>
 
-    <TrustUs />
-    <Form />
+  <TrustUs />
+  <Form />
 </Layout>
