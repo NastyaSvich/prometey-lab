@@ -6,7 +6,7 @@ import logo from "src/assets/images/logo-black.png";
 
   <div class="logo-content">
     <a href="/" class="logo-link">
-        <Image width={34} class="logo" alt="Администрирование баз данных PostgreSQL" src={logo} />
+        <Image src={logo} class="logo" alt="Администрирование баз данных PostgreSQL" />
     </a>
     <a href="/" class="logo-link">
         <span class="text">PROMETEY LAB</span>
@@ -23,11 +23,6 @@ import logo from "src/assets/images/logo-black.png";
     align-items: center;
     gap: 7px;
 
-    .logo {
-        width: 34px;
-        height: auto;
-    }
-
     .text {
         .fontOpenSansBold();
         font-size: 30px;
@@ -36,7 +31,7 @@ import logo from "src/assets/images/logo-black.png";
 
     .mediaPhone({
         .logo {
-            width: 24px;
+            // width: 24px;
         }
 
         .text {
